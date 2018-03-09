@@ -1,0 +1,608 @@
+
+<!DOCTYPE html>
+<html>
+
+<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108230466-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108230466-1');
+</script>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Task 3</title>
+</head>
+
+<body>
+
+<p>Output:
+[1 of 3] Compiling LI11718          ( LI11718.hs, LI11718.o )
+[2 of 3] Compiling Task3_2017li1g181 ( Task3_2017li1g181.hs, Task3_2017li1g181.o )
+[3 of 3] Compiling Main             ( RunT3.hs, RunT3.o )
+Linking RunT3 ...
+
+Errors:
+
+Exit Code: 0</p>
+    
+<div id="demo">
+
+<div id="tablediv" class="table-responsive-vertical shadow-z-1">
+<table id="table" class="table table-hover table-mc-light-blue">
+    <thead>
+        <tr>
+            
+                <th>(Grid,Time,Car)</th>
+            
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/1/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (2.5,3.1), direcao = 0.0, velocidade = (1.0,1.0)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 99.05%
+oracle: Just Carro {posicao = (2.707986287386219,3.301109576197153), direcao = 0.0, velocidade = (1.0,1.0)}
+solution: Just Carro {posicao = (2.7,3.3000000000000003), direcao = 0.0, velocidade = (1.0,1.0)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/2/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (3.5,3.1), direcao = 90.0, velocidade = (1.0,1.1)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 98.92%
+oracle: Just Carro {posicao = (3.702245398663558,3.3293865176809883), direcao = 90.0, velocidade = (1.0,1.1)}
+solution: Just Carro {posicao = (3.7,3.3200000000000003), direcao = 90.0, velocidade = (1.0,1.1)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/3/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (2.5,3.1), direcao = 180.0, velocidade = (2.0,1.0)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 99.84%
+oracle: Just Carro {posicao = (2.9014987997083774,3.3015611069357393), direcao = 180.0, velocidade = (2.0,1.0)}
+solution: Just Carro {posicao = (2.9,3.3000000000000003), direcao = 180.0, velocidade = (2.0,1.0)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/4/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (2.5,3.1), direcao = 360.0, velocidade = (1.0,1.0)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 98.85%
+oracle: Just Carro {posicao = (2.7006370398850654,3.309770868771536), direcao = 360.0, velocidade = (1.0,1.0)}
+solution: Just Carro {posicao = (2.7,3.3000000000000003), direcao = 360.0, velocidade = (1.0,1.0)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/5/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (2.5,3.1), direcao = -90.0, velocidade = (1.0,1.0)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 98.98%
+oracle: Just Carro {posicao = (2.7049138297172988,3.307170508892876), direcao = -90.0, velocidade = (1.0,1.0)}
+solution: Just Carro {posicao = (2.7,3.3000000000000003), direcao = -90.0, velocidade = (1.0,1.0)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/6/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (3.5,1.0), direcao = 90.0, velocidade = (1.0,1.1)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 97.76%
+oracle: Just Carro {posicao = (3.712723338154233,1.235366863738545), direcao = 90.0, velocidade = (1.0,1.1)}
+solution: Just Carro {posicao = (3.7,1.22), direcao = 90.0, velocidade = (1.0,1.1)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/7/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (2.5,5.0), direcao = 180.0, velocidade = (-1.0,5.0)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 0.00%
+oracle: Nothing
+solution: Just Carro {posicao = (2.3,6.0), direcao = 180.0, velocidade = (-1.0,5.0)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/8/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (5.0,3.1), direcao = 360.0, velocidade = (1.0,-1.0)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 98.61%
+oracle: Just Carro {posicao = (5.210325999730841,2.9057360654887), direcao = 360.0, velocidade = (1.0,-1.0)}
+solution: Just Carro {posicao = (5.2,2.9), direcao = 360.0, velocidade = (1.0,-1.0)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/9/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (1.0,4.0), direcao = 180.0, velocidade = (-1.0,-5.0)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 100.00%
+oracle: Nothing
+solution: Nothing</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/10/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (1.2,5.1), direcao = 360.0, velocidade = (0.0,-0.4)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 92.70%
+oracle: Just Carro {posicao = (1.214119604739787,5.030357160920829), direcao = 360.0, velocidade = (0.0,-0.4)}
+solution: Just Carro {posicao = (1.2,5.02), direcao = 360.0, velocidade = (0.0,-0.4)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/11/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (1.2,1.1), direcao = 90.0, velocidade = (1.1,-0.5)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: Posição inicial do carro inválida: Carro {posicao = (1.2,1.1), direcao = 90.0, velocidade = (1.1,-0.5)}
+CallStack (from HasCallStack):
+  error, called at LI1_1718.hs:1172:49 in main:Main
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/12/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (2.1,1.1), direcao = 95.0, velocidade = (0.2,0.2)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: Posição inicial do carro inválida: Carro {posicao = (2.1,1.1), direcao = 95.0, velocidade = (0.2,0.2)}
+CallStack (from HasCallStack):
+  error, called at LI1_1718.hs:1172:49 in main:Main
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/13/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (1.5,2.1), direcao = 280.0, velocidade = (0.1,-1.1)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: Posição inicial do carro inválida: Carro {posicao = (1.5,2.1), direcao = 280.0, velocidade = (0.1,-1.1)}
+CallStack (from HasCallStack):
+  error, called at LI1_1718.hs:1172:49 in main:Main
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/181/t3/14/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,
+  Peca Recta 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Recta 0,
+  Peca (Curva Norte) 0,Peca Recta 0,
+  Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,
+  Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,
+  Peca Recta 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,
+  Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,
+  Peca (Rampa Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) (-1),
+  Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,
+  Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+................
+....//[][][]\\..
+....[]//[]\\\/..
+..//[][]\\[][]..
+../\[]\\//[]\/..
+..\/\\[][]//[]..
+..\\&gt;&gt;[]&gt;&gt;[]//..
+................
+,0.2,Carro {posicao = (1.2,1.5), direcao = 180.0, velocidade = (1.42,1.51)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: Posição inicial do carro inválida: Carro {posicao = (1.2,1.5), direcao = 180.0, velocidade = (1.42,1.51)}
+CallStack (from HasCallStack):
+  error, called at LI1_1718.hs:1172:49 in main:Main
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+    </tbody>
+</table>
+
+</div>
+
+</body>
+
+</html>

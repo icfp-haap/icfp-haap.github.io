@@ -1,0 +1,308 @@
+<html>
+<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108230466-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108230466-1');
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+span.lineno { color: white; background: #aaaaaa; border-right: solid white 12px }
+span.nottickedoff { background: yellow}
+span.istickedoff { background: white }
+span.tickonlyfalse { margin: -1px; border: 1px solid #f20913; background: #f20913 }
+span.tickonlytrue  { margin: -1px; border: 1px solid #60de51; background: #60de51 }
+span.funcount { font-size: small; color: orange; z-index: 2; position: absolute; right: 20 }
+span.decl { font-weight: bold }
+span.spaces    { background: white }
+</style>
+</head>
+<body><pre>
+<span class="decl"><span class="nottickedoff">never executed</span> <span class="tickonlytrue">always true</span> <span class="tickonlyfalse">always false</span></span>
+</pre>
+<pre>
+<span class="decl"><span class="nottickedoff">never executed</span> <span class="tickonlytrue">always true</span> <span class="tickonlyfalse">always false</span></span>
+</pre>
+<pre>
+<span class="lineno">    1 </span>module Tarefa4_2017li1g181 where
+<span class="lineno">    2 </span>
+<span class="lineno">    3 </span>-- import Debug.Trace
+<span class="lineno">    4 </span>
+<span class="lineno">    5 </span>import Data.Fixed (mod')
+<span class="lineno">    6 </span>import Data.Bool
+<span class="lineno">    7 </span>import Data.List
+<span class="lineno">    8 </span>
+<span class="lineno">    9 </span>import LI11718
+<span class="lineno">   10 </span>import MicromachinesTestes
+<span class="lineno">   11 </span>
+<span class="lineno">   12 </span>-- import OracleT4
+<span class="lineno">   13 </span>
+<span class="lineno">   14 </span>atualiza :: Tempo -&gt; Jogo -&gt; Int -&gt; Acao -&gt; Jogo
+<span class="lineno">   15 </span><span class="decl"><span class="istickedoff">atualiza t jogo@(Jogo jm jp jcs jns jhs) id acao = actualiza_hist jogo'' id</span>
+<span class="lineno">   16 </span><span class="spaces">  </span><span class="istickedoff">where</span>
+<span class="lineno">   17 </span><span class="spaces">    </span><span class="istickedoff">carro@(Carro cp _ _) = jcs !! id</span>
+<span class="lineno">   18 </span><span class="spaces">    </span><span class="istickedoff">cv' = actualiza_velocidade t jm jp carro acao</span>
+<span class="lineno">   19 </span><span class="spaces">    </span><span class="istickedoff">cd' = actualiza_direcao t jp carro acao</span>
+<span class="lineno">   20 </span><span class="spaces">    </span><span class="istickedoff">carro'  = Carro cp cd' cv'</span>
+<span class="lineno">   21 </span><span class="spaces">    </span><span class="istickedoff">jogo' = Jogo jm jp (set id carro' jcs) jns jhs</span>
+<span class="lineno">   22 </span><span class="spaces">    </span><span class="istickedoff">jogo'' = actualiza_nitro t jogo jogo' id acao</span></span>
+<span class="lineno">   23 </span>
+<span class="lineno">   24 </span>actualiza_velocidade :: Tempo -&gt; Mapa -&gt; Propriedades -&gt; Carro -&gt; Acao -&gt; Velocidade
+<span class="lineno">   25 </span><span class="decl"><span class="istickedoff">actualiza_velocidade t jm jp (Carro (x,y) cd cv) (Acao ac at _ _ _) =</span>
+<span class="lineno">   26 </span><span class="spaces">  </span><span class="istickedoff">cv .+. (t *. (f_atrito .+. f_acel .+. f_trav .+. f_grav .+. f_pneus))</span>
+<span class="lineno">   27 </span><span class="spaces">  </span><span class="istickedoff">where</span>
+<span class="lineno">   28 </span><span class="spaces">    </span><span class="istickedoff">(px,py) = (floor x, floor y)</span>
+<span class="lineno">   29 </span><span class="spaces">    </span><span class="istickedoff"></span>
+<span class="lineno">   30 </span><span class="spaces">    </span><span class="istickedoff">acelera = ac &amp;&amp; (ac /= at)</span>
+<span class="lineno">   31 </span><span class="spaces">    </span><span class="istickedoff">trava = at &amp;&amp; (ac /= at)</span>
+<span class="lineno">   32 </span><span class="spaces">    </span><span class="istickedoff">f_atrito = (- k_atrito jp) *. cv</span>
+<span class="lineno">   33 </span><span class="spaces">    </span><span class="istickedoff">f_acel   = if acelera then polar2cart (k_acel jp,cd    ) else (0,0)</span>
+<span class="lineno">   34 </span><span class="spaces">    </span><span class="istickedoff">f_trav   = if trava   then polar2cart (k_acel jp,cd-180) else (0,0)</span>
+<span class="lineno">   35 </span><span class="spaces">    </span><span class="istickedoff">f_grav   = case (tabuleiro jm !! py) !! px of</span>
+<span class="lineno">   36 </span><span class="spaces">                 </span><span class="istickedoff">Peca (Rampa o) _ -&gt; polar2cart (k_peso jp,orientacaoRampa o)</span>
+<span class="lineno">   37 </span><span class="spaces">                 </span><span class="istickedoff">_ -&gt; (0,0)</span>
+<span class="lineno">   38 </span><span class="spaces">    </span><span class="istickedoff">f_pneus = polar2cart (norma, ang)</span>
+<span class="lineno">   39 </span><span class="spaces">      </span><span class="istickedoff">where (v,a) = cart2polar cv</span>
+<span class="lineno">   40 </span><span class="spaces">            </span><span class="istickedoff">ang = if sin (g2r (a-cd)) &gt; 0 then cd-90 else cd+90</span>
+<span class="lineno">   41 </span><span class="spaces">            </span><span class="istickedoff">norma = v * k_pneus jp * abs (sin (g2r (a-cd)))</span></span>
+<span class="lineno">   42 </span>
+<span class="lineno">   43 </span>actualiza_direcao :: Tempo -&gt; Propriedades -&gt; Carro -&gt; Acao -&gt; Angulo
+<span class="lineno">   44 </span><span class="decl"><span class="istickedoff">actualiza_direcao t jp (Carro cp cd cv) (Acao ac at ae ad _) =</span>
+<span class="lineno">   45 </span><span class="spaces">  </span><span class="istickedoff">normal_grau $ if esquerda then cd + t * k_roda jp else if direita then cd - t * k_roda jp else cd</span>
+<span class="lineno">   46 </span><span class="spaces">  </span><span class="istickedoff">where</span>
+<span class="lineno">   47 </span><span class="spaces">    </span><span class="istickedoff">esquerda = ae &amp;&amp; (ae /= ad)</span>
+<span class="lineno">   48 </span><span class="spaces">    </span><span class="istickedoff">direita = ad &amp;&amp; (ae /= ad)</span></span>
+<span class="lineno">   49 </span>
+<span class="lineno">   50 </span>actualiza_nitro :: Tempo -&gt; Jogo -&gt; Jogo -&gt; Int -&gt; Acao -&gt; Jogo
+<span class="lineno">   51 </span><span class="decl"><span class="istickedoff">actualiza_nitro _ jogoInit jogo _ (Acao _ _ _ _ Nothing) = jogo</span>
+<span class="lineno">   52 </span><span class="spaces"></span><span class="istickedoff">actualiza_nitro t jogoInit jogo@(Jogo _ jp jcs jns _) id (Acao _ _ _ _ (Just nid)) =</span>
+<span class="lineno">   53 </span><span class="spaces">  </span><span class="istickedoff">jogo {carros = jcs', nitros = jns'}</span>
+<span class="lineno">   54 </span><span class="spaces">  </span><span class="istickedoff">where</span>
+<span class="lineno">   55 </span><span class="spaces">    </span><span class="istickedoff">tempo_nitro = min t (jns !! id)</span>
+<span class="lineno">   56 </span><span class="spaces">    </span><span class="istickedoff">jns' = set id ((jns !! id) - tempo_nitro) jns</span>
+<span class="lineno">   57 </span><span class="spaces">    </span><span class="istickedoff">carro = jcs !! nid</span>
+<span class="lineno">   58 </span><span class="spaces">    </span><span class="istickedoff">vel_nitro = polar2cart (k_nitro jp,direcao $ carros jogoInit !! nid)</span>
+<span class="lineno">   59 </span><span class="spaces">    </span><span class="istickedoff">carro_final = carro {velocidade = velocidade carro .+. (tempo_nitro *. vel_nitro)}</span>
+<span class="lineno">   60 </span><span class="spaces">    </span><span class="istickedoff">jcs' = set nid carro_final jcs</span></span>
+<span class="lineno">   61 </span>
+<span class="lineno">   62 </span>actualiza_hist :: Jogo -&gt; Int -&gt; Jogo
+<span class="lineno">   63 </span><span class="decl"><span class="istickedoff">actualiza_hist (Jogo jm jp jcs jns jhs) id  =</span>
+<span class="lineno">   64 </span><span class="spaces">  </span><span class="istickedoff">Jogo jm jp jcs jns jhs'</span>
+<span class="lineno">   65 </span><span class="spaces">  </span><span class="istickedoff">where</span>
+<span class="lineno">   66 </span><span class="spaces">    </span><span class="istickedoff">(xpos,ypos) = ponto2pos (posicao (jcs !! id))</span>
+<span class="lineno">   67 </span><span class="spaces">    </span><span class="istickedoff">jhs' = case jhs !! id of</span>
+<span class="lineno">   68 </span><span class="spaces">             </span><span class="istickedoff">[] -&gt; set id [(xpos, ypos)] jhs</span>
+<span class="lineno">   69 </span><span class="spaces">             </span><span class="istickedoff">(p:ps) | fst p == xpos &amp;&amp; snd p == ypos -&gt; jhs</span>
+<span class="lineno">   70 </span><span class="spaces">                    </span><span class="istickedoff">| <span class="tickonlytrue">otherwise</span> -&gt; set id ((xpos,ypos):p:ps) jhs</span></span>
+<span class="lineno">   71 </span>
+<span class="lineno">   72 </span>set :: Int -&gt; a -&gt; [a] -&gt; [a]
+<span class="lineno">   73 </span><span class="decl"><span class="istickedoff">set n x l = let (a,b) = splitAt n l in a ++ (x : tail b)</span></span>
+<span class="lineno">   74 </span>
+<span class="lineno">   75 </span>(*.) :: Double -&gt; (Double,Double) -&gt; (Double,Double)
+<span class="lineno">   76 </span><span class="decl"><span class="istickedoff">(*.) x (a,b) = (x*a,x*b)</span></span>
+<span class="lineno">   77 </span>
+<span class="lineno">   78 </span>(.*.),(.+.),(.-.) :: (Double,Double) -&gt; (Double,Double) -&gt; (Double,Double)
+<span class="lineno">   79 </span><span class="decl"><span class="nottickedoff">(.*.) (x,y) (a,b) = (x*a,y*b)</span></span>
+<span class="lineno">   80 </span><span class="decl"><span class="istickedoff">(.+.) (x,y) (a,b) = (x+a,y+b)</span></span>
+<span class="lineno">   81 </span><span class="decl"><span class="nottickedoff">(.-.) (x,y) (a,b) = (x-a,y-b)</span></span>
+<span class="lineno">   82 </span>
+<span class="lineno">   83 </span>(.$.) :: (Double,Double) -&gt; (Double,Double) -&gt; Double
+<span class="lineno">   84 </span><span class="decl"><span class="nottickedoff">(.$.) (d1,a1) (d2,a2) = (x1*x2) + (y1*y2)</span>
+<span class="lineno">   85 </span><span class="spaces">  </span><span class="nottickedoff">where (x1,y1) = (d1,a1)</span>
+<span class="lineno">   86 </span><span class="spaces">        </span><span class="nottickedoff">(x2,y2) = (d2,a2)</span></span>
+<span class="lineno">   87 </span>
+<span class="lineno">   88 </span><span class="decl"><span class="istickedoff">g2r x = x * (pi / 180)</span></span>
+<span class="lineno">   89 </span><span class="decl"><span class="istickedoff">r2g x = x * (180 / pi)</span></span>
+<span class="lineno">   90 </span>
+<span class="lineno">   91 </span><span class="decl"><span class="istickedoff">tabuleiro (Mapa _ t) = t</span></span>
+<span class="lineno">   92 </span>
+<span class="lineno">   93 </span>polar2cart :: (Double,Double) -&gt; Ponto
+<span class="lineno">   94 </span><span class="decl"><span class="istickedoff">polar2cart (v,th) = (getX v th,getY v th)</span>
+<span class="lineno">   95 </span><span class="spaces">    </span><span class="istickedoff">where getX v th = v * cos (g2r (th))</span>
+<span class="lineno">   96 </span><span class="spaces">          </span><span class="istickedoff">getY v th = v * sin (g2r (-th))</span></span>
+<span class="lineno">   97 </span>
+<span class="lineno">   98 </span>cart2polar :: Ponto -&gt; (Double,Double)
+<span class="lineno">   99 </span><span class="decl"><span class="istickedoff">cart2polar (x,0) | <span class="tickonlytrue">x &gt;= 0</span> = (x,0)</span>
+<span class="lineno">  100 </span><span class="spaces"></span><span class="istickedoff">cart2polar (x,0) | <span class="nottickedoff">x &lt; 0</span> = <span class="nottickedoff">(abs x,180)</span></span>
+<span class="lineno">  101 </span><span class="spaces"></span><span class="istickedoff">cart2polar (0,y) | <span class="tickonlyfalse">y &gt;= 0</span> = <span class="nottickedoff">(y,-90)</span></span>
+<span class="lineno">  102 </span><span class="spaces"></span><span class="istickedoff">cart2polar (0,y) | <span class="tickonlytrue">y &lt; 0</span> = (abs y,90)</span>
+<span class="lineno">  103 </span><span class="spaces"></span><span class="istickedoff">cart2polar (x,y) = (hyp,dir angle)</span>
+<span class="lineno">  104 </span><span class="spaces">  </span><span class="istickedoff">where</span>
+<span class="lineno">  105 </span><span class="spaces">    </span><span class="istickedoff">dir o = case (x &gt;= 0, y &gt;= 0) of</span>
+<span class="lineno">  106 </span><span class="spaces">                </span><span class="istickedoff">(True,True) -&gt; -o</span>
+<span class="lineno">  107 </span><span class="spaces">                </span><span class="istickedoff">(True,False) -&gt; o</span>
+<span class="lineno">  108 </span><span class="spaces">                </span><span class="istickedoff">(False,False) -&gt; 180 - o</span>
+<span class="lineno">  109 </span><span class="spaces">                </span><span class="istickedoff">(False,True) -&gt; 180 + o</span>
+<span class="lineno">  110 </span><span class="spaces">    </span><span class="istickedoff">hyp = sqrt ((abs x)^2 + (abs y)^2)</span>
+<span class="lineno">  111 </span><span class="spaces">    </span><span class="istickedoff">angle = r2g $ atan (abs y / abs x)</span></span>
+<span class="lineno">  112 </span>
+<span class="lineno">  113 </span><span class="decl"><span class="nottickedoff">normal_rad x = mod' x (2 * pi)</span></span>
+<span class="lineno">  114 </span><span class="decl"><span class="istickedoff">normal_grau x = mod' x 360</span></span>
+<span class="lineno">  115 </span>
+<span class="lineno">  116 </span><span class="decl"><span class="istickedoff">orientacaoRampa Norte = 270</span>
+<span class="lineno">  117 </span><span class="spaces"></span><span class="istickedoff">orientacaoRampa Sul = 90</span>
+<span class="lineno">  118 </span><span class="spaces"></span><span class="istickedoff">orientacaoRampa Oeste = <span class="nottickedoff">0</span></span>
+<span class="lineno">  119 </span><span class="spaces"></span><span class="istickedoff">orientacaoRampa Este = <span class="nottickedoff">180</span></span></span>
+<span class="lineno">  120 </span>
+<span class="lineno">  121 </span><span class="decl"><span class="istickedoff">ponto2pos (x,y) = (floor x, floor y)</span></span>
+<span class="lineno">  122 </span>
+<span class="lineno">  123 </span><span class="decl"><span class="istickedoff">p_ok1 = Propriedades 1 2 3 4 5 180</span></span>
+<span class="lineno">  124 </span><span class="decl"><span class="nottickedoff">p_ok2 = Propriedades 2 5 3 4 5 90</span></span>
+<span class="lineno">  125 </span><span class="decl"><span class="nottickedoff">p_ok3 = Propriedades 1 3 4 2 15 180</span></span>
+<span class="lineno">  126 </span><span class="decl"><span class="nottickedoff">p_ok4 = Propriedades 1 3 4 2 15 360</span></span>
+<span class="lineno">  127 </span><span class="decl"><span class="nottickedoff">p_ok5 = Propriedades 4 3 4 2 10 180</span></span>
+<span class="lineno">  128 </span><span class="decl"><span class="nottickedoff">p_ok6 = Propriedades 2 2 3 4 5 180</span></span>
+<span class="lineno">  129 </span><span class="decl"><span class="nottickedoff">p_ok7 = Propriedades (-2) 5 3 4 5 90</span></span>
+<span class="lineno">  130 </span><span class="decl"><span class="nottickedoff">p_ok8 = Propriedades 1 10 4 2 15 160</span></span>
+<span class="lineno">  131 </span><span class="decl"><span class="nottickedoff">p_ok9 = Propriedades 1 3 (-4) 2 15 940</span></span>
+<span class="lineno">  132 </span><span class="decl"><span class="nottickedoff">p_ok10 = Propriedades (-1) 3 4 2 10 180</span></span>
+<span class="lineno">  133 </span>
+<span class="lineno">  134 </span><span class="decl"><span class="istickedoff">cr_ok1 = Carro (2.5,3.1) 0 (1,1)</span></span>
+<span class="lineno">  135 </span><span class="decl"><span class="istickedoff">cr_ok2 = Carro (3.5,3.1) 90 (1,1.1)</span></span>
+<span class="lineno">  136 </span><span class="decl"><span class="istickedoff">cr_ok3 = Carro (2.5,3.1) 180 (2,1)</span></span>
+<span class="lineno">  137 </span><span class="decl"><span class="istickedoff">cr_ok4 = Carro (2.5,3.1) 360 (1,1)</span></span>
+<span class="lineno">  138 </span><span class="decl"><span class="istickedoff">cr_ok5 = Carro (2.5,3.1) (-90) (1,1)</span></span>
+<span class="lineno">  139 </span><span class="decl"><span class="istickedoff">cr_ok6 = Carro (3.5,1) 90 (1,1.1)</span></span>
+<span class="lineno">  140 </span><span class="decl"><span class="istickedoff">cr_ok7 = Carro (2.5,5) 180 (-1,5)</span></span>
+<span class="lineno">  141 </span><span class="decl"><span class="istickedoff">cr_ok8 = Carro (5,3.1) 360 (1,-1)</span></span>
+<span class="lineno">  142 </span><span class="decl"><span class="istickedoff">cr_ok9 = Carro (1,4) 180 (-1,-5)</span></span>
+<span class="lineno">  143 </span><span class="decl"><span class="istickedoff">cr_ok10 = Carro (1.2,5.1) 360 (0,-0.4)</span></span>
+<span class="lineno">  144 </span><span class="decl"><span class="istickedoff">cr_ok11 = Carro (1.2,1.1) 90 (1.1,-0.5)</span></span>
+<span class="lineno">  145 </span><span class="decl"><span class="istickedoff">cr_ok12 = Carro (2.1,1.1) 95 (0.2,0.2)</span></span>
+<span class="lineno">  146 </span><span class="decl"><span class="istickedoff">cr_ok13 = Carro (1.5,2.1) 280 (0.1,-1.1)</span></span>
+<span class="lineno">  147 </span><span class="decl"><span class="istickedoff">cr_ok14 = Carro (1.2,1.5) 180 (1.42,1.51)</span></span>
+<span class="lineno">  148 </span>
+<span class="lineno">  149 </span>
+<span class="lineno">  150 </span><span class="decl"><span class="istickedoff">a_ok1 = Acao True True False True Nothing</span></span>
+<span class="lineno">  151 </span><span class="decl"><span class="istickedoff">a_ok2 = Acao True True False True (Just 0)</span></span>
+<span class="lineno">  152 </span><span class="decl"><span class="istickedoff">a_ok3 = Acao True True True True (Just 2)</span></span>
+<span class="lineno">  153 </span><span class="decl"><span class="istickedoff">a_ok4 = Acao False True False True (Just 1)</span></span>
+<span class="lineno">  154 </span><span class="decl"><span class="istickedoff">a_ok5 = Acao True False False False (Just 2)</span></span>
+<span class="lineno">  155 </span><span class="decl"><span class="istickedoff">a_ok6 = Acao False True False False (Just 0)</span></span>
+<span class="lineno">  156 </span><span class="decl"><span class="istickedoff">a_ok7 = Acao False False False False (Just 2)</span></span>
+<span class="lineno">  157 </span><span class="decl"><span class="istickedoff">a_ok8 = Acao True False False True (Just 1)</span></span>
+<span class="lineno">  158 </span><span class="decl"><span class="istickedoff">a_ok9 = Acao False True False True (Just 0)</span></span>
+<span class="lineno">  159 </span><span class="decl"><span class="istickedoff">a_ok10 = Acao False False False True (Just 0)</span></span>
+<span class="lineno">  160 </span>
+<span class="lineno">  161 </span><span class="decl"><span class="istickedoff">t0 =   (0.11, Jogo mxpto p_ok1 [cr_ok9,cr_ok1,cr_ok2,cr_ok7] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok1)</span></span>
+<span class="lineno">  162 </span><span class="decl"><span class="istickedoff">t1 =   (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok1)</span></span>
+<span class="lineno">  163 </span><span class="decl"><span class="istickedoff">t2 =   (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok2)</span></span>
+<span class="lineno">  164 </span><span class="decl"><span class="istickedoff">t3 =   (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok3)</span></span>
+<span class="lineno">  165 </span><span class="decl"><span class="istickedoff">t4 =   (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok4)</span></span>
+<span class="lineno">  166 </span><span class="decl"><span class="istickedoff">t5 =   (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok5)</span></span>
+<span class="lineno">  167 </span><span class="decl"><span class="istickedoff">t6 =   (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok6)</span></span>
+<span class="lineno">  168 </span><span class="decl"><span class="istickedoff">t7 =   (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok7)</span></span>
+<span class="lineno">  169 </span><span class="decl"><span class="istickedoff">t8 =   (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok8)</span></span>
+<span class="lineno">  170 </span><span class="decl"><span class="istickedoff">t9 =   (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok9)</span></span>
+<span class="lineno">  171 </span><span class="decl"><span class="istickedoff">t10 =  (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok10)</span></span>
+<span class="lineno">  172 </span><span class="decl"><span class="istickedoff">t11 =  (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok1)</span></span>
+<span class="lineno">  173 </span><span class="decl"><span class="istickedoff">t12 =  (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok2)</span></span>
+<span class="lineno">  174 </span><span class="decl"><span class="istickedoff">t13 =  (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok3)</span></span>
+<span class="lineno">  175 </span><span class="decl"><span class="istickedoff">t14 =  (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok4)</span></span>
+<span class="lineno">  176 </span><span class="decl"><span class="istickedoff">t15 =  (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok5)</span></span>
+<span class="lineno">  177 </span><span class="decl"><span class="istickedoff">t16 =  (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok6)</span></span>
+<span class="lineno">  178 </span><span class="decl"><span class="istickedoff">t17 =  (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok7)</span></span>
+<span class="lineno">  179 </span><span class="decl"><span class="istickedoff">t18 =  (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok8)</span></span>
+<span class="lineno">  180 </span><span class="decl"><span class="istickedoff">t19 =  (0.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok9)</span></span>
+<span class="lineno">  181 </span><span class="decl"><span class="istickedoff">t20 =  (2.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok10)</span></span>
+<span class="lineno">  182 </span><span class="decl"><span class="istickedoff">t21 =  (3.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok1)</span></span>
+<span class="lineno">  183 </span><span class="decl"><span class="istickedoff">t22 =  (4.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok2)</span></span>
+<span class="lineno">  184 </span><span class="decl"><span class="istickedoff">t23 =  (5.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok3)</span></span>
+<span class="lineno">  185 </span><span class="decl"><span class="istickedoff">t24 =  (0.01, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok4)</span></span>
+<span class="lineno">  186 </span><span class="decl"><span class="istickedoff">t25 =  (0.10, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok5)</span></span>
+<span class="lineno">  187 </span><span class="decl"><span class="istickedoff">t26 =  (0.9,  Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok6)</span></span>
+<span class="lineno">  188 </span><span class="decl"><span class="istickedoff">t27 =  (2.2,  Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok7)</span></span>
+<span class="lineno">  189 </span><span class="decl"><span class="istickedoff">t28 =  (412.11, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok8)</span></span>
+<span class="lineno">  190 </span><span class="decl"><span class="istickedoff">t29 =  (0.4, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok9)</span></span>
+<span class="lineno">  191 </span><span class="decl"><span class="istickedoff">t30 =  (1.4231, Jogo mxpto p_ok1 [cr_ok1,cr_ok2,cr_ok3,cr_ok4] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok9)</span></span>
+<span class="lineno">  192 </span><span class="decl"><span class="istickedoff">t31 =  (0.11, Jogo mxpto p_ok1 [cr_ok5,cr_ok6,cr_ok7,cr_ok8] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok1)</span></span>
+<span class="lineno">  193 </span><span class="decl"><span class="istickedoff">t32 =  (0.11, Jogo mxpto p_ok1 [cr_ok5,cr_ok6,cr_ok7,cr_ok8] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok2)</span></span>
+<span class="lineno">  194 </span><span class="decl"><span class="istickedoff">t33 =  (0.11, Jogo mxpto p_ok1 [cr_ok5,cr_ok6,cr_ok7,cr_ok8] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok3)</span></span>
+<span class="lineno">  195 </span><span class="decl"><span class="istickedoff">t34 =  (0.11, Jogo mxpto p_ok1 [cr_ok5,cr_ok6,cr_ok7,cr_ok8] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok4)</span></span>
+<span class="lineno">  196 </span><span class="decl"><span class="istickedoff">t35 =  (0.11, Jogo mxpto p_ok1 [cr_ok5,cr_ok6,cr_ok7,cr_ok8] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok5)</span></span>
+<span class="lineno">  197 </span><span class="decl"><span class="istickedoff">t36 =  (0.11, Jogo mxpto p_ok1 [cr_ok5,cr_ok6,cr_ok7,cr_ok8] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok6)</span></span>
+<span class="lineno">  198 </span><span class="decl"><span class="istickedoff">t37 =  (0.11, Jogo mxpto p_ok1 [cr_ok5,cr_ok6,cr_ok7,cr_ok8] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok7)</span></span>
+<span class="lineno">  199 </span><span class="decl"><span class="istickedoff">t38 =  (0.11, Jogo mxpto p_ok1 [cr_ok5,cr_ok6,cr_ok7,cr_ok8] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok8)</span></span>
+<span class="lineno">  200 </span><span class="decl"><span class="istickedoff">t39 =  (0.11, Jogo mxpto p_ok1 [cr_ok5,cr_ok6,cr_ok7,cr_ok8] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok9)</span></span>
+<span class="lineno">  201 </span><span class="decl"><span class="istickedoff">t40 =  (0.11, Jogo mxpto p_ok1 [cr_ok2,cr_ok9,cr_ok10,cr_ok1] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok10)</span></span>
+<span class="lineno">  202 </span><span class="decl"><span class="istickedoff">t41 =  (0.11, Jogo mxpto p_ok1 [cr_ok2,cr_ok9,cr_ok10,cr_ok1] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok1)</span></span>
+<span class="lineno">  203 </span><span class="decl"><span class="istickedoff">t42 =  (0.11, Jogo mxpto p_ok1 [cr_ok2,cr_ok9,cr_ok10,cr_ok1] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok2)</span></span>
+<span class="lineno">  204 </span><span class="decl"><span class="istickedoff">t43 =  (0.11, Jogo mxpto p_ok1 [cr_ok2,cr_ok9,cr_ok10,cr_ok1] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok3)</span></span>
+<span class="lineno">  205 </span><span class="decl"><span class="istickedoff">t44 =  (0.11, Jogo mxpto p_ok1 [cr_ok2,cr_ok9,cr_ok10,cr_ok1] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok4)</span></span>
+<span class="lineno">  206 </span><span class="decl"><span class="istickedoff">t45 =  (0.11, Jogo mxpto p_ok1 [cr_ok2,cr_ok9,cr_ok10,cr_ok1] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok5)</span></span>
+<span class="lineno">  207 </span><span class="decl"><span class="istickedoff">t46 =  (0.11, Jogo mxpto p_ok1 [cr_ok2,cr_ok9,cr_ok10,cr_ok1] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok6)</span></span>
+<span class="lineno">  208 </span><span class="decl"><span class="istickedoff">t47 =  (0.11, Jogo mxpto p_ok1 [cr_ok2,cr_ok9,cr_ok10,cr_ok1] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok7)</span></span>
+<span class="lineno">  209 </span><span class="decl"><span class="istickedoff">t48 =  (0.11, Jogo mxpto p_ok1 [cr_ok2,cr_ok9,cr_ok10,cr_ok1] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok8)</span></span>
+<span class="lineno">  210 </span><span class="decl"><span class="istickedoff">t49 =  (0.11, Jogo mxpto p_ok1 [cr_ok2,cr_ok9,cr_ok10,cr_ok1] [4,5,2,3] [[(1,1)],[(1,1)],[],[]],a_ok9)</span></span>
+<span class="lineno">  211 </span><span class="decl"><span class="istickedoff">t50 =  (0.16, Jogo m_exEX  p_ok1 [cr_ok11,cr_ok12,cr_ok13,cr_ok14] [3,2,5,1] [[(1,1)],[(1,1)],[(2,1)],[]],a_ok1)</span></span>
+<span class="lineno">  212 </span>
+<span class="lineno">  213 </span>
+<span class="lineno">  214 </span><span class="decl"><span class="istickedoff">testes1 = [t0,t1,t2,t3,t4,t5,t6,t7,t8,t9,</span>
+<span class="lineno">  215 </span><span class="spaces">          </span><span class="istickedoff">t10,t11,t12,t13,t14,t15,t16,t17,t18,t19,</span>
+<span class="lineno">  216 </span><span class="spaces">          </span><span class="istickedoff">t20,t21,t22,t23,t24,t25,t26,t27,t28,t29,</span>
+<span class="lineno">  217 </span><span class="spaces">          </span><span class="istickedoff">t30,t31,t32,t33,t34,t35,t36,t37,t38,t39,</span>
+<span class="lineno">  218 </span><span class="spaces">          </span><span class="istickedoff">t40,t41,t42,t43,t44,t45,t46,t47,t48,t49,t50]</span></span>
+<span class="lineno">  219 </span><span class="decl"><span class="nottickedoff">testes2 = map (\(t,j,a) -&gt; (t,j,a_ok2)) testes1</span></span>
+<span class="lineno">  220 </span><span class="decl"><span class="nottickedoff">testes3 = map (\(t,j,a) -&gt; (t,j,a_ok3)) testes1</span></span>
+<span class="lineno">  221 </span><span class="decl"><span class="nottickedoff">testes4 = map (\(t,j,a) -&gt; (t,j,a_ok4)) testes1</span></span>
+<span class="lineno">  222 </span><span class="decl"><span class="nottickedoff">testes5 = map (\(t,j,a) -&gt; (t,j,a_ok5)) testes1</span></span>
+<span class="lineno">  223 </span><span class="decl"><span class="nottickedoff">testes6 = map (\(t,j,a) -&gt; (t,j,a_ok6)) testes1</span></span>
+<span class="lineno">  224 </span><span class="decl"><span class="nottickedoff">testes7 = map (\(t,j,a) -&gt; (t,j,a_ok7)) testes1</span></span>
+<span class="lineno">  225 </span><span class="decl"><span class="nottickedoff">testes8 = map (\(t,j,a) -&gt; (t,j,a_ok8)) testes1</span></span>
+<span class="lineno">  226 </span><span class="decl"><span class="nottickedoff">testes9 = map (\(t,j,a) -&gt; (t,j,a_ok9)) testes1</span></span>
+<span class="lineno">  227 </span><span class="decl"><span class="nottickedoff">testes10 = map (\(t,j,a) -&gt; (t,j,a_ok10)) testes1</span></span>
+<span class="lineno">  228 </span><span class="decl"><span class="nottickedoff">testes11 = map (\(t,j,a) -&gt; (t/2,j,a)) testes10</span></span>
+<span class="lineno">  229 </span><span class="decl"><span class="nottickedoff">testes12 = map (\(t,j,a) -&gt; (t/2,j,a)) testes11</span></span>
+<span class="lineno">  230 </span>
+<span class="lineno">  231 </span><span class="decl"><span class="istickedoff">t_nuno = (0.2, Jogo {mapa = Mapa ((2,1),Este) [[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],[Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,Peca Recta 0,Peca (Curva Este) 0,Peca Lava 0],[Peca Lava 0,Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,Peca (Curva Sul) 0,Peca Lava 0],[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]], pista = Propriedades {k_atrito = 1.5, k_pneus = 1.0, k_acel = 4.0, k_peso = 2.0, k_nitro = 15.0, k_roda = 90.0}, carros = [Carro {posicao = (2.5,1.5), direcao = 0.0, velocidade = (0.0,0.0)}], nitros = [5.0], historico = [[(2,1)]]}, Acao {acelerar = False, travar = True, esquerda = True, direita = False, nitro = Nothing})</span></span>
+<span class="lineno">  232 </span>
+<span class="lineno">  233 </span><span class="decl"><span class="istickedoff">testesT4 =</span>
+<span class="lineno">  234 </span><span class="spaces">  </span><span class="istickedoff">[t_nuno]</span>
+<span class="lineno">  235 </span><span class="spaces">  </span><span class="istickedoff">++ testes1</span></span>
+<span class="lineno">  236 </span>
+<span class="lineno">  237 </span>mostra :: Show a =&gt; [a] -&gt; [a] -&gt; String
+<span class="lineno">  238 </span><span class="decl"><span class="nottickedoff">mostra [] [] = &quot;\n#######################\n&quot;</span>
+<span class="lineno">  239 </span><span class="spaces"></span><span class="nottickedoff">mostra (x:xs) (y:ys) = show x ++ &quot;\n&quot; ++ show y ++ &quot;\n\n&quot; ++ mostra xs ys</span></span>
+<span class="lineno">  240 </span>
+<span class="lineno">  241 </span>-- teste k =
+<span class="lineno">  242 </span>--   let (t,j,a) = testesT4 !! k
+<span class="lineno">  243 </span>--       i = 0
+<span class="lineno">  244 </span>--       orc = OracleT4.atualiza t j i a
+<span class="lineno">  245 </span>--       my = Tarefa4_2017li1g181.atualiza t j i a
+<span class="lineno">  246 </span>--   in putStrLn $ &quot;\ncarros:\n&quot; ++ mostra (carros orc) (carros my) ++
+<span class="lineno">  247 </span>--                         &quot;\nnitros:\n&quot; ++ mostra (nitros orc) (nitros my) ++ 
+<span class="lineno">  248 </span>--                         &quot;\nhistorico:\n&quot; ++ mostra (historico orc) (historico my)
+<span class="lineno">  249 </span>
+<span class="lineno">  250 </span>-- teste_cmp id teste =
+<span class="lineno">  251 </span>--   let (t,j,a) = teste
+<span class="lineno">  252 </span>--       orc = OracleT4.atualiza t j id a
+<span class="lineno">  253 </span>--       my = Tarefa4_2017li1g181.atualiza t j id a
+<span class="lineno">  254 </span>--   in comparaJogo 0.000000000001 orc my
+<span class="lineno">  255 </span>
+<span class="lineno">  256 </span>-- teste_tudo = map (teste_cmp 0) testesT4
+<span class="lineno">  257 </span>
+<span class="lineno">  258 </span><span class="decl"><span class="istickedoff">mxpto = mxpto'</span></span>
+<span class="lineno">  259 </span>
+<span class="lineno">  260 </span><span class="decl"><span class="istickedoff">mxpto' = Mapa ((3,3),Este)</span>
+<span class="lineno">  261 </span><span class="spaces">  </span><span class="istickedoff">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],</span>
+<span class="lineno">  262 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,Peca Recta 0,Peca Recta 0,Peca (Curva Este) 0,Peca Lava 0],</span>
+<span class="lineno">  263 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca Lava 0,Peca Recta 0,Peca (Curva Norte) 0,Peca Recta 0,Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],</span>
+<span class="lineno">  264 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,Peca Recta 1,Peca Lava 0],</span>
+<span class="lineno">  265 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,Peca (Rampa Sul) 1,Peca Lava 0],</span>
+<span class="lineno">  266 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca (Rampa Sul) (-1),Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],</span>
+<span class="lineno">  267 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca (Curva Oeste) 0,Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],</span>
+<span class="lineno">  268 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</span></span>
+<span class="lineno">  269 </span>
+<span class="lineno">  270 </span>
+<span class="lineno">  271 </span>-- problemas no oraculo:
+<span class="lineno">  272 </span>--  * historico não cobre o caso da lista vazia
+<span class="lineno">  273 </span>--  * a gravidade não está a ser usada
+<span class="lineno">  274 </span>--  * min entre o nitro restante e o tempo
+
+</pre>
+</body>
+</html>

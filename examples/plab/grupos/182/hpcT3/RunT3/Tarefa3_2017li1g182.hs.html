@@ -1,0 +1,472 @@
+<html>
+<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108230466-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108230466-1');
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+span.lineno { color: white; background: #aaaaaa; border-right: solid white 12px }
+span.nottickedoff { background: yellow}
+span.istickedoff { background: white }
+span.tickonlyfalse { margin: -1px; border: 1px solid #f20913; background: #f20913 }
+span.tickonlytrue  { margin: -1px; border: 1px solid #60de51; background: #60de51 }
+span.funcount { font-size: small; color: orange; z-index: 2; position: absolute; right: 20 }
+span.decl { font-weight: bold }
+span.spaces    { background: white }
+</style>
+</head>
+<body><pre>
+<span class="decl"><span class="nottickedoff">never executed</span> <span class="tickonlytrue">always true</span> <span class="tickonlyfalse">always false</span></span>
+</pre>
+<pre>
+<span class="decl"><span class="nottickedoff">never executed</span> <span class="tickonlytrue">always true</span> <span class="tickonlyfalse">always false</span></span>
+</pre>
+<pre>
+<span class="lineno">    1 </span>module Tarefa3_2017li1g182 where
+<span class="lineno">    2 </span>
+<span class="lineno">    3 </span>import LI11718
+<span class="lineno">    4 </span>import Tarefa1_2017li1g182
+<span class="lineno">    5 </span>
+<span class="lineno">    6 </span>
+<span class="lineno">    7 </span>----------
+<span class="lineno">    8 </span>
+<span class="lineno">    9 </span>-- | Dado um ponto e uma velocidade inciais, e uma duração de tempo, se houver 
+<span class="lineno">   10 </span>--   uma colisão ou uma queda, calcula um ponto de chegada e a nova velocidade 
+<span class="lineno">   11 </span>--   assumindo que:
+<span class="lineno">   12 </span>--
+<span class="lineno">   13 </span>--   * a velocidade se mantem constante;
+<span class="lineno">   14 </span>--   * se bater numa parede a velocidade é reflectida e a sua norma é mantida
+<span class="lineno">   15 </span>--   * se cair ou passar pela lava, a velocidade final é nula e a posição final
+<span class="lineno">   16 </span>--     é o centro da peça onde caíu ou atravessou para a lava.
+<span class="lineno">   17 </span>--   * caso contrário (não há colisões nem quedas) devolve Nothing 
+<span class="lineno">   18 </span>
+<span class="lineno">   19 </span>movimenta :: Tabuleiro -&gt; Tempo -&gt; Carro -&gt; Maybe Carro
+<span class="lineno">   20 </span><span class="decl"><span class="istickedoff">movimenta m t (Carro p d v) = do</span>
+<span class="lineno">   21 </span><span class="spaces">  </span><span class="istickedoff">(p',v') &lt;- myColide m t p v</span>
+<span class="lineno">   22 </span><span class="spaces">  </span><span class="istickedoff">return $ Carro p' d v'</span></span>
+<span class="lineno">   23 </span>
+<span class="lineno">   24 </span>
+<span class="lineno">   25 </span>myColide :: Tabuleiro -&gt; Tempo -&gt; Ponto -&gt; Velocidade -&gt; Maybe (Ponto,Velocidade)
+<span class="lineno">   26 </span><span class="decl"><span class="istickedoff">myColide m t p v = colideAux m t p v (getPeca (tmap floor p) m) (tmap floor p)</span></span> -- False -- temporary - show final point always
+<span class="lineno">   27 </span>
+<span class="lineno">   28 </span><span class="decl"><span class="istickedoff">colideAux m t p@(px,py) v@(vx,vy) peca@(Peca tipo alt) ij -- colidiu</span>
+<span class="lineno">   29 </span><span class="spaces">    </span><span class="istickedoff">| t&lt;=0      = result_stop</span>
+<span class="lineno">   30 </span><span class="spaces">    </span><span class="istickedoff">| bateCurva = if demora  &gt;= t then result_stop else result_in</span>
+<span class="lineno">   31 </span><span class="spaces">    </span><span class="istickedoff">| <span class="tickonlytrue">otherwise</span> = if demora' &gt;= t then result_stop else result_out</span>
+<span class="lineno">   32 </span><span class="spaces">  </span><span class="istickedoff">where</span>
+<span class="lineno">   33 </span><span class="spaces">    </span><span class="istickedoff">(demora,ponto,vel,bateCurva) = testaCurva peca p v ij -- se bater, quanto demora e onde bate</span>
+<span class="lineno">   34 </span><span class="spaces">    </span><span class="istickedoff">(demora',lado,pos',ij')      = testaSai p v ij      -- se sair, qual o lado de onde sai, e qual a nova peca (e coordenada)</span>
+<span class="lineno">   35 </span><span class="spaces">    </span><span class="istickedoff">-- resultado quando choca contra uma curva</span>
+<span class="lineno">   36 </span><span class="spaces">    </span><span class="istickedoff">result_in  = if (alt &gt;= altLava)</span>
+<span class="lineno">   37 </span><span class="spaces">      </span><span class="istickedoff">then morre <span class="nottickedoff">peca</span> <span class="nottickedoff">ij</span></span>
+<span class="lineno">   38 </span><span class="spaces">      </span><span class="istickedoff">else colideAux m (t-demora)  ponto vel peca ij</span>
+<span class="lineno">   39 </span><span class="spaces">    </span><span class="istickedoff">-- resultado quando chega à fronteira da peça</span>
+<span class="lineno">   40 </span><span class="spaces">    </span><span class="istickedoff">result_out  = transita  m (t-demora') pos' v lado peca ij ij'</span>
+<span class="lineno">   41 </span><span class="spaces">    </span><span class="istickedoff">-- resultado quando pára na peça</span>
+<span class="lineno">   42 </span><span class="spaces">    </span><span class="istickedoff">result_stop = Just ((px+t*vx,py+t*vy),v)</span></span>
+<span class="lineno">   43 </span>      --else Nothing
+<span class="lineno">   44 </span>
+<span class="lineno">   45 </span>-- | Assumindo velocidade constante, mede o tempo e posição até bater numa diagonal.
+<span class="lineno">   46 </span>testaCurva :: Peca -&gt; Ponto -&gt; Velocidade -&gt; Posicao -&gt; (Tempo,Ponto,Velocidade,Bool)
+<span class="lineno">   47 </span><span class="decl"><span class="istickedoff">testaCurva (Peca (Curva tipo) alt) (px,py) (vx,vy) (i,j) -- curva para a dir, virado inicialmente a norte</span>
+<span class="lineno">   48 </span><span class="spaces">  </span><span class="istickedoff">| (tipo==Norte &amp;&amp; (-vx)&gt;vy) ||</span>
+<span class="lineno">   49 </span><span class="spaces">    </span><span class="istickedoff">(tipo==Sul   &amp;&amp; (-vx)&lt;vy)    = getResult True</span>
+<span class="lineno">   50 </span><span class="spaces">  </span><span class="istickedoff">| (tipo==Oeste &amp;&amp; vx&lt;vy)    ||</span>
+<span class="lineno">   51 </span><span class="spaces">    </span><span class="istickedoff">(tipo==Este  &amp;&amp; vx&gt;vy)       = getResult False</span>
+<span class="lineno">   52 </span><span class="spaces">  </span><span class="istickedoff">| <span class="tickonlytrue">otherwise</span>                    = (<span class="nottickedoff">0</span>,<span class="nottickedoff">(px,py)</span>,<span class="nottickedoff">(vx,vy)</span>,False)</span>
+<span class="lineno">   53 </span><span class="spaces">  </span><span class="istickedoff">where</span>
+<span class="lineno">   54 </span><span class="spaces">    </span><span class="istickedoff">getResult isNS =</span>
+<span class="lineno">   55 </span><span class="spaces">      </span><span class="istickedoff">let t' = if isNS then (frac py j + frac px i - 1)/(-vx-vy)</span>
+<span class="lineno">   56 </span><span class="spaces">                       </span><span class="istickedoff">else (frac py j - frac px i)  / (vx - vy)</span>
+<span class="lineno">   57 </span><span class="spaces">          </span><span class="istickedoff">p'@(_,py') = (px+t'*vx,py+t'*vy)</span>
+<span class="lineno">   58 </span><span class="spaces">          </span><span class="istickedoff">v' = if isNS then (-vy,-vx) else (vy,vx)</span>
+<span class="lineno">   59 </span><span class="spaces">      </span><span class="istickedoff">in (t',p',v', py'&gt;=toEnum j  &amp;&amp;  py'&lt;=toEnum (j+1))</span>
+<span class="lineno">   60 </span><span class="spaces"></span><span class="istickedoff">testaCurva (Peca _ _) p v _ = (<span class="nottickedoff">0</span>,<span class="nottickedoff">p</span>,<span class="nottickedoff">v</span>,False)</span></span>
+<span class="lineno">   61 </span>
+<span class="lineno">   62 </span>-- | Testa se a peça sai de um dos lados, retornando quando sai e a próxima peça.
+<span class="lineno">   63 </span><span class="decl"><span class="istickedoff">testaSai p@(px,py) v@(vx,vy) (i,j) = (time,lado,p2,next)</span>
+<span class="lineno">   64 </span><span class="spaces">  </span><span class="istickedoff">--show time ++ &quot; - &quot; ++ show p2 ++ &quot; / &quot;++ show [ttop,tbot,tleft,tright]</span>
+<span class="lineno">   65 </span><span class="spaces">  </span><span class="istickedoff">where</span>
+<span class="lineno">   66 </span><span class="spaces">    </span><span class="istickedoff">ttop   = if vy&lt;0 then (toEnum j-py)/vy   else (-1)</span>
+<span class="lineno">   67 </span><span class="spaces">    </span><span class="istickedoff">tbot   = if vy&gt;0 then (toEnum j-py+1)/vy else (-1)</span>
+<span class="lineno">   68 </span><span class="spaces">    </span><span class="istickedoff">tleft  = if vx&lt;0 then (toEnum i-px)/vx   else (-1)</span>
+<span class="lineno">   69 </span><span class="spaces">    </span><span class="istickedoff">tright = if vx&gt;0 then (toEnum i-px+1)/vx else (-1)</span>
+<span class="lineno">   70 </span><span class="spaces">    </span><span class="istickedoff">postv = filter (&gt;=0) [ttop,tbot,tleft,tright]</span>
+<span class="lineno">   71 </span><span class="spaces">    </span><span class="istickedoff">time = if v==(0,0) then 1/0</span>
+<span class="lineno">   72 </span><span class="spaces">           </span><span class="istickedoff">else if <span class="tickonlyfalse">postv==[]</span> then <span class="nottickedoff">(error $ show ((i,j),p,v,[ttop,tbot,tleft,tright]))</span></span>
+<span class="lineno">   73 </span><span class="spaces">           </span><span class="istickedoff">else minimum $ filter (&gt;=0) [ttop,tbot,tleft,tright]</span>
+<span class="lineno">   74 </span><span class="spaces">    </span><span class="istickedoff">(lado,next) = if      ttop  ==time then (2,(i,j-1)) -- N</span>
+<span class="lineno">   75 </span><span class="spaces">                  </span><span class="istickedoff">else if tleft ==time then (1,(i-1,j)) -- O</span>
+<span class="lineno">   76 </span><span class="spaces">                  </span><span class="istickedoff">else if tright==time then (3,(i+1,j)) -- E</span>
+<span class="lineno">   77 </span><span class="spaces">                  </span><span class="istickedoff">else                      (0,(i,j+1)) -- S</span>
+<span class="lineno">   78 </span><span class="spaces">    </span><span class="istickedoff">p2 = (px+vx*time,py+vy*time)</span></span>
+<span class="lineno">   79 </span>
+<span class="lineno">   80 </span>
+<span class="lineno">   81 </span>-- | parte fraccionária de `x` relativamente a `i` (`x - i`)
+<span class="lineno">   82 </span><span class="decl"><span class="istickedoff">frac x i = x - toEnum i</span></span> -- toEnum (floor x)
+<span class="lineno">   83 </span>
+<span class="lineno">   84 </span>-- | Testa o que acontece quando tenta passar para outra peça na fronteira
+<span class="lineno">   85 </span>transita :: Tabuleiro -&gt; Tempo -&gt; Ponto -&gt; Velocidade -&gt; Int -&gt;
+<span class="lineno">   86 </span>            Peca -&gt; Posicao  -&gt; Posicao -&gt; Maybe (Ponto,Velocidade)
+<span class="lineno">   87 </span><span class="decl"><span class="istickedoff">transita m t p@(px,py) v l peca1 ij1@(i,j) ij2@(i2,j2) -- colidiu</span>
+<span class="lineno">   88 </span><span class="spaces">  </span><span class="istickedoff">| eLava peca2 &amp;&amp; altura1 &gt; (toEnum altLava - 1) = morre <span class="nottickedoff">peca1</span> <span class="nottickedoff">ij1</span> -- se passar para a lava</span>
+<span class="lineno">   89 </span><span class="spaces">  </span><span class="istickedoff">| eLava peca2           = choca       -- se passar a lava, mas de uma altura negativa</span>
+<span class="lineno">   90 </span><span class="spaces">  </span><span class="istickedoff">| altura1 &lt;=(altura2-1) = choca       -- se a nova altura maior até 1</span>
+<span class="lineno">   91 </span><span class="spaces">  </span><span class="istickedoff">| altura1 &lt; (altura2+1) = passa       -- se a diferença for entre 0 e 1</span>
+<span class="lineno">   92 </span><span class="spaces"></span><span class="istickedoff">--  altura1 &lt; altura2     = choca       -- se passar para uma altura maior</span>
+<span class="lineno">   93 </span><span class="spaces"></span><span class="istickedoff">--  altura1 == altura2    = passa       -- se tiver a mesma altura</span>
+<span class="lineno">   94 </span><span class="spaces">  </span><span class="istickedoff">| <span class="tickonlytrue">otherwise</span>             = morre <span class="nottickedoff">peca1</span> <span class="nottickedoff">ij1</span> -- cai e morre</span>
+<span class="lineno">   95 </span><span class="spaces"> </span><span class="istickedoff">where</span>
+<span class="lineno">   96 </span><span class="spaces">  </span><span class="istickedoff">peca2 = getPeca (toEnum i2,toEnum j2) m</span>
+<span class="lineno">   97 </span><span class="spaces">  </span><span class="istickedoff">choca = colideAux m t p (reflecte l v) peca1 ij1 -- True -- error$show$ (&quot;choca&quot;,t,p,(reflecte l v),peca1,ij1,True) -- </span>
+<span class="lineno">   98 </span><span class="spaces">  </span><span class="istickedoff">passa   = colideAux m t p v peca2 ij2 -- colidiu -- error$show$ (t,p,v,peca2,ij2,colidiu)--</span>
+<span class="lineno">   99 </span><span class="spaces">  </span><span class="istickedoff">eLava (Peca Lava _) = True</span>
+<span class="lineno">  100 </span><span class="spaces">  </span><span class="istickedoff">eLava (Peca (Curva Norte) _) = i+1==i2 || j+1==j2</span>
+<span class="lineno">  101 </span><span class="spaces">  </span><span class="istickedoff">eLava (Peca (Curva Sul)   _) = i==i2+1 || j==j2+1</span>
+<span class="lineno">  102 </span><span class="spaces">  </span><span class="istickedoff">eLava (Peca (Curva Este)  _) = i==i2+1 || j+1==j2</span>
+<span class="lineno">  103 </span><span class="spaces">  </span><span class="istickedoff">eLava (Peca (Curva Oeste) _) = i+1==i2 || j==j2+1</span>
+<span class="lineno">  104 </span><span class="spaces">  </span><span class="istickedoff">eLava _ = False</span>
+<span class="lineno">  105 </span><span class="spaces">  </span><span class="istickedoff">altura1 = altura peca1 p ij1</span>
+<span class="lineno">  106 </span><span class="spaces">  </span><span class="istickedoff">altura2 = altura peca2 p ij2  </span>
+<span class="lineno">  107 </span><span class="spaces">  </span><span class="istickedoff">reflecte lado (x,y) | even lado = (x,-y)</span>
+<span class="lineno">  108 </span><span class="spaces">                      </span><span class="istickedoff">| <span class="tickonlytrue">otherwise</span> = (-x,y)</span></span>
+<span class="lineno">  109 </span>
+<span class="lineno">  110 </span>
+<span class="lineno">  111 </span>morre :: Peca -&gt; Posicao -&gt; Maybe (Ponto,Velocidade)
+<span class="lineno">  112 </span><span class="decl"><span class="istickedoff">morre peca ij = Nothing</span></span>                         -- O que é pedido - Nothing quando morre
+<span class="lineno">  113 </span>                --Just (centro peca ij,(0,0))   -- Mais interessante - põe no centro da peça
+<span class="lineno">  114 </span>
+<span class="lineno">  115 </span><span class="decl"><span class="istickedoff">centro (Peca (Curva Norte) _) (i,j) = <span class="nottickedoff">(toEnum i + 0.8, toEnum j + 0.8)</span></span>
+<span class="lineno">  116 </span><span class="spaces"></span><span class="istickedoff">centro (Peca (Curva Sul) _)   (i,j) = <span class="nottickedoff">(toEnum i + 0.2, toEnum j + 0.2)</span></span>
+<span class="lineno">  117 </span><span class="spaces"></span><span class="istickedoff">centro (Peca (Curva Este) _)  (i,j) = (toEnum i + 0.2, toEnum j + 0.8)</span>
+<span class="lineno">  118 </span><span class="spaces"></span><span class="istickedoff">centro (Peca (Curva Oeste) _) (i,j) = <span class="nottickedoff">(toEnum i + 0.8, toEnum j + 0.2)</span></span>
+<span class="lineno">  119 </span><span class="spaces"></span><span class="istickedoff">centro _                      (i,j) = (toEnum i + 0.5, toEnum j + 0.5)</span></span>
+<span class="lineno">  120 </span>
+<span class="lineno">  121 </span>altura :: Peca -&gt; Ponto -&gt; Posicao -&gt; Double
+<span class="lineno">  122 </span><span class="decl"><span class="istickedoff">altura (Peca (Rampa Norte) a) (px,py) (i,j) = toEnum a + 1 - frac py j</span>
+<span class="lineno">  123 </span><span class="spaces"></span><span class="istickedoff">altura (Peca (Rampa Oeste) a) (px,py) (i,j) = toEnum a + 1 - frac px i -- altura (Peca (Rampa Norte) a) (py,px) </span>
+<span class="lineno">  124 </span><span class="spaces"></span><span class="istickedoff">altura (Peca (Rampa Sul)   a) (px,py) (i,j) = toEnum a + frac py j</span>
+<span class="lineno">  125 </span><span class="spaces"></span><span class="istickedoff">altura (Peca (Rampa Este)  a) (px,py) (i,j) = toEnum a + frac px i</span>
+<span class="lineno">  126 </span><span class="spaces"></span><span class="istickedoff">altura (Peca _ a) _ _ = toEnum a</span></span>
+<span class="lineno">  127 </span>
+<span class="lineno">  128 </span>
+<span class="lineno">  129 </span>-- | Devolve a peca ou Lava de uma coordenada
+<span class="lineno">  130 </span><span class="decl"><span class="istickedoff">getPeca (x,y) pecas</span>
+<span class="lineno">  131 </span><span class="spaces">  </span><span class="istickedoff">| <span class="tickonlyfalse">y &gt;= length pecas      || y&lt;0</span> = <span class="nottickedoff">Peca Lava 0</span></span>
+<span class="lineno">  132 </span><span class="spaces">  </span><span class="istickedoff">| <span class="tickonlyfalse">x &gt;= length (pecas!!y) || x&lt;0</span> = <span class="nottickedoff">Peca Lava 0</span></span>
+<span class="lineno">  133 </span><span class="spaces">  </span><span class="istickedoff">| <span class="tickonlytrue">otherwise</span>                       = pecas!!y!!x</span></span> 
+<span class="lineno">  134 </span>
+<span class="lineno">  135 </span>
+<span class="lineno">  136 </span>tmap :: (a-&gt;b) -&gt; (a,a) -&gt; (b,b)
+<span class="lineno">  137 </span><span class="decl"><span class="istickedoff">tmap f (x,y) = (f x, f y)</span></span>
+<span class="lineno">  138 </span>
+<span class="lineno">  139 </span>-------------
+<span class="lineno">  140 </span>-- TESTING --
+<span class="lineno">  141 </span>-------------
+<span class="lineno">  142 </span>testesT3 :: [(Tabuleiro,Tempo,Carro)] --[(Tabuleiro,Carro)]
+<span class="lineno">  143 </span><span class="decl"><span class="istickedoff">testesT3 = unitTests ++ map (extract.constroiBaixo) [</span>
+<span class="lineno">  144 </span><span class="spaces">   </span><span class="istickedoff">c_ex5 -- tiny</span>
+<span class="lineno">  145 </span><span class="spaces">  </span><span class="istickedoff">,c_ex2 -- small      </span>
+<span class="lineno">  146 </span><span class="spaces">  </span><span class="istickedoff">,c_ex6 -- small</span>
+<span class="lineno">  147 </span><span class="spaces">  </span><span class="istickedoff">,c_ex3 -- med</span>
+<span class="lineno">  148 </span><span class="spaces">  </span><span class="istickedoff">,c_ex4 -- med (em 8)</span>
+<span class="lineno">  149 </span><span class="spaces">  </span><span class="istickedoff">,c_ex1 -- big</span>
+<span class="lineno">  150 </span><span class="spaces">  </span><span class="istickedoff">,c_ex1' -- big</span>
+<span class="lineno">  151 </span><span class="spaces">  </span><span class="istickedoff">]</span></span>
+<span class="lineno">  152 </span>
+<span class="lineno">  153 </span>constroiBaixo :: Caminho -&gt; Mapa
+<span class="lineno">  154 </span><span class="decl"><span class="istickedoff">constroiBaixo c = Mapa (partida c,dirInit) tab</span>
+<span class="lineno">  155 </span><span class="spaces">  </span><span class="istickedoff">where Mapa (finishPos,finishDir) tab =</span>
+<span class="lineno">  156 </span><span class="spaces">          </span><span class="istickedoff">constroiAux (Mapa (partida c,dirInit) (initTab c)) (-2) c</span></span>
+<span class="lineno">  157 </span>
+<span class="lineno">  158 </span>extract :: Mapa -&gt; (Tabuleiro,Tempo,Carro)
+<span class="lineno">  159 </span><span class="decl"><span class="istickedoff">extract (Mapa ((x,y),dir) tab) =</span>
+<span class="lineno">  160 </span><span class="spaces">    </span><span class="istickedoff">-- (tab, Carro ((toEnum x)+0.5,(toEnum y)+0.5) (toAngle dir) (toVel dir))</span>
+<span class="lineno">  161 </span><span class="spaces">    </span><span class="istickedoff">(tab, tempo, Carro pos (toAngle dir) (toVel dir))</span>
+<span class="lineno">  162 </span><span class="spaces">  </span><span class="istickedoff">where</span>
+<span class="lineno">  163 </span><span class="spaces">    </span><span class="istickedoff">pos = centro (getPeca (x,y) tab) (x,y)</span>
+<span class="lineno">  164 </span><span class="spaces">    </span><span class="istickedoff">tempo = toEnum (length tab)/2</span>
+<span class="lineno">  165 </span><span class="spaces">    </span><span class="istickedoff">delta = 30</span>
+<span class="lineno">  166 </span><span class="spaces">    </span><span class="istickedoff">toAngle Norte = <span class="nottickedoff">90  + delta</span></span>
+<span class="lineno">  167 </span><span class="spaces">    </span><span class="istickedoff">toAngle Oeste = <span class="nottickedoff">180 + delta</span></span>
+<span class="lineno">  168 </span><span class="spaces">    </span><span class="istickedoff">toAngle Sul   = <span class="nottickedoff">270 + delta</span></span>
+<span class="lineno">  169 </span><span class="spaces">    </span><span class="istickedoff">toAngle Este  = 0   + delta</span>
+<span class="lineno">  170 </span><span class="spaces">    </span><span class="istickedoff">toVel Norte = <span class="nottickedoff">(0,-1)</span></span>
+<span class="lineno">  171 </span><span class="spaces">    </span><span class="istickedoff">toVel Oeste = <span class="nottickedoff">(-1,0)</span></span>
+<span class="lineno">  172 </span><span class="spaces">    </span><span class="istickedoff">toVel Sul   = <span class="nottickedoff">(0,1)</span></span>
+<span class="lineno">  173 </span><span class="spaces">    </span><span class="istickedoff">toVel Este  = (1,0)</span></span>
+<span class="lineno">  174 </span>
+<span class="lineno">  175 </span><span class="decl"><span class="nottickedoff">testa (tab,carro) = movimenta tab 2 carro</span></span> 
+<span class="lineno">  176 </span>
+<span class="lineno">  177 </span>---------------
+<span class="lineno">  178 </span>-- dedicated selection of tests
+<span class="lineno">  179 </span>-- &quot;&lt;&gt;#^vqpLJ&quot;
+<span class="lineno">  180 </span><span class="decl"><span class="istickedoff">meuConstroi = tab . constroi . map fix</span>
+<span class="lineno">  181 </span><span class="spaces">  </span><span class="istickedoff">where fix 'g' = Avanca </span>
+<span class="lineno">  182 </span><span class="spaces">        </span><span class="istickedoff">fix 'u' = Sobe   </span>
+<span class="lineno">  183 </span><span class="spaces">        </span><span class="istickedoff">fix 'd' = Desce  </span>
+<span class="lineno">  184 </span><span class="spaces">        </span><span class="istickedoff">fix 'l' = CurvaEsq </span>
+<span class="lineno">  185 </span><span class="spaces">        </span><span class="istickedoff">fix 'r' = CurvaDir</span></span>
+<span class="lineno">  186 </span><span class="decl"><span class="istickedoff">tab (Mapa _ t) = t</span></span>
+<span class="lineno">  187 </span>
+<span class="lineno">  188 </span>--   meuConstroi $ &quot;ugddgrr&quot;++
+<span class="lineno">  189 </span>--                 &quot;gudgurr&quot;
+<span class="lineno">  190 </span>-- ....................
+<span class="lineno">  191 </span>-- ..//&gt;&gt;[]&lt;&lt;[]&lt;&lt;[]\\..
+<span class="lineno">  192 </span>-- ..\\&lt;&lt;[]&gt;&gt;[]&lt;&lt;[]//..
+<span class="lineno">  193 </span>-- ....................
+<span class="lineno">  194 </span>
+<span class="lineno">  195 </span><span class="decl"><span class="istickedoff">testeMapa = meuConstroi $ &quot;ugdggdguuddrr&quot;++</span>
+<span class="lineno">  196 </span><span class="spaces">                          </span><span class="istickedoff">&quot;dduuguugdudrr&quot;</span></span>
+<span class="lineno">  197 </span>--   00011110000009999001100999  
+<span class="lineno">  198 </span>-- ..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+<span class="lineno">  199 </span>-- ..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+<span class="lineno">  200 </span>--   00011001111009999887788999
+<span class="lineno">  201 </span>--        3   5     8  10  12
+<span class="lineno">  202 </span>
+<span class="lineno">  203 </span><span class="decl"><span class="istickedoff">testeCurvas = meuConstroi $ &quot;drlulrrlulrrgr&quot; ++</span>
+<span class="lineno">  204 </span><span class="spaces">                           </span><span class="istickedoff">&quot;gddgugurdr&quot;</span></span>
+<span class="lineno">  205 </span>--     09  90    01
+<span class="lineno">  206 </span>-- ..//&lt;&lt;\\..//\\..//\\..
+<span class="lineno">  207 </span>-- ..\/..\\&gt;&gt;//\\&gt;&gt;//[]..
+<span class="lineno">  208 </span>-- ..\\&gt;&gt;[]&gt;&gt;[]&lt;&lt;&lt;&lt;[]//..
+<span class="lineno">  209 </span>--        3   5     8
+<span class="lineno">  210 </span>
+<span class="lineno">  211 </span>unitTests :: [(Tabuleiro,Tempo,Carro)]
+<span class="lineno">  212 </span><span class="decl"><span class="istickedoff">unitTests = [</span>
+<span class="lineno">  213 </span><span class="spaces">  </span><span class="istickedoff">--- apenas 1 PASSO RECURSIVO</span>
+<span class="lineno">  214 </span><span class="spaces">  </span><span class="istickedoff">-- 1. rectas: passa percurso</span>
+<span class="lineno">  215 </span><span class="spaces">    </span><span class="istickedoff">(testeMapa , 1.1, Carro (5.9,1.5) 0 (0.9,0.1))</span>
+<span class="lineno">  216 </span><span class="spaces">  </span><span class="istickedoff">-- 2. rectas: cai adjacente</span>
+<span class="lineno">  217 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (5.5,2.1) 0 (0.1,-0.9))</span>
+<span class="lineno">  218 </span><span class="spaces">  </span><span class="istickedoff">-- 3. rectas: passa adjacente</span>
+<span class="lineno">  219 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (8.5,1.9) 0 (0.1,0.9))</span>
+<span class="lineno">  220 </span><span class="spaces">  </span><span class="istickedoff">-- 4. rectas: choca adjacente</span>
+<span class="lineno">  221 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (5.5,1.9) 0 (0.1,0.9))</span>
+<span class="lineno">  222 </span><span class="spaces">  </span><span class="istickedoff">-- 5. rectas: cai lava</span>
+<span class="lineno">  223 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (3.5,1.1) 0 (0.1,-0.9))</span>
+<span class="lineno">  224 </span><span class="spaces">  </span><span class="istickedoff">-- 6. rectas: passa lava (mesma altura)</span>
+<span class="lineno">  225 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (5.5,1.1) 0 (0.1,-0.9))</span>
+<span class="lineno">  226 </span><span class="spaces">  </span><span class="istickedoff">-- 7. rectas: choca lava</span>
+<span class="lineno">  227 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (8.5,1.1) 0 (0.1,-0.9))</span>
+<span class="lineno">  228 </span><span class="spaces"></span><span class="istickedoff"></span>
+<span class="lineno">  229 </span><span class="spaces">  </span><span class="istickedoff">-- 8. curva: choca lava</span>
+<span class="lineno">  230 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (13.4,1.5) 0 (0.3,-0.1))</span>
+<span class="lineno">  231 </span><span class="spaces">  </span><span class="istickedoff">-- 9. curva: cai lava (mesma altura)</span>
+<span class="lineno">  232 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (1.6,1.5) 0 (-0.3,-0.1))</span>
+<span class="lineno">  233 </span><span class="spaces"></span><span class="istickedoff"></span>
+<span class="lineno">  234 </span><span class="spaces">  </span><span class="istickedoff">-- 10. recta-&gt;curva: cai</span>
+<span class="lineno">  235 </span><span class="spaces">  </span><span class="istickedoff">, (testeCurvas , 1.1, Carro (8.5,3.1) 0 (0.1,-0.9))</span>
+<span class="lineno">  236 </span><span class="spaces">  </span><span class="istickedoff">-- 11. recta-&gt;curva: lava</span>
+<span class="lineno">  237 </span><span class="spaces">  </span><span class="istickedoff">, (testeCurvas , 1.1, Carro (5.5,3.1) 0 (0.1,-0.9))</span>
+<span class="lineno">  238 </span><span class="spaces">  </span><span class="istickedoff">-- 12. recta-&gt;curva: choca</span>
+<span class="lineno">  239 </span><span class="spaces">  </span><span class="istickedoff">, (testeCurvas , 1.1, Carro (3.5,3.1) 0 (0.1,-0.9))</span>
+<span class="lineno">  240 </span><span class="spaces">  </span><span class="istickedoff">-- 13. curva-&gt;lava: choca</span>
+<span class="lineno">  241 </span><span class="spaces">  </span><span class="istickedoff">, (testeCurvas , 1.1, Carro (3.55,2.45) 45 (-0.9,0.1))</span>
+<span class="lineno">  242 </span><span class="spaces">  </span><span class="istickedoff">-- 14. curva-&gt;lava: choca</span>
+<span class="lineno">  243 </span><span class="spaces">  </span><span class="istickedoff">, (testeCurvas , 1.1, Carro (1.55,1.55) 45 (-0.9,-0.1))</span>
+<span class="lineno">  244 </span><span class="spaces"></span><span class="istickedoff"></span>
+<span class="lineno">  245 </span><span class="spaces">  </span><span class="istickedoff">-- 15. rectas: adjacente + choca lava 2 </span>
+<span class="lineno">  246 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (8.5,1.5) 0 (0.1,1.9))</span>
+<span class="lineno">  247 </span><span class="spaces">  </span><span class="istickedoff">-- 16. rectas: choca lava + adjacente 2 </span>
+<span class="lineno">  248 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (8.5,2.5) 0 (0.1,1.9))</span>
+<span class="lineno">  249 </span><span class="spaces">  </span><span class="istickedoff">-- 17. rectas: choca lava + adjacente + choca lava 3 </span>
+<span class="lineno">  250 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (8.5,2.5) 0 (0.1,2.3))</span>
+<span class="lineno">  251 </span><span class="spaces">  </span><span class="istickedoff">-- 18. rectas: choca lava + adjacente + choca lava + adjacente 4 </span>
+<span class="lineno">  252 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (8.5,2.5) 0 (0.1,3.3))</span>
+<span class="lineno">  253 </span><span class="spaces">  </span><span class="istickedoff">-- 19. rectas: choca adjacente + cai lava (mesma altura) 2</span>
+<span class="lineno">  254 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (5.5,1.5) 0 (0.1,1.9))</span>
+<span class="lineno">  255 </span><span class="spaces">  </span><span class="istickedoff">-- 20. curvas: adjacente + choca lava 3</span>
+<span class="lineno">  256 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (11.6,1.5) 0 (2.1,0.1))</span>
+<span class="lineno">  257 </span><span class="spaces">  </span><span class="istickedoff">-- 21. curva: adjacente + cai lava 2</span>
+<span class="lineno">  258 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (1.6,2.5) 0 (-0.1,-1.1))</span>
+<span class="lineno">  259 </span><span class="spaces">  </span><span class="istickedoff">-- 22. curva: choca lava 2</span>
+<span class="lineno">  260 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (12.5,1.5) 0 (2.8,-0.1))</span>
+<span class="lineno">  261 </span><span class="spaces">  </span><span class="istickedoff">---- 25. curva: cai 2 (passa a lava) -- @nmm nao percebo a particularidade deste teste!</span>
+<span class="lineno">  262 </span><span class="spaces">  </span><span class="istickedoff">--, (testeMapa , 1.1, Carro (1.6,2.5) 0 (-0.3,-0.1))</span>
+<span class="lineno">  263 </span><span class="spaces"></span><span class="istickedoff"></span>
+<span class="lineno">  264 </span><span class="spaces">  </span><span class="istickedoff">----- Rampas horizontais</span>
+<span class="lineno">  265 </span><span class="spaces">  </span><span class="istickedoff">----- (cai se queda &gt;= 1, choca se degrau &gt;= 1, passa se diff. entre 1 e -1)</span>
+<span class="lineno">  266 </span><span class="spaces">  </span><span class="istickedoff">-- 23. rampas: cai </span>
+<span class="lineno">  267 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (10.5,1.9) 0 (-0.1,0.9))</span>
+<span class="lineno">  268 </span><span class="spaces">  </span><span class="istickedoff">-- 24. rampas: choca </span>
+<span class="lineno">  269 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (10.5,2.1) 0 (0.1,-0.9))</span>
+<span class="lineno">  270 </span><span class="spaces">  </span><span class="istickedoff">-- 25. rampas: passa (igual)</span>
+<span class="lineno">  271 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (2.5,1.9) 0 (0.1,0.9))</span>
+<span class="lineno">  272 </span><span class="spaces">  </span><span class="istickedoff">-- 26. rampas x2: passa (um pouco maior)</span>
+<span class="lineno">  273 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (4.5,1.9) 0 (0.1,0.9))</span>
+<span class="lineno">  274 </span><span class="spaces">  </span><span class="istickedoff">-- 27. rampas x2: passa (um pouco menor)</span>
+<span class="lineno">  275 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (4.5,1.9) 0 (-0.1,0.9))</span>
+<span class="lineno">  276 </span><span class="spaces">  </span><span class="istickedoff">---- casos difíceis (sobe/desce Bom Jesus)</span>
+<span class="lineno">  277 </span><span class="spaces">  </span><span class="istickedoff">-- 28. rampas: choca (tricky)</span>
+<span class="lineno">  278 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (9.5,2.1) 0 (0.1,-0.9))</span>
+<span class="lineno">  279 </span><span class="spaces">  </span><span class="istickedoff">-- 29. rampas: não choca (tricky)</span>
+<span class="lineno">  280 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (9.5,2.1) 0 (-0.1,-0.9))</span>
+<span class="lineno">  281 </span><span class="spaces">  </span><span class="istickedoff">-- 30. rampas: passa (tricky)</span>
+<span class="lineno">  282 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (9.5,1.9) 0 (0.1,0.9))</span>
+<span class="lineno">  283 </span><span class="spaces">  </span><span class="istickedoff">-- 31. rampas: não passa (tricky)</span>
+<span class="lineno">  284 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (9.5,1.9) 0 (-0.1,0.9))</span>
+<span class="lineno">  285 </span><span class="spaces">  </span><span class="istickedoff">-- 32. rampas: choca rés-vés (tricky x2)</span>
+<span class="lineno">  286 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (9.5,2.1) 0 (0,-0.9))</span>
+<span class="lineno">  287 </span><span class="spaces">  </span><span class="istickedoff">-- 33. rampas: choca lava</span>
+<span class="lineno">  288 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (9.5,2.9) 0 (0.1,0.9))</span>
+<span class="lineno">  289 </span><span class="spaces">  </span><span class="istickedoff">-- 34. rampas: cai lava</span>
+<span class="lineno">  290 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (9.5,1.1) 0 (0.1,-0.9))</span>
+<span class="lineno">  291 </span><span class="spaces">  </span><span class="istickedoff">------ Rampas paralelas</span>
+<span class="lineno">  292 </span><span class="spaces">  </span><span class="istickedoff">-- 35. rampas, paralelas cai</span>
+<span class="lineno">  293 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa', 1.1, Carro (4.5,2.1) 0 (0.1,-0.9))</span>
+<span class="lineno">  294 </span><span class="spaces">  </span><span class="istickedoff">-- 36. rampas, paralelas choca</span>
+<span class="lineno">  295 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa', 1.1, Carro (4.5,1.9) 0 (0.1,0.9))</span>
+<span class="lineno">  296 </span><span class="spaces">  </span><span class="istickedoff">----- Rampas verticais</span>
+<span class="lineno">  297 </span><span class="spaces">  </span><span class="istickedoff">-- 37. rampas verticais 1 - segue percurso</span>
+<span class="lineno">  298 </span><span class="spaces">  </span><span class="istickedoff">,(testeMapaV, 3, Carro (2.5,3.5) 0 (0,2))</span>
+<span class="lineno">  299 </span><span class="spaces">  </span><span class="istickedoff">-- 38. rampas verticais 2 - segue percurso</span>
+<span class="lineno">  300 </span><span class="spaces">  </span><span class="istickedoff">,(testeMapaV, 3, Carro (2.5,9.5) 0 (0,-2))</span>
+<span class="lineno">  301 </span><span class="spaces">  </span><span class="istickedoff">-- 39. rampas verticais 3 - passa para recta paralela igual</span>
+<span class="lineno">  302 </span><span class="spaces">  </span><span class="istickedoff">,(testeMapaV, 1.1, Carro (2.1,9.5) 0 (-0.9,-0.1))</span>
+<span class="lineno">  303 </span><span class="spaces"></span><span class="istickedoff"></span>
+<span class="lineno">  304 </span><span class="spaces">  </span><span class="istickedoff">----- 2+ PASSOS RECURSIVOS</span>
+<span class="lineno">  305 </span><span class="spaces">  </span><span class="istickedoff">-- 40. rectas: passa percurso 2</span>
+<span class="lineno">  306 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.2, Carro (3.6,1.5) 0 (-1.6,0.1))  </span>
+<span class="lineno">  307 </span><span class="spaces">  </span><span class="istickedoff">-- 41. rectas: passa percurso 3</span>
+<span class="lineno">  308 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.2, Carro (4.6,1.5) 0 (-2.6,0.1))  </span>
+<span class="lineno">  309 </span><span class="spaces">  </span><span class="istickedoff">-- 42. curvas: cai lava (mesma altura) 3</span>
+<span class="lineno">  310 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 1.1, Carro (3.6,1.5) 0 (-2.6,0.1))  </span>
+<span class="lineno">  311 </span><span class="spaces">  </span><span class="istickedoff">-- 43. rectas: adjacente + cai lava (mesma altura) 10 </span>
+<span class="lineno">  312 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 5.5, Carro (12.5,1.2) 0 (-2.1,0.1))</span>
+<span class="lineno">  313 </span><span class="spaces">  </span><span class="istickedoff">-- 44. rectas: adjacente + choca lava 2 </span>
+<span class="lineno">  314 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa , 3.0, Carro (7.5,2.5) 90 (0.7,0.4))</span>
+<span class="lineno">  315 </span><span class="spaces"> </span><span class="istickedoff"></span>
+<span class="lineno">  316 </span><span class="spaces">  </span><span class="istickedoff">-- CORNER CASES (0 tempo/velocidade)</span>
+<span class="lineno">  317 </span><span class="spaces">  </span><span class="istickedoff">-- 45. tempo = 0</span>
+<span class="lineno">  318 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa, 0, Carro (9.5,1.5) 0 (0.1,-0.9))</span>
+<span class="lineno">  319 </span><span class="spaces">  </span><span class="istickedoff">-- 46. velocidade = 0</span>
+<span class="lineno">  320 </span><span class="spaces">  </span><span class="istickedoff">, (testeMapa, 2, Carro (9.5,1.5) 0 (0,0))</span>
+<span class="lineno">  321 </span><span class="spaces"></span><span class="istickedoff"></span>
+<span class="lineno">  322 </span><span class="spaces">  </span><span class="istickedoff">-- simple + complex map</span>
+<span class="lineno">  323 </span><span class="spaces">  </span><span class="istickedoff">, (tab $ constroi simples , 14 , Carro (1.5,5.5) 0 (0.2,-1.0))</span>
+<span class="lineno">  324 </span><span class="spaces">  </span><span class="istickedoff">, (tab $ constroi complexo, 4.5, Carro (2.5,2.5) 0 (2,1))</span>
+<span class="lineno">  325 </span><span class="spaces">  </span><span class="istickedoff">]</span></span>
+<span class="lineno">  326 </span>
+<span class="lineno">  327 </span>
+<span class="lineno">  328 </span>-- mapas do Nuno
+<span class="lineno">  329 </span><span class="decl"><span class="istickedoff">testeMapa' =</span>
+<span class="lineno">  330 </span><span class="spaces">    </span><span class="istickedoff">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],</span>
+<span class="lineno">  331 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca (Curva Norte) 0,Peca (Rampa Este) 0,Peca Recta 1, Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0, Peca (Rampa Oeste) (-1),Peca Recta (-1),Peca (Rampa Este) (-1), Peca (Rampa Este) 0, Peca (Rampa Oeste) 0,  Peca (Rampa Oeste) (-1),Peca (Curva Este) (-1),Peca Lava 0],</span>
+<span class="lineno">  332 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca (Curva Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),Peca (Rampa Este) (-1),Peca (Recta) 0,Peca (Rampa Oeste) (-1),Peca Recta (-1),Peca (Rampa Oeste) (-2),Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),Peca (Rampa Este) (-2), Peca (Curva Sul) (-1),Peca Lava 0],</span>
+<span class="lineno">  333 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</span></span>
+<span class="lineno">  334 </span>    
+<span class="lineno">  335 </span><span class="decl"><span class="istickedoff">testeMapaV = [[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]</span>
+<span class="lineno">  336 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca (Curva Norte) 0,Peca (Curva Este) 0,Peca Lava 0]</span>
+<span class="lineno">  337 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca (Rampa Sul) 0,Peca (Rampa Sul) 0,Peca Lava 0]</span>
+<span class="lineno">  338 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca Recta 1,Peca (Rampa Norte) 0,Peca Lava 0]</span>
+<span class="lineno">  339 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca (Rampa Norte) 0,Peca (Rampa Sul) 0,Peca Lava 0]</span>
+<span class="lineno">  340 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca Recta 0,Peca Recta 1,Peca Lava 0]</span>
+<span class="lineno">  341 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca Recta 0,Peca (Rampa Norte) 0,Peca Lava 0]</span>
+<span class="lineno">  342 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca (Rampa Norte) (-1),Peca (Rampa Norte) (-1),Peca Lava 0]</span>
+<span class="lineno">  343 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca Recta (-1),Peca Recta (-1),Peca Lava 0]</span>
+<span class="lineno">  344 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca (Rampa Sul) (-1),Peca (Rampa Norte) (-2),Peca Lava 0]</span>
+<span class="lineno">  345 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca (Rampa Sul) 0,Peca (Rampa Norte) (-3),Peca Lava 0]</span>
+<span class="lineno">  346 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca (Rampa Norte) 0,Peca (Rampa Sul) (-3),Peca Lava 0]</span>
+<span class="lineno">  347 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca (Rampa Norte) (-1),Peca (Rampa Sul) (-2),Peca Lava 0]</span>
+<span class="lineno">  348 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca (Curva Oeste) (-1),Peca (Curva Sul) (-1),Peca Lava 0]</span>
+<span class="lineno">  349 </span><span class="spaces">             </span><span class="istickedoff">,[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</span></span>
+<span class="lineno">  350 </span>
+<span class="lineno">  351 </span>
+<span class="lineno">  352 </span>-- unitTests = [
+<span class="lineno">  353 </span>--   -- rectas: cai
+<span class="lineno">  354 </span>--     (testeMapa , 1.2, Carro (5.5,2.5) 0 (0.1,-0.9))
+<span class="lineno">  355 </span>--   -- rectas: passa
+<span class="lineno">  356 </span>--   , (testeMapa , 1.2, Carro (8.5,1.5) 0 (0.1,0.9))
+<span class="lineno">  357 </span>--   -- rectas: choca
+<span class="lineno">  358 </span>--   , (testeMapa , 1.2, Carro (5.5,1.5) 0 (0.1,0.9))
+<span class="lineno">  359 </span>--   -- rectas: cai lava
+<span class="lineno">  360 </span>--   , (testeMapa , 1.2, Carro (3.5,1.5) 0 (0.1,-0.9))
+<span class="lineno">  361 </span>--   -- rectas: passa lava
+<span class="lineno">  362 </span>--   , (testeMapa , 1.2, Carro (5.5,1.5) 0 (0.1,-0.9))
+<span class="lineno">  363 </span>--   -- rectas: choca lava
+<span class="lineno">  364 </span>--   , (testeMapa , 1.2, Carro (8.5,1.5) 0 (0.1,-0.9))
+<span class="lineno">  365 </span>
+<span class="lineno">  366 </span>--   -- curva: choca 1
+<span class="lineno">  367 </span>--   , (testeMapa , 1.2, Carro (13.4,1.5) 0 (0.3,-0.1))
+<span class="lineno">  368 </span>--   -- curva: choca 2
+<span class="lineno">  369 </span>--   , (testeMapa , 1.2, Carro (12.5,1.5) 0 (2.8,-0.1))
+<span class="lineno">  370 </span>--   -- curva: cai 1 (passa a lava)
+<span class="lineno">  371 </span>--   , (testeMapa , 1.2, Carro (1.6,1.5) 0 (-0.3,-0.1))
+<span class="lineno">  372 </span>--   -- curva: cai 2 (passa a lava)
+<span class="lineno">  373 </span>--   , (testeMapa , 1.2, Carro (1.6,2.5) 0 (-0.3,-0.1))
+<span class="lineno">  374 </span>
+<span class="lineno">  375 </span>--   -- recta-&gt;curva: cai
+<span class="lineno">  376 </span>--   , (testeCurvas , 1.2, Carro (8.5,3.5) 0 (0.1,-0.9))
+<span class="lineno">  377 </span>--   -- recta-&gt;curva: choca
+<span class="lineno">  378 </span>--   , (testeCurvas , 1.2, Carro (5.5,3.5) 0 (0.1,-0.9))
+<span class="lineno">  379 </span>--   -- recta-&gt;curva: passa a lava
+<span class="lineno">  380 </span>--   , (testeCurvas , 1.2, Carro (3.5,3.5) 0 (0.1,-0.9))
+<span class="lineno">  381 </span>
+<span class="lineno">  382 </span>--   ----- PLANO NOVO (cai se queda &gt;= 1, choca se degrau &gt;= 1, passa se diff. entre 1 e -1)
+<span class="lineno">  383 </span>--   -- rampas: cai 
+<span class="lineno">  384 </span>--   , (testeMapa , 1.2, Carro (10.5,1.5) 0 (-0.1,0.9))
+<span class="lineno">  385 </span>--   -- rampas: choca 
+<span class="lineno">  386 </span>--   , (testeMapa , 1.2, Carro (10.5,2.5) 0 (0.1,-0.9))
+<span class="lineno">  387 </span>--   -- rampas: passa (igual)
+<span class="lineno">  388 </span>--   , (testeMapa , 1.2, Carro (2.5,1.5) 0 (0.1,0.9))
+<span class="lineno">  389 </span>--   -- rampas x2: passa (um pouco maior)
+<span class="lineno">  390 </span>--   , (testeMapa , 1.2, Carro (4.5,1.5) 0 (0.1,0.9))
+<span class="lineno">  391 </span>--   -- rampas x2: passa (um pouco menor)
+<span class="lineno">  392 </span>--   , (testeMapa , 1.2, Carro (4.5,1.5) 0 (-0.1,0.9))
+<span class="lineno">  393 </span>--   ---- casos difíceis (sobe/desce Bom Jesus)!
+<span class="lineno">  394 </span>--   -- rampas: choca (tricky)
+<span class="lineno">  395 </span>--   , (testeMapa , 1.2, Carro (9.5,2.5) 0 (0.1,-0.9))
+<span class="lineno">  396 </span>--   -- rampas: não choca (tricky)
+<span class="lineno">  397 </span>--   , (testeMapa , 1.2, Carro (9.5,2.5) 0 (-0.1,-0.9))
+<span class="lineno">  398 </span>--   -- rampas: passa (tricky)
+<span class="lineno">  399 </span>--   , (testeMapa , 1.2, Carro (9.5,1.5) 0 (0.1,0.9))
+<span class="lineno">  400 </span>--   -- rampas: não passa (tricky)
+<span class="lineno">  401 </span>--   , (testeMapa , 1.2, Carro (9.5,1.5) 0 (-0.1,0.9))
+<span class="lineno">  402 </span>--   -- rampas: choca rés-vés (tricky x2)
+<span class="lineno">  403 </span>--   , (testeMapa , 1.2, Carro (9.5,2.5) 0 (0,-0.9))
+<span class="lineno">  404 </span>--   -- rampas: choca lava
+<span class="lineno">  405 </span>--   , (testeMapa , 1.2, Carro (9.5,2.5) 0 (0.1,0.9))
+<span class="lineno">  406 </span>--   -- rampas: cai lava
+<span class="lineno">  407 </span>--   , (testeMapa , 1.2, Carro (9.5,1.5) 0 (0.1,-0.9))
+<span class="lineno">  408 </span>--   ------
+<span class="lineno">  409 </span>
+<span class="lineno">  410 </span>--   -- tempo = 0
+<span class="lineno">  411 </span>--   , (testeMapa, 0, Carro (9.5,1.5) 0 (0.1,-0.9))
+<span class="lineno">  412 </span>--   -- velocidade = 0
+<span class="lineno">  413 </span>--   , (testeMapa, 2, Carro (9.5,1.5) 0 (0,0))
+<span class="lineno">  414 </span>  
+<span class="lineno">  415 </span>--   ----- PLANO ANTIGO (cai se altura maior, choca se menor, passa se igual)
+<span class="lineno">  416 </span>--   -- -- rampas: cai 
+<span class="lineno">  417 </span>--   -- , (testeMapa , 1.2, Carro (6.5,2.5) 0 (0.1,-0.9)) -- oracle: (6.6,1.4), got Noth
+<span class="lineno">  418 </span>--   -- -- rampas: passa
+<span class="lineno">  419 </span>--   -- , (testeMapa , 1.2, Carro (2.5,1.5) 0 (0.1,0.9))
+<span class="lineno">  420 </span>--   -- -- rampas: choca
+<span class="lineno">  421 </span>--   -- , (testeMapa , 1.2, Carro (3.5,2.5) 0 (0.1,-0.9)) -- oracle: (_.1.5), got (_,2.6)
+<span class="lineno">  422 </span>--   -- -- rampas x2: choca
+<span class="lineno">  423 </span>--   -- , (testeMapa , 1.2, Carro (4.5,1.5) 0 (0.1,0.9))  -- oracle (_.2.5), got (_,1.4)
+<span class="lineno">  424 </span>--   -- -- rampas x2: cai
+<span class="lineno">  425 </span>--   -- , (testeMapa , 1.2, Carro (4.5,1.5) 0 (-0.1,0.9)) -- oracle (4.4,2.6), got Noth
+<span class="lineno">  426 </span>--   -- -- rampas x2: bónus - passa?
+<span class="lineno">  427 </span>--   -- , (testeMapa , 1.2, Carro (4.5,1.5) 0 (0,0.9))
+<span class="lineno">  428 </span>--   -------------
+<span class="lineno">  429 </span>--   ]
+<span class="lineno">  430 </span>
+<span class="lineno">  431 </span>-- ---
+<span class="lineno">  432 </span>-- -- ([[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],[Peca Lava 0,Peca (Curva Norte) 0,Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,Peca (Rampa Oeste) (-1),Peca Recta (-1),Peca (Curva Este) (-1),Peca Lava 0],[Peca Lava 0,Peca (Curva Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),Peca Recta (-1),Peca (Curva Sul) (-1),Peca Lava 0],[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]],
+<span class="lineno">  433 </span>--  -- 1.2, Carro {posicao=(6.5,2.5), direcao=0, velocidade=(0.1,-0.9)})
+<span class="lineno">  434 </span>-- --
+<span class="lineno">  435 </span>-- -- testeMapa   = [[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],[Peca Lava 0,Peca (Curva Norte) 0,Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,Peca (Rampa Oeste) (-1),Peca Recta (-1),Peca (Rampa Este) (-1),Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),Peca (Curva Este) (-1),Peca Lava 0],[Peca Lava 0,Peca (Curva Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),Peca Recta (-1),Peca (Rampa Oeste) (-2),Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),Peca Lava 0],[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]
+<span class="lineno">  436 </span>-- -- testeCurvas = [[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],[Peca Lava 0,Peca (Curva Norte) 0,Peca Lava 0,Peca (Rampa Oeste) (-1),Peca (Curva Este) (-1),Peca Lava 0,Peca (Curva Norte) 0,Peca (Curva Este) 0,Peca Lava 0,Peca (Curva Norte) 1,Peca (Curva Este) 1,Peca Lava 0],[Peca Lava 0,Peca (Rampa Sul) 0,Peca Lava 0,Peca Lava 0,Peca (Curva Oeste) (-1),Peca (Rampa Este) (-1),Peca (Curva Sul) 0,Peca (Curva Oeste) 0,Peca (Rampa Este) 0,Peca (Curva Sul) 1,Peca Recta 1,Peca Lava 0],[Peca Lava 0,Peca (Curva Oeste) 1,Peca Recta 1,Peca Recta 1,Peca Recta 1,Peca Recta 1,Peca Recta 1,Peca Recta 1,Peca Recta 1,Peca Recta 1,Peca (Curva Sul) 1,Peca Lava 0],[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]
+<span class="lineno">  437 </span>
+<span class="lineno">  438 </span>
+
+</pre>
+</body>
+</html>

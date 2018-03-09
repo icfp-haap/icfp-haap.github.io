@@ -1,0 +1,242 @@
+<html>
+<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108230466-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108230466-1');
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+span.lineno { color: white; background: #aaaaaa; border-right: solid white 12px }
+span.nottickedoff { background: yellow}
+span.istickedoff { background: white }
+span.tickonlyfalse { margin: -1px; border: 1px solid #f20913; background: #f20913 }
+span.tickonlytrue  { margin: -1px; border: 1px solid #60de51; background: #60de51 }
+span.funcount { font-size: small; color: orange; z-index: 2; position: absolute; right: 20 }
+span.decl { font-weight: bold }
+span.spaces    { background: white }
+</style>
+</head>
+<body><pre>
+<span class="decl"><span class="nottickedoff">never executed</span> <span class="tickonlytrue">always true</span> <span class="tickonlyfalse">always false</span></span>
+</pre>
+<pre>
+<span class="decl"><span class="nottickedoff">never executed</span> <span class="tickonlytrue">always true</span> <span class="tickonlyfalse">always false</span></span>
+</pre>
+<pre>
+<span class="lineno">    1 </span>module Tarefa1_2017li1g182 where
+<span class="lineno">    2 </span>
+<span class="lineno">    3 </span>import LI11718
+<span class="lineno">    4 </span>
+<span class="lineno">    5 </span>---------------------
+<span class="lineno">    6 </span>constroi :: Caminho -&gt; Mapa
+<span class="lineno">    7 </span><span class="decl"><span class="istickedoff">constroi c = Mapa <span class="nottickedoff">(partida c,dirInit)</span> tab</span>
+<span class="lineno">    8 </span><span class="spaces">  </span><span class="istickedoff">where Mapa (finishPos,finishDir) tab =</span>
+<span class="lineno">    9 </span><span class="spaces">          </span><span class="istickedoff">constroiAux (Mapa (partida c,dirInit) (initTab c)) altInit c</span></span>
+<span class="lineno">   10 </span>
+<span class="lineno">   11 </span>initTab :: Caminho -&gt; Tabuleiro
+<span class="lineno">   12 </span><span class="decl"><span class="istickedoff">initTab c = replicate y $ replicate x  $ Peca Lava altLava</span>
+<span class="lineno">   13 </span><span class="spaces">  </span><span class="istickedoff">where (x,y) = dimensao c</span></span> 
+<span class="lineno">   14 </span>
+<span class="lineno">   15 </span>constroiAux :: Mapa -&gt; Altura -&gt; Caminho -&gt; Mapa
+<span class="lineno">   16 </span><span class="decl"><span class="istickedoff">constroiAux m _ [] = m</span>
+<span class="lineno">   17 </span><span class="spaces"></span><span class="istickedoff">constroiAux (Mapa (pos,dir) tab) a (i:is) =</span>
+<span class="lineno">   18 </span><span class="spaces">  </span><span class="istickedoff">constroiAux (Mapa (p',d') novoMapa) a' is</span>
+<span class="lineno">   19 </span><span class="spaces">  </span><span class="istickedoff">where</span>
+<span class="lineno">   20 </span><span class="spaces">    </span><span class="istickedoff">(p',d',a',novoMapa) = insere i pos dir a tab</span></span>
+<span class="lineno">   21 </span>
+<span class="lineno">   22 </span><span class="decl"><span class="istickedoff">insere Avanca   pos dir a tab = (go pos dir, dir, a,   coloca (Peca Recta               a) pos tab)</span>
+<span class="lineno">   23 </span><span class="spaces"></span><span class="istickedoff">insere Sobe     pos dir a tab = (go pos dir, dir, a+1, coloca (Peca (Rampa dir)         a) pos tab)</span>
+<span class="lineno">   24 </span><span class="spaces"></span><span class="istickedoff">insere Desce    pos dir a tab = (go pos dir, dir, a-1, coloca (Peca (Rampa (swap dir)) (a-1)) pos tab)</span>
+<span class="lineno">   25 </span><span class="spaces"></span><span class="istickedoff">insere CurvaEsq pos dir a tab = (go pos des, des, a,   coloca (Peca (Curva (tr dir))    a) pos tab)</span>
+<span class="lineno">   26 </span><span class="spaces">  </span><span class="istickedoff">where des = tr.tr.tr$dir</span>
+<span class="lineno">   27 </span><span class="spaces"></span><span class="istickedoff">insere CurvaDir pos dir a tab = (go pos ddi, ddi, a,   coloca (Peca (Curva dir)         a) pos tab)</span>
+<span class="lineno">   28 </span><span class="spaces">  </span><span class="istickedoff">where ddi = tr dir</span></span>
+<span class="lineno">   29 </span>
+<span class="lineno">   30 </span><span class="decl"><span class="istickedoff">swap = tr.tr</span></span>
+<span class="lineno">   31 </span>
+<span class="lineno">   32 </span>coloca :: a -&gt; Posicao -&gt; [[a]] -&gt; [[a]]
+<span class="lineno">   33 </span><span class="decl"><span class="istickedoff">coloca peca (0,0) ((_:l):ls) = (peca:l):ls</span>
+<span class="lineno">   34 </span><span class="spaces"></span><span class="istickedoff">coloca p (x,0) ((h:t):ls) = let (a2:b2) = coloca p (x-1,0) (t:ls)</span>
+<span class="lineno">   35 </span><span class="spaces">                            </span><span class="istickedoff">in (h:a2):b2</span>
+<span class="lineno">   36 </span><span class="spaces"></span><span class="istickedoff">coloca p (x,y) (l:ls) = l : (coloca p (x,y-1) ls)</span></span>
+<span class="lineno">   37 </span>
+<span class="lineno">   38 </span><span class="decl"><span class="istickedoff">go (x,y) Norte = (x,y-1)</span>
+<span class="lineno">   39 </span><span class="spaces"></span><span class="istickedoff">go (x,y) Sul   = (x,y+1)</span>
+<span class="lineno">   40 </span><span class="spaces"></span><span class="istickedoff">go (x,y) Este  = (x+1,y)</span>
+<span class="lineno">   41 </span><span class="spaces"></span><span class="istickedoff">go (x,y) Oeste = (x-1,y)</span></span>
+<span class="lineno">   42 </span>
+<span class="lineno">   43 </span><span class="decl"><span class="istickedoff">tr Norte = Este</span>
+<span class="lineno">   44 </span><span class="spaces"></span><span class="istickedoff">tr Este  = Sul</span>
+<span class="lineno">   45 </span><span class="spaces"></span><span class="istickedoff">tr Sul   = Oeste</span>
+<span class="lineno">   46 </span><span class="spaces"></span><span class="istickedoff">tr Oeste = Norte</span></span>
+<span class="lineno">   47 </span>
+<span class="lineno">   48 </span>
+<span class="lineno">   49 </span>-- ---------------
+<span class="lineno">   50 </span>-- -- visualize
+<span class="lineno">   51 </span>-- ---------------
+<span class="lineno">   52 </span>-- printMapa (Mapa _ tab) =
+<span class="lineno">   53 </span>--   putStr $
+<span class="lineno">   54 </span>--   concatMap ((++&quot;\n&quot;).concatMap printPeca) tab
+<span class="lineno">   55 </span>
+<span class="lineno">   56 </span>-- printHeight (Mapa _ tab) =
+<span class="lineno">   57 </span>--   putStr $
+<span class="lineno">   58 </span>--   concatMap ((++&quot;\n&quot;).concatMap printPHeight) tab
+<span class="lineno">   59 </span>
+<span class="lineno">   60 </span>-- printPHeight (Peca _ a) = if a &gt;=0 then &quot; &quot;++show a else show a
+<span class="lineno">   61 </span>-- printPeca (Peca t _) = printTipoPeca t
+<span class="lineno">   62 </span>-- printTipoPeca :: Tipo -&gt; String
+<span class="lineno">   63 </span>-- printTipoPeca Recta  = &quot;[]&quot;
+<span class="lineno">   64 </span>-- printTipoPeca (Rampa Norte) = &quot;/\\&quot;
+<span class="lineno">   65 </span>-- printTipoPeca (Rampa Este)  = &quot;~&gt;&quot;
+<span class="lineno">   66 </span>-- printTipoPeca (Rampa Sul)   = &quot;\\/&quot;
+<span class="lineno">   67 </span>-- printTipoPeca (Rampa Oeste) = &quot;&lt;~&quot;
+<span class="lineno">   68 </span>-- printTipoPeca (Curva Oeste) = &quot;'-&quot;
+<span class="lineno">   69 </span>-- printTipoPeca (Curva Sul)   = &quot;-'&quot;
+<span class="lineno">   70 </span>-- printTipoPeca (Curva Norte) = &quot;,-&quot;
+<span class="lineno">   71 </span>-- printTipoPeca (Curva Este)  = &quot;-,&quot;
+<span class="lineno">   72 </span>-- printTipoPeca Lava       = &quot;..&quot;
+<span class="lineno">   73 </span>
+<span class="lineno">   74 </span>
+<span class="lineno">   75 </span>---------------- from Nuno
+<span class="lineno">   76 </span>testesT1 :: [Caminho]
+<span class="lineno">   77 </span><span class="decl"><span class="nottickedoff">testesT1 = [c_ex1,c_ex1',c_ex2,c_ex4,c_ex5,c_ex6</span>
+<span class="lineno">   78 </span><span class="spaces">           </span><span class="nottickedoff">,c_exOP,c_exDM,c_exOL,c_exHM,c_exR,c_exE]</span></span>
+<span class="lineno">   79 </span>
+<span class="lineno">   80 </span>           -- ,m_ex1,m_ex2,m_ex3
+<span class="lineno">   81 </span>           -- ,m_exPI,m_exLV,m_exEX,m_exLH]
+<span class="lineno">   82 </span>
+<span class="lineno">   83 </span>c_ex1 :: Caminho
+<span class="lineno">   84 </span><span class="decl"><span class="istickedoff">c_ex1 = [Avanca,CurvaEsq,Avanca,CurvaDir,Avanca,CurvaDir,Desce,Avanca,CurvaEsq,CurvaDir</span>
+<span class="lineno">   85 </span><span class="spaces">      </span><span class="istickedoff">,CurvaEsq,CurvaDir,CurvaDir,CurvaEsq,CurvaDir,CurvaEsq,CurvaEsq,Avanca,Avanca</span>
+<span class="lineno">   86 </span><span class="spaces">      </span><span class="istickedoff">,Desce,CurvaDir,CurvaDir,Avanca,Avanca,Desce,CurvaEsq,CurvaDir,Sobe,CurvaDir</span>
+<span class="lineno">   87 </span><span class="spaces">      </span><span class="istickedoff">,CurvaEsq,CurvaDir,CurvaEsq,Avanca,CurvaDir,Sobe,Sobe,Avanca,Avanca,CurvaDir,Avanca]</span></span>
+<span class="lineno">   88 </span>
+<span class="lineno">   89 </span>c_ex1' :: Caminho
+<span class="lineno">   90 </span><span class="decl"><span class="istickedoff">c_ex1' = [Avanca,CurvaEsq,Avanca,CurvaDir,Avanca,CurvaDir,Sobe,Avanca,CurvaEsq,CurvaDir</span>
+<span class="lineno">   91 </span><span class="spaces">      </span><span class="istickedoff">,CurvaEsq,CurvaDir,CurvaDir,CurvaEsq,CurvaDir,CurvaEsq,CurvaEsq,Avanca,Avanca</span>
+<span class="lineno">   92 </span><span class="spaces">      </span><span class="istickedoff">,Sobe,CurvaDir,CurvaDir,Avanca,Avanca,Sobe,CurvaEsq,CurvaDir,Desce,CurvaDir</span>
+<span class="lineno">   93 </span><span class="spaces">      </span><span class="istickedoff">,CurvaEsq,CurvaDir,CurvaEsq,Avanca,CurvaDir,Desce,Desce,Avanca,Avanca,CurvaDir,Avanca]</span></span>
+<span class="lineno">   94 </span>
+<span class="lineno">   95 </span>c_ex2 :: Caminho
+<span class="lineno">   96 </span><span class="decl"><span class="istickedoff">c_ex2 = [Avanca,CurvaEsq,CurvaEsq,Avanca,CurvaEsq,CurvaEsq]</span></span>
+<span class="lineno">   97 </span>
+<span class="lineno">   98 </span>-- mapa sobreposto, altura /= da inicial
+<span class="lineno">   99 </span>c_ex3 :: Caminho
+<span class="lineno">  100 </span><span class="decl"><span class="istickedoff">c_ex3 = [Desce,CurvaEsq,CurvaEsq,Desce,CurvaEsq,CurvaEsq</span>
+<span class="lineno">  101 </span><span class="spaces">        </span><span class="istickedoff">,Avanca,CurvaEsq,CurvaEsq,Avanca,CurvaEsq,CurvaEsq]</span></span>
+<span class="lineno">  102 </span>
+<span class="lineno">  103 </span>-- caminho em 8, cruza
+<span class="lineno">  104 </span>c_ex4 :: Caminho
+<span class="lineno">  105 </span><span class="decl"><span class="istickedoff">c_ex4 = [Avanca,CurvaDir,Avanca,Avanca,Avanca,CurvaEsq,Avanca,CurvaEsq,Avanca</span>
+<span class="lineno">  106 </span><span class="spaces">        </span><span class="istickedoff">,CurvaEsq,Avanca,Avanca,Avanca,CurvaDir,Avanca,CurvaDir]</span></span>
+<span class="lineno">  107 </span>
+<span class="lineno">  108 </span>-- caminho minimo válido
+<span class="lineno">  109 </span>c_ex5 :: Caminho
+<span class="lineno">  110 </span><span class="decl"><span class="istickedoff">c_ex5 = [CurvaDir,CurvaDir,CurvaDir,CurvaDir]</span></span>
+<span class="lineno">  111 </span>      
+<span class="lineno">  112 </span>-- caminho minimo sem vizinhos
+<span class="lineno">  113 </span>c_ex6 :: Caminho
+<span class="lineno">  114 </span><span class="decl"><span class="istickedoff">c_ex6 = [Avanca,CurvaDir,Avanca,CurvaDir,Avanca,CurvaDir,Avanca,CurvaDir]</span></span>
+<span class="lineno">  115 </span>
+<span class="lineno">  116 </span>-- mapa nao geravel por caminhos, lava extra a volta
+<span class="lineno">  117 </span><span class="decl"><span class="nottickedoff">m_ex1 = Mapa ((2,1),Este) [[Peca Lava 2, Peca Lava 2, Peca Lava 2, Peca Lava 2]</span>
+<span class="lineno">  118 </span><span class="spaces">                          </span><span class="nottickedoff">,[Peca Lava 2, Peca (Curva Norte) 2,Peca (Curva Este) 2, Peca Lava 2]</span>
+<span class="lineno">  119 </span><span class="spaces">                          </span><span class="nottickedoff">,[Peca Lava 2, Peca (Curva Oeste) 2,Peca (Curva Sul) 2, Peca Lava 2]</span>
+<span class="lineno">  120 </span><span class="spaces">                          </span><span class="nottickedoff">,[Peca Lava 2, Peca Lava 2, Peca Lava 2, Peca Lava 2]]</span></span>
+<span class="lineno">  121 </span>
+<span class="lineno">  122 </span>-- mapa nao geravel por caminhos, altura /= inicial sem possibilidade de rampas
+<span class="lineno">  123 </span><span class="decl"><span class="nottickedoff">m_ex2 = Mapa ((1,0),Este) [[Peca (Curva Norte) 5,Peca (Curva Este) 5],[Peca (Curva Oeste) 5,Peca (Curva Sul) 5]]</span></span>
+<span class="lineno">  124 </span>
+<span class="lineno">  125 </span>-- mapa minimo sem vizinhos
+<span class="lineno">  126 </span><span class="decl"><span class="nottickedoff">m_ex3 = Mapa ((1,0),Este) [[Peca (Curva Norte) 2,Peca Recta 2,Peca (Curva Este) 2],[Peca Recta 2,Peca Lava 2,Peca Recta 2],[Peca (Curva Oeste) 2,Peca Recta 2,Peca (Curva Sul) 2]]</span></span>
+<span class="lineno">  127 </span>
+<span class="lineno">  128 </span>
+<span class="lineno">  129 </span>-- testes invalidos
+<span class="lineno">  130 </span>-- aberto
+<span class="lineno">  131 </span>c_exOP :: Caminho
+<span class="lineno">  132 </span><span class="decl"><span class="nottickedoff">c_exOP = [Avanca,Avanca,CurvaDir,Avanca,Avanca,CurvaEsq,Avanca,CurvaDir,CurvaDir</span>
+<span class="lineno">  133 </span><span class="spaces">         </span><span class="nottickedoff">,Avanca,Avanca,Avanca,CurvaDir,CurvaEsq,Avanca,Avanca,CurvaDir,Avanca,Avanca,CurvaDir,Avanca]</span></span>      
+<span class="lineno">  134 </span>
+<span class="lineno">  135 </span>-- fecha mas direcao errada
+<span class="lineno">  136 </span>c_exDM :: Caminho
+<span class="lineno">  137 </span><span class="decl"><span class="nottickedoff">c_exDM = [Sobe,CurvaEsq,CurvaEsq,Sobe,CurvaEsq,CurvaEsq</span>
+<span class="lineno">  138 </span><span class="spaces">         </span><span class="nottickedoff">,Avanca,CurvaEsq,CurvaEsq,Avanca,CurvaEsq,Avanca]</span></span>
+<span class="lineno">  139 </span>
+<span class="lineno">  140 </span>-- overlaps, aberto
+<span class="lineno">  141 </span>c_exOL :: Caminho
+<span class="lineno">  142 </span><span class="decl"><span class="nottickedoff">c_exOL = [Avanca,Avanca,CurvaDir,Avanca,Avanca,CurvaEsq,Avanca,CurvaDir,CurvaDir</span>
+<span class="lineno">  143 </span><span class="spaces">         </span><span class="nottickedoff">,Avanca,CurvaDir,Avanca,CurvaDir,CurvaEsq,Avanca,CurvaDir,Avanca,Avanca,CurvaDir,Avanca]</span></span>              
+<span class="lineno">  144 </span>
+<span class="lineno">  145 </span>-- height mismatch
+<span class="lineno">  146 </span>c_exHM :: Caminho
+<span class="lineno">  147 </span><span class="decl"><span class="nottickedoff">c_exHM = [Avanca,Avanca,CurvaDir,Avanca,Avanca,CurvaEsq,Avanca,CurvaDir,CurvaDir</span>
+<span class="lineno">  148 </span><span class="spaces">         </span><span class="nottickedoff">,Avanca,Sobe,Avanca,CurvaDir,CurvaEsq,Avanca,CurvaDir,Avanca,Avanca,CurvaDir,Avanca]</span></span>
+<span class="lineno">  149 </span>
+<span class="lineno">  150 </span>-- cruza com alturas invalidas
+<span class="lineno">  151 </span>c_exR :: Caminho
+<span class="lineno">  152 </span><span class="decl"><span class="nottickedoff">c_exR = [Avanca,CurvaDir,Avanca,Avanca,Avanca,CurvaEsq,Sobe,CurvaEsq,Avanca</span>
+<span class="lineno">  153 </span><span class="spaces">        </span><span class="nottickedoff">,CurvaEsq,Avanca,Avanca,Avanca,CurvaDir,Desce,CurvaDir]</span></span>
+<span class="lineno">  154 </span>
+<span class="lineno">  155 </span>{-
+<span class="lineno">  156 </span>let map = constroi c_exR
+<span class="lineno">  157 </span>printHeight map
+<span class="lineno">  158 </span>-}
+<span class="lineno">  159 </span>
+<span class="lineno">  160 </span>-- caminho vazio
+<span class="lineno">  161 </span>c_exE :: Caminho
+<span class="lineno">  162 </span><span class="decl"><span class="nottickedoff">c_exE = []</span></span>
+<span class="lineno">  163 </span>
+<span class="lineno">  164 </span>-- posicao inicial invalida
+<span class="lineno">  165 </span><span class="decl"><span class="nottickedoff">m_exPI = Mapa ((0,0),Este) [[Peca (Curva Norte) 2,Peca (Curva Este) 2],[Peca (Curva Oeste) 2,Peca (Curva Sul) 2]]</span></span>
+<span class="lineno">  166 </span>
+<span class="lineno">  167 </span>-- mapa so lava
+<span class="lineno">  168 </span>-- m_exLV = Mapa ((0,0),Este) $ theFloorIsLava (5,10)
+<span class="lineno">  169 </span>
+<span class="lineno">  170 </span>-- mapa com caminho extra
+<span class="lineno">  171 </span><span class="decl"><span class="nottickedoff">m_exEX = Mapa ((1,0),Este) [[Peca (Curva Norte) 2,Peca Recta 2,Peca (Curva Este) 2],[Peca Recta 2,Peca Recta 2,Peca Recta 2],[Peca (Curva Oeste) 2,Peca Recta 2,Peca (Curva Sul) 2]]</span></span>
+<span class="lineno">  172 </span>
+<span class="lineno">  173 </span>-- altura da lava invalida
+<span class="lineno">  174 </span><span class="decl"><span class="nottickedoff">m_exLH = Mapa ((1,0),Este) [[Peca (Curva Norte) 2,Peca Recta 2,Peca (Curva Este) 2],[Peca Recta 2,Peca Lava 0,Peca Recta 2],[Peca (Curva Oeste) 2,Peca Recta 2,Peca (Curva Sul) 2]]</span></span>
+<span class="lineno">  175 </span>
+<span class="lineno">  176 </span>
+<span class="lineno">  177 </span>----- mapa simples e complexo (válidos)
+<span class="lineno">  178 </span><span class="decl"><span class="istickedoff">char2inst c = case c of</span>
+<span class="lineno">  179 </span><span class="spaces">  </span><span class="istickedoff">'l' -&gt; CurvaEsq</span>
+<span class="lineno">  180 </span><span class="spaces">  </span><span class="istickedoff">'r' -&gt; CurvaDir</span>
+<span class="lineno">  181 </span><span class="spaces">  </span><span class="istickedoff">'u' -&gt; Sobe</span>
+<span class="lineno">  182 </span><span class="spaces">  </span><span class="istickedoff">'d' -&gt; Desce</span>
+<span class="lineno">  183 </span><span class="spaces">  </span><span class="istickedoff">_ -&gt; Avanca</span></span>
+<span class="lineno">  184 </span>
+<span class="lineno">  185 </span><span class="decl"><span class="istickedoff">simples = map char2inst $</span>
+<span class="lineno">  186 </span><span class="spaces">  </span><span class="istickedoff">&quot;ffffffl&quot;++</span>
+<span class="lineno">  187 </span><span class="spaces">  </span><span class="istickedoff">&quot;ffddfl&quot;++</span>
+<span class="lineno">  188 </span><span class="spaces">  </span><span class="istickedoff">&quot;ffffffl&quot;++</span>
+<span class="lineno">  189 </span><span class="spaces">  </span><span class="istickedoff">&quot;ffuufl&quot;</span></span>
+<span class="lineno">  190 </span>
+<span class="lineno">  191 </span><span class="decl"><span class="istickedoff">complexo = generate 6</span>
+<span class="lineno">  192 </span><span class="spaces"> </span><span class="istickedoff">where generate n = map char2inst $</span>
+<span class="lineno">  193 </span><span class="spaces">         </span><span class="istickedoff">(concat $ replicate n &quot;ffflllffrrr&quot;) ++</span>
+<span class="lineno">  194 </span><span class="spaces">         </span><span class="istickedoff">&quot;frfrff&quot;++</span>
+<span class="lineno">  195 </span><span class="spaces">         </span><span class="istickedoff">(concat $ replicate (n-1) &quot;rlf&quot;) ++</span>
+<span class="lineno">  196 </span><span class="spaces">         </span><span class="istickedoff">&quot;rffr&quot;</span></span>
+<span class="lineno">  197 </span>
+<span class="lineno">  198 </span><span class="decl"><span class="nottickedoff">complexoNoShrct = generate 6</span>
+<span class="lineno">  199 </span><span class="spaces"> </span><span class="nottickedoff">where generate n = map char2inst $</span>
+<span class="lineno">  200 </span><span class="spaces">         </span><span class="nottickedoff">(concat $ replicate n &quot;ffflulldffrdrruf&quot;) ++</span>
+<span class="lineno">  201 </span><span class="spaces">         </span><span class="nottickedoff">&quot;rfrfff&quot; ++</span>
+<span class="lineno">  202 </span><span class="spaces">         </span><span class="nottickedoff">(concat $ replicate (n-1) &quot;rlff&quot;) ++</span>
+<span class="lineno">  203 </span><span class="spaces">         </span><span class="nottickedoff">&quot;rffr&quot;</span></span>
+<span class="lineno">  204 </span>
+<span class="lineno">  205 </span>  -- &quot;frfrffffffffffrffffffr&quot;
+<span class="lineno">  206 </span>
+<span class="lineno">  207 </span>
+<span class="lineno">  208 </span>
+
+</pre>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108230466-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108230466-1');
+</script>
+
+    
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.find,Number.isFinite,Number.isInteger,console,console.log,document.head,performance.now"></script>
+      <title>CodeWorld - Race Viewer</title>
+      <link rel="stylesheet" href="../../../../../../css/codeworld.css">
+    
+    <script language="javascript" src="./rts.js"></script>
+    <script language="javascript" src="./lib.js"></script>
+    <script language="javascript" src="./out.js"></script>
+  </head>
+  <body style="text-align: center">
+      
+    
+    <img style="display: none;" id="lava" src="../../../../../../images/lava.jpg">
+    
+    <img style="display: none;" id="nitro1" src="../../../../../../images/nitro1.png">
+    
+    <img style="display: none;" id="nitro2" src="../../../../../../images/nitro2.png">
+    
+    <img style="display: none;" id="nitro3" src="../../../../../../images/nitro3.png">
+    
+    <img style="display: none;" id="nitro4" src="../../../../../../images/nitro4.png">
+    
+    <img style="display: none;" id="puff" src="../../../../../../images/puff.png">
+    
+    <img style="display: none;" id="bar1" src="../../../../../../images/bar1.png">
+    
+    <img style="display: none;" id="bar2" src="../../../../../../images/bar2.png">
+    
+    <img style="display: none;" id="bar3" src="../../../../../../images/bar3.png">
+    
+    <img style="display: none;" id="bar4" src="../../../../../../images/bar4.png">
+    
+    <img style="display: none;" id="p1" src="../../../../../../images/p1.png">
+    
+    <img style="display: none;" id="p2" src="../../../../../../images/p2.png">
+    
+    <img style="display: none;" id="p3" src="../../../../../../images/p3.png">
+    
+    <img style="display: none;" id="p4" src="../../../../../../images/p4.png">
+    
+    <img style="display: none;" id="c1" src="../../../../../../images/c1.png">
+    
+    <img style="display: none;" id="c2" src="../../../../../../images/c2.png">
+    
+    <img style="display: none;" id="c3" src="../../../../../../images/c3.png">
+    
+    <img style="display: none;" id="c4" src="../../../../../../images/c4.png">
+    
+    <img style="display: none;" id="n1" src="../../../../../../images/1.png">
+    
+    <img style="display: none;" id="n2" src="../../../../../../images/2.png">
+    
+    <img style="display: none;" id="n3" src="../../../../../../images/3.png">
+    
+    <img style="display: none;" id="n4" src="../../../../../../images/4.png">
+    
+    <img style="display: none;" id="btt" src="../../../../../../images/btt.png">
+    
+    <img style="display: none;" id="mrt" src="../../../../../../images/mrt.png">
+    
+    <img style="display: none;" id="timer" src="../../../../../../images/timer.png">
+    
+    <img style="display: none;" id="f0" src="../../../../../../images/fonts/0.bmp">
+    
+    <img style="display: none;" id="f1" src="../../../../../../images/fonts/1.bmp">
+    
+    <img style="display: none;" id="f2" src="../../../../../../images/fonts/2.bmp">
+    
+    <img style="display: none;" id="f3" src="../../../../../../images/fonts/3.bmp">
+    
+    <img style="display: none;" id="f4" src="../../../../../../images/fonts/4.bmp">
+    
+    <img style="display: none;" id="f5" src="../../../../../../images/fonts/5.bmp">
+    
+    <img style="display: none;" id="f6" src="../../../../../../images/fonts/6.bmp">
+    
+    <img style="display: none;" id="f7" src="../../../../../../images/fonts/7.bmp">
+    
+    <img style="display: none;" id="f8" src="../../../../../../images/fonts/8.bmp">
+    
+    <img style="display: none;" id="f9" src="../../../../../../images/fonts/9.bmp">
+    
+    <img style="display: none;" id="fa" src="../../../../../../images/fonts/a.bmp">
+    
+    <img style="display: none;" id="fb" src="../../../../../../images/fonts/b.bmp">
+    
+    <img style="display: none;" id="fc" src="../../../../../../images/fonts/c.bmp">
+    
+    <img style="display: none;" id="fd" src="../../../../../../images/fonts/d.bmp">
+    
+    <img style="display: none;" id="fe" src="../../../../../../images/fonts/e.bmp">
+    
+    <img style="display: none;" id="ff" src="../../../../../../images/fonts/f.bmp">
+    
+    <img style="display: none;" id="fg" src="../../../../../../images/fonts/g.bmp">
+    
+    <img style="display: none;" id="fh" src="../../../../../../images/fonts/h.bmp">
+    
+    <img style="display: none;" id="fi" src="../../../../../../images/fonts/i.bmp">
+    
+    <img style="display: none;" id="fj" src="../../../../../../images/fonts/j.bmp">
+    
+    <img style="display: none;" id="fk" src="../../../../../../images/fonts/k.bmp">
+    
+    <img style="display: none;" id="fl" src="../../../../../../images/fonts/l.bmp">
+    
+    <img style="display: none;" id="fm" src="../../../../../../images/fonts/m.bmp">
+    
+    <img style="display: none;" id="fn" src="../../../../../../images/fonts/n.bmp">
+    
+    <img style="display: none;" id="fo" src="../../../../../../images/fonts/o.bmp">
+    
+    <img style="display: none;" id="fp" src="../../../../../../images/fonts/p.bmp">
+    
+    <img style="display: none;" id="fq" src="../../../../../../images/fonts/q.bmp">
+    
+    <img style="display: none;" id="fr" src="../../../../../../images/fonts/r.bmp">
+    
+    <img style="display: none;" id="fs" src="../../../../../../images/fonts/s.bmp">
+    
+    <img style="display: none;" id="ft" src="../../../../../../images/fonts/t.bmp">
+    
+    <img style="display: none;" id="fu" src="../../../../../../images/fonts/u.bmp">
+    
+    <img style="display: none;" id="fv" src="../../../../../../images/fonts/v.bmp">
+    
+    <img style="display: none;" id="fw" src="../../../../../../images/fonts/w.bmp">
+    
+    <img style="display: none;" id="fx" src="../../../../../../images/fonts/x.bmp">
+    
+    <img style="display: none;" id="fy" src="../../../../../../images/fonts/y.bmp">
+    
+    <img style="display: none;" id="fz" src="../../../../../../images/fonts/z.bmp">
+    
+      
+    <canvas id="screen"></canvas>
+    <textarea style="display: none;" id="text"></textarea>
+    <pre id="message" class="dropbox game">=== Compiling ===
+Output:
+[10 of 10] Compiling Main             ( Animate.hs, Animate.js_o )
+Linking ../../../../../tmp/tourneys/t6/tourney1/round128/match2/Animate.jsexe (AnimateT6,JSImages,LI11718,Main,Mapas,OracleT1,OracleT2,OracleT3,OracleT4,SimulateT6)
+
+Errors:
+
+Exit Code: 0
+=== Running ===</pre>
+  </body>
+  
+  <script type="text/javascript">
+    function reportRuntimeError(err, str) {
+      if (window.parent.addToMessage) {
+        var message = window.parent.addToMessage('\n' + str);
+
+        if (err) {
+          var message = window.parent.document.getElementById('message');
+          message.classList.add('error');
+        }
+      } else {
+        console.log(str);
+      }
+    }
+  </script>
+  
+  <script type="text/javascript" src="./runmain.js"></script>
+  <script type="text/javascript" src="../../../../../../js/ghcjs-debugmode.js"></script>
+  <script type="text/javascript" src="../../../../../../js/cw-demo.js"></script>
+</html>

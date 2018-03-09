@@ -1,0 +1,1878 @@
+
+<!DOCTYPE html>
+<html>
+
+<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108230466-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108230466-1');
+</script>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <title>Tarefa 3</title>
+</head>
+
+<body>
+
+<p>Output:
+[1 of 4] Compiling LI11718          ( LI11718.hs, LI11718.o )
+[2 of 4] Compiling Tarefa2_2017li1g183 ( Tarefa2_2017li1g183.hs, Tarefa2_2017li1g183.o )
+[3 of 4] Compiling Tarefa3_2017li1g183 ( Tarefa3_2017li1g183.hs, Tarefa3_2017li1g183.o )
+[4 of 4] Compiling Main             ( RunT3.hs, RunT3.o )
+Linking RunT3 ...
+
+Errors:
+
+Exit Code: 0</p>
+    
+<div id="demo">
+
+<div id="tablediv" class="table-responsive-vertical shadow-z-1">
+<table id="table" class="table table-hover table-mc-light-blue">
+    <thead>
+        <tr>
+            
+                <th>(Tabuleiro,Tempo,Carro)</th>
+            
+            <th>Resultado</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/1/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (5.5,1.5), direcao = 0.0, velocidade = (0.9,0.1)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/2/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (5.5,2.5), direcao = 0.0, velocidade = (0.1,-0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/3/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (8.5,1.5), direcao = 0.0, velocidade = (0.1,0.9)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 99.60%
+oracle: Just Carro {posicao = (8.631087235659646,2.587157636468405), direcao = 0.0, velocidade = (0.1,0.9)}
+solution: Just Carro {posicao = (8.62,2.58), direcao = 0.0, velocidade = (0.1,0.9)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/4/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (5.5,1.5), direcao = 0.0, velocidade = (0.1,0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/5/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (3.5,1.5), direcao = 0.0, velocidade = (0.1,-0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/6/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (5.5,1.5), direcao = 0.0, velocidade = (0.1,-0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/7/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (8.5,1.5), direcao = 0.0, velocidade = (0.1,-0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/8/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (13.4,1.5), direcao = 0.0, velocidade = (0.3,-0.1)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/9/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (1.6,1.5), direcao = 0.0, velocidade = (-0.3,-0.1)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/10/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Oeste) (-1),Peca (Curva Este) (-1),
+  Peca Lava 0,Peca (Curva Norte) 0,Peca (Curva Este) 0,
+  Peca Lava 0,Peca (Curva Norte) 1,Peca (Curva Este) 1,
+  Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) 0,Peca Lava 0,
+  Peca (Curva Oeste) (-1),Peca (Rampa Este) (-1),
+  Peca (Curva Sul) 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Curva Sul) 1,Peca Recta 1,
+  Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca Recta 1,Peca (Curva Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+......................
+..//&lt;&lt;\\..//\\..//\\..
+..\/..\\&gt;&gt;//\\&gt;&gt;//[]..
+..\\&lt;&lt;[]&lt;&lt;[]&gt;&gt;&gt;&gt;[]//..
+......................
+,1.2,Carro {posicao = (8.5,3.5), direcao = 0.0, velocidade = (0.1,-0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/11/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Oeste) (-1),Peca (Curva Este) (-1),
+  Peca Lava 0,Peca (Curva Norte) 0,Peca (Curva Este) 0,
+  Peca Lava 0,Peca (Curva Norte) 1,Peca (Curva Este) 1,
+  Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) 0,Peca Lava 0,
+  Peca (Curva Oeste) (-1),Peca (Rampa Este) (-1),
+  Peca (Curva Sul) 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Curva Sul) 1,Peca Recta 1,
+  Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca Recta 1,Peca (Curva Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+......................
+..//&lt;&lt;\\..//\\..//\\..
+..\/..\\&gt;&gt;//\\&gt;&gt;//[]..
+..\\&lt;&lt;[]&lt;&lt;[]&gt;&gt;&gt;&gt;[]//..
+......................
+,1.2,Carro {posicao = (5.5,3.5), direcao = 0.0, velocidade = (0.1,-0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/12/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Oeste) (-1),Peca (Curva Este) (-1),
+  Peca Lava 0,Peca (Curva Norte) 0,Peca (Curva Este) 0,
+  Peca Lava 0,Peca (Curva Norte) 1,Peca (Curva Este) 1,
+  Peca Lava 0],
+ [Peca Lava 0,Peca (Rampa Sul) 0,Peca Lava 0,
+  Peca (Curva Oeste) (-1),Peca (Rampa Este) (-1),
+  Peca (Curva Sul) 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Curva Sul) 1,Peca Recta 1,
+  Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca Recta 1,Peca (Curva Sul) 1,Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+......................
+..//&lt;&lt;\\..//\\..//\\..
+..\/..\\&gt;&gt;//\\&gt;&gt;//[]..
+..\\&lt;&lt;[]&lt;&lt;[]&gt;&gt;&gt;&gt;[]//..
+......................
+,1.2,Carro {posicao = (3.5,3.5), direcao = 0.0, velocidade = (0.1,-0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/13/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (3.6,1.5), direcao = 0.0, velocidade = (-1.6,0.1)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/14/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (4.6,1.5), direcao = 0.0, velocidade = (-2.6,0.1)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/15/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (3.6,1.5), direcao = 0.0, velocidade = (-2.6,0.1)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/16/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,5.5,Carro {posicao = (12.5,1.2), direcao = 0.0, velocidade = (-2.1,0.1)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 100.00%
+oracle: Nothing
+solution: Nothing</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/17/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (8.5,1.5), direcao = 0.0, velocidade = (0.1,1.9)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 99.76%
+oracle: Just Carro {posicao = (8.632283860846977,2.2092017202541623), direcao = 0.0, velocidade = (9.999999999999802e-2,-1.9)}
+solution: Just Carro {posicao = (8.62,2.22), direcao = 0.0, velocidade = (0.10000000000000182,-1.8999999999999997)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/18/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (8.5,2.5), direcao = 0.0, velocidade = (0.1,1.9)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 99.82%
+oracle: Just Carro {posicao = (8.623530091729904,1.2083893605292084), direcao = 0.0, velocidade = (9.999999999999928e-2,-1.9)}
+solution: Just Carro {posicao = (8.62,1.2200000000000006), direcao = 0.0, velocidade = (9.999999999999887e-2,-1.9)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/19/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (8.5,2.5), direcao = 0.0, velocidade = (0.1,2.3)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 99.79%
+oracle: Just Carro {posicao = (8.637149451783996,1.261964037074521), direcao = 0.0, velocidade = (9.999999999999466e-2,2.3000000000000003)}
+solution: Just Carro {posicao = (8.62,1.2599999999999998), direcao = 0.0, velocidade = (9.999999999999977e-2,2.3)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/20/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (8.5,2.5), direcao = 0.0, velocidade = (0.1,3.3)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 99.81%
+oracle: Just Carro {posicao = (8.638879248376217,2.4713468651536488), direcao = 0.0, velocidade = (9.999999999999816e-2,3.3000000000000007)}
+solution: Just Carro {posicao = (8.62,2.459999999999999), direcao = 0.0, velocidade = (9.999999999999962e-2,3.3000000000000007)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/21/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (5.5,1.5), direcao = 0.0, velocidade = (0.1,1.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/22/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (11.6,1.5), direcao = 0.0, velocidade = (2.1,0.1)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/23/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (1.6,2.5), direcao = 0.0, velocidade = (-0.1,-1.1)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/24/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (12.5,1.5), direcao = 0.0, velocidade = (2.8,-0.1)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/25/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (1.6,2.5), direcao = 0.0, velocidade = (-0.3,-0.1)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/26/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (10.5,1.5), direcao = 0.0, velocidade = (-0.1,0.9)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 0.00%
+oracle: Nothing
+solution: Just Carro {posicao = (10.38,2.58), direcao = 0.0, velocidade = (-0.1,0.9)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/27/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (10.5,2.5), direcao = 0.0, velocidade = (0.1,-0.9)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 99.56%
+oracle: Just Carro {posicao = (10.632572997535771,2.5729408152150532), direcao = 0.0, velocidade = (9.999999999999926e-2,0.9000000000000001)}
+solution: Just Carro {posicao = (10.62,2.58), direcao = 0.0, velocidade = (9.999999999999866e-2,0.9000000000000001)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/28/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (2.5,1.5), direcao = 0.0, velocidade = (0.1,0.9)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 99.64%
+oracle: Just Carro {posicao = (2.6212611743036818,2.591609553114615), direcao = 0.0, velocidade = (0.1,0.9)}
+solution: Just Carro {posicao = (2.62,2.58), direcao = 0.0, velocidade = (0.1,0.9)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/29/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (4.5,1.5), direcao = 0.0, velocidade = (0.1,0.9)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 99.65%
+oracle: Just Carro {posicao = (4.630339910586453,2.58494728724066), direcao = 0.0, velocidade = (0.1,0.9)}
+solution: Just Carro {posicao = (4.62,2.58), direcao = 0.0, velocidade = (0.1,0.9)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/30/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (4.5,1.5), direcao = 0.0, velocidade = (-0.1,0.9)})</td>
+                
+                <td class="hspec-warning datatext" data-title="Resultado">precision: 99.57%
+oracle: Just Carro {posicao = (4.38820946349755,2.5912418002259874), direcao = 0.0, velocidade = (-0.1,0.9)}
+solution: Just Carro {posicao = (4.38,2.58), direcao = 0.0, velocidade = (-0.1,0.9)}</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/31/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (9.5,2.5), direcao = 0.0, velocidade = (0.1,-0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/32/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (9.5,2.5), direcao = 0.0, velocidade = (-0.1,-0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/33/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (9.5,1.5), direcao = 0.0, velocidade = (0.1,0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/34/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (9.5,1.5), direcao = 0.0, velocidade = (-0.1,0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/35/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (9.5,2.5), direcao = 0.0, velocidade = (0.0,-0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/36/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (9.5,2.5), direcao = 0.0, velocidade = (0.1,0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+            <tr>
+                
+                <td class="datatext" data-title="arg">(<a href="../../grupos/183/t3/37/run.html">[[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Norte) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca Recta 0,Peca Recta 0,
+  Peca (Rampa Oeste) (-1),Peca Recta (-1),
+  Peca (Rampa Este) (-1),Peca (Rampa Este) 0,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca (Curva Este) (-1),Peca Lava 0],
+ [Peca Lava 0,Peca (Curva Oeste) 0,
+  Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,
+  Peca (Rampa Este) 0,Peca Recta 1,
+  Peca (Rampa Oeste) 0,Peca (Rampa Oeste) (-1),
+  Peca Recta (-1),Peca (Rampa Oeste) (-2),
+  Peca (Rampa Oeste) (-3),Peca (Rampa Este) (-3),
+  Peca (Rampa Este) (-2),Peca (Curva Sul) (-1),
+  Peca Lava 0],
+ [Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,
+  Peca Lava 0,Peca Lava 0,Peca Lava 0]]</a>
+..............................
+..//&gt;&gt;[]&lt;&lt;[][]&lt;&lt;[]&gt;&gt;&gt;&gt;&lt;&lt;&lt;&lt;\\..
+..\\&gt;&gt;&lt;&lt;&gt;&gt;[]&lt;&lt;&lt;&lt;[]&lt;&lt;&lt;&lt;&gt;&gt;&gt;&gt;//..
+..............................
+,1.2,Carro {posicao = (9.5,1.5), direcao = 0.0, velocidade = (0.1,-0.9)})</td>
+                
+                <td class="hspec-failure" data-title="Resultado">test failed: 
+Ran commands: 
+cd HAAP/HAAP-LI1_1718/svn/2017li1g183/src
+which RunT3
+echo 'env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS'
+env timeout 10s HAAP/HAAP-LI1_1718/svn/2017li1g183/src/RunT3 movimenta +RTS -K100m -M100m -RTS
+which env
+
+Exception: failed to parse result...
+&quot;&quot;
+...as type...
+Maybe Carro
+Output:
+
+Errors:
+RunT3: Maybe.fromJust: Nothing
+
+Exit Code: 1
+CallStack (from HasCallStack):
+  error, called at src/HAAP/IO.hs:282:32 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.IO
+CallStack (from HasCallStack):
+  error, called at src/HAAP/Test/Spec.hs:231:47 in HAAP-0.0.1-L3MODvsnl9xJBS0bF31uel:HAAP.Test.Spec</td>
+            </tr>
+        
+    </tbody>
+</table>
+
+</div>
+
+</body>
+
+</html>

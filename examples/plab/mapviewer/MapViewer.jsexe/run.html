@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108230466-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108230466-1');
+</script>
+
+    
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.find,Number.isFinite,Number.isInteger,console,console.log,document.head,performance.now"></script>
+      <title>CodeWorld - Visualizador de Caminhos/Mapas</title>
+      <link rel="stylesheet" href="../../css/codeworld.css">
+    
+    <script language="javascript" src="./rts.js"></script>
+    <script language="javascript" src="./lib.js"></script>
+    <script language="javascript" src="./out.js"></script>
+  </head>
+  <body style="text-align: center">
+      
+    
+    <img style="display: none;" id="lava" src="../../images/lava.jpg">
+    
+    <img style="display: none;" id="carro" src="../../images/c1.png">
+    
+      
+    <canvas id="screen"></canvas>
+    <textarea id="text">Mapa ((1,0),Este) [[Peca (Curva Norte) 2,Peca Recta 2,Peca (Curva Este) 2],[Peca (Curva Oeste) 2,Peca Recta 2,Peca (Curva Sul) 2]]</textarea>
+    <button id="textbutton" class="cw-button" onclick="drawCW()">Draw</button>
+    <pre id="message" class="dropbox draw">=== Compiling ===
+Output:
+[1 of 4] Compiling LI11718          ( LI11718.hs, LI11718.js_o ) [flags changed]
+[2 of 4] Compiling OracleT1         ( OracleT1.hs, OracleT1.js_o ) [flags changed]
+[3 of 4] Compiling JSImages         ( JSImages.hs, JSImages.js_o ) [flags changed]
+Linking ../tmp/mapviewer/MapViewer.jsexe (JSImages,LI11718,Main,OracleT1)
+
+Errors:
+
+Exit Code: 0
+=== Running ===</pre>
+  </body>
+  
+  <script type="text/javascript">
+  var count = 0;
+  function importScript(script) {
+      var imported = document.createElement('script');
+      imported.src = script;
+      document.head.appendChild(imported);
+  }
+  
+  function drawCW() {
+      if (count == 0) {
+          importScript('./runmain.js'); count=1;
+          var property = document.getElementById('textbutton');
+          property.style.display = "none";
+      }
+      else { reportRuntimeError(true,'Please Reload'); }
+  }
+  
+  </script>
+  
+  <script type="text/javascript">
+    function reportRuntimeError(err, str) {
+      if (window.parent.addToMessage) {
+        var message = window.parent.addToMessage('\n' + str);
+
+        if (err) {
+          var message = window.parent.document.getElementById('message');
+          message.classList.add('error');
+        }
+      } else {
+        console.log(str);
+      }
+    }
+  </script>
+  
+  <script type="text/javascript" src="../../js/ghcjs-debugmode.js"></script>
+  <script type="text/javascript" src="../../js/cw-demo.js"></script>
+</html>

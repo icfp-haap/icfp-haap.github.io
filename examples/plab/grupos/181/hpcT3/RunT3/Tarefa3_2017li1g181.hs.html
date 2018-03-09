@@ -1,0 +1,90 @@
+<html>
+<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108230466-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108230466-1');
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+span.lineno { color: white; background: #aaaaaa; border-right: solid white 12px }
+span.nottickedoff { background: yellow}
+span.istickedoff { background: white }
+span.tickonlyfalse { margin: -1px; border: 1px solid #f20913; background: #f20913 }
+span.tickonlytrue  { margin: -1px; border: 1px solid #60de51; background: #60de51 }
+span.funcount { font-size: small; color: orange; z-index: 2; position: absolute; right: 20 }
+span.decl { font-weight: bold }
+span.spaces    { background: white }
+</style>
+</head>
+<body><pre>
+<span class="decl"><span class="nottickedoff">never executed</span> <span class="tickonlytrue">always true</span> <span class="tickonlyfalse">always false</span></span>
+</pre>
+<pre>
+<span class="decl"><span class="nottickedoff">never executed</span> <span class="tickonlytrue">always true</span> <span class="tickonlyfalse">always false</span></span>
+</pre>
+<pre>
+<span class="lineno">    1 </span>module Tarefa3_2017li1g181 where
+<span class="lineno">    2 </span>
+<span class="lineno">    3 </span>import LI11718
+<span class="lineno">    4 </span>
+<span class="lineno">    5 </span><span class="decl"><span class="istickedoff">mxpto =  [[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],</span>
+<span class="lineno">    6 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,Peca Recta 0,Peca Recta 0,Peca (Curva Este) 0,Peca Lava 0],</span>
+<span class="lineno">    7 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca Lava 0,Peca Recta 0,Peca (Curva Norte) 0,Peca Recta 0,Peca (Curva Este) 0,Peca (Rampa Sul) 0,Peca Lava 0],</span>
+<span class="lineno">    8 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,Peca Recta 1,Peca Lava 0],</span>
+<span class="lineno">    9 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca (Rampa Norte) (-1),Peca Recta 0,Peca (Curva Oeste) 0,Peca (Curva Sul) 0,Peca Recta 0,Peca (Rampa Sul) 1,Peca Lava 0],</span>
+<span class="lineno">   10 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca (Rampa Sul) (-1),Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,Peca (Curva Sul) 0,Peca Recta 2,Peca Lava 0],</span>
+<span class="lineno">   11 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca (Curva Oeste) 0,Peca (Rampa Este) 0,Peca Recta 1,Peca (Rampa Este) 1,Peca Recta 2,Peca (Curva Sul) 2,Peca Lava 0],</span>
+<span class="lineno">   12 </span><span class="spaces">    </span><span class="istickedoff">[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</span></span>
+<span class="lineno">   13 </span>
+<span class="lineno">   14 </span><span class="decl"><span class="istickedoff">cr_ok1 = Carro (2.5,3.1) 0 (1,1)</span></span>
+<span class="lineno">   15 </span><span class="decl"><span class="istickedoff">cr_ok2 = Carro (3.5,3.1) 90 (1,1.1)</span></span>
+<span class="lineno">   16 </span><span class="decl"><span class="istickedoff">cr_ok3 = Carro (2.5,3.1) 180 (2,1)</span></span>
+<span class="lineno">   17 </span><span class="decl"><span class="istickedoff">cr_ok4 = Carro (2.5,3.1) 360 (1,1)</span></span>
+<span class="lineno">   18 </span><span class="decl"><span class="istickedoff">cr_ok5 = Carro (2.5,3.1) (-90) (1,1)</span></span>
+<span class="lineno">   19 </span><span class="decl"><span class="istickedoff">cr_ok6 = Carro (3.5,1) 90 (1,1.1)</span></span>
+<span class="lineno">   20 </span><span class="decl"><span class="istickedoff">cr_ok7 = Carro (2.5,5) 180 (-1,5)</span></span>
+<span class="lineno">   21 </span><span class="decl"><span class="istickedoff">cr_ok8 = Carro (5,3.1) 360 (1,-1)</span></span>
+<span class="lineno">   22 </span><span class="decl"><span class="istickedoff">cr_ok9 = Carro (1,4) 180 (-1,-5)</span></span>
+<span class="lineno">   23 </span><span class="decl"><span class="istickedoff">cr_ok10 = Carro (1.2,5.1) 360 (0,-0.4)</span></span>
+<span class="lineno">   24 </span><span class="decl"><span class="istickedoff">cr_ok11 = Carro (1.2,1.1) 90 (1.1,-0.5)</span></span>
+<span class="lineno">   25 </span><span class="decl"><span class="istickedoff">cr_ok12 = Carro (2.1,1.1) 95 (0.2,0.2)</span></span>
+<span class="lineno">   26 </span><span class="decl"><span class="istickedoff">cr_ok13 = Carro (1.5,2.1) 280 (0.1,-1.1)</span></span>
+<span class="lineno">   27 </span><span class="decl"><span class="istickedoff">cr_ok14 = Carro (1.2,1.5) 180 (1.42,1.51)</span></span>
+<span class="lineno">   28 </span>
+<span class="lineno">   29 </span><span class="decl"><span class="istickedoff">crs = [cr_ok1,cr_ok2,cr_ok3,cr_ok4,cr_ok5</span>
+<span class="lineno">   30 </span><span class="spaces">      </span><span class="istickedoff">,cr_ok6,cr_ok7,cr_ok8,cr_ok9,cr_ok10</span>
+<span class="lineno">   31 </span><span class="spaces">      </span><span class="istickedoff">,cr_ok11,cr_ok12,cr_ok13,cr_ok14]</span></span>
+<span class="lineno">   32 </span>
+<span class="lineno">   33 </span><span class="decl"><span class="istickedoff">tsts = map (\c -&gt; (mxpto,0.2,c)) crs</span></span>
+<span class="lineno">   34 </span>
+<span class="lineno">   35 </span>testesT3 :: [(Tabuleiro,Tempo,Carro)]
+<span class="lineno">   36 </span><span class="decl"><span class="istickedoff">testesT3 = tsts</span></span>
+<span class="lineno">   37 </span>
+<span class="lineno">   38 </span>movimenta :: Tabuleiro -&gt; Tempo -&gt; Carro -&gt; Maybe Carro
+<span class="lineno">   39 </span><span class="decl"><span class="istickedoff">movimenta m t c = let p_final = posicao c .+. (t *. velocidade c)</span>
+<span class="lineno">   40 </span><span class="spaces">                      </span><span class="istickedoff">(x,y) = ponto2pos p_final</span>
+<span class="lineno">   41 </span><span class="spaces">                  </span><span class="istickedoff">in if isLava (m!!y!!x) then Nothing else Just $ c {posicao = p_final}</span></span>
+<span class="lineno">   42 </span>
+<span class="lineno">   43 </span><span class="decl"><span class="istickedoff">ponto2pos (x,y) = (floor x, floor y)</span></span>
+<span class="lineno">   44 </span>  
+<span class="lineno">   45 </span>isLava :: Peca -&gt; Bool
+<span class="lineno">   46 </span><span class="decl"><span class="istickedoff">isLava (Peca Lava _) = True</span>
+<span class="lineno">   47 </span><span class="spaces"></span><span class="istickedoff">isLava _             = False</span></span>
+<span class="lineno">   48 </span>
+<span class="lineno">   49 </span>
+<span class="lineno">   50 </span>(*.) :: Double -&gt; (Double,Double) -&gt; (Double,Double)
+<span class="lineno">   51 </span><span class="decl"><span class="istickedoff">(*.) x (a,b) = (x*a,x*b)</span></span>
+<span class="lineno">   52 </span>
+<span class="lineno">   53 </span>(.*.),(.+.),(.-.) :: (Double,Double) -&gt; (Double,Double) -&gt; (Double,Double)
+<span class="lineno">   54 </span><span class="decl"><span class="nottickedoff">(.*.) (x,y) (a,b) = (x*a,y*b)</span></span>
+<span class="lineno">   55 </span><span class="decl"><span class="istickedoff">(.+.) (x,y) (a,b) = (x+a,y+b)</span></span>
+<span class="lineno">   56 </span><span class="decl"><span class="nottickedoff">(.-.) (x,y) (a,b) = (x-a,y-b)</span></span>
+
+</pre>
+</body>
+</html>

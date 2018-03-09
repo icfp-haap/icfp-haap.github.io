@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108230466-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108230466-1');
+</script>
+
+    
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.find,Number.isFinite,Number.isInteger,console,console.log,document.head,performance.now"></script>
+      <title>CodeWorld - Track Viewer</title>
+      <link rel="stylesheet" href="../../../../css/codeworld.css">
+    
+    <script language="javascript" src="../../../../mapviewer/MapViewer.jsexe/rts.js"></script>
+    <script language="javascript" src="../../../../mapviewer/MapViewer.jsexe/lib.js"></script>
+    <script language="javascript" src="../../../../mapviewer/MapViewer.jsexe/out.js"></script>
+  </head>
+  <body style="text-align: center">
+      
+    
+    <img style="display: none;" id="lava" src="../../../../images/lava.jpg">
+    
+    <img style="display: none;" id="carro" src="../../../../images/c1.png">
+    
+      
+    <canvas id="screen"></canvas>
+    <textarea style="display: none;" id="text">[CurvaDir,CurvaDir,CurvaDir,CurvaDir]</textarea>
+    <pre id="message" class="dropbox game">=== Compiling ===
+Output:
+Pre-compiled at Right &quot;mapviewer/MapViewer.jsexe&quot;
+Errors:
+Pre-compiled at Right &quot;mapviewer/MapViewer.jsexe&quot;
+Exit Code: 0
+=== Running ===</pre>
+  </body>
+  
+  <script type="text/javascript">
+    function reportRuntimeError(err, str) {
+      if (window.parent.addToMessage) {
+        var message = window.parent.addToMessage('\n' + str);
+
+        if (err) {
+          var message = window.parent.document.getElementById('message');
+          message.classList.add('error');
+        }
+      } else {
+        console.log(str);
+      }
+    }
+  </script>
+  
+  <script type="text/javascript" src="../../../../mapviewer/MapViewer.jsexe/runmain.js"></script>
+  <script type="text/javascript" src="../../../../js/ghcjs-debugmode.js"></script>
+  <script type="text/javascript" src="../../../../js/cw-demo.js"></script>
+</html>

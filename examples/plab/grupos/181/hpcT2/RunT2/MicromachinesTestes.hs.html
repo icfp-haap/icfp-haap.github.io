@@ -1,0 +1,297 @@
+<html>
+<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108230466-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108230466-1');
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+span.lineno { color: white; background: #aaaaaa; border-right: solid white 12px }
+span.nottickedoff { background: yellow}
+span.istickedoff { background: white }
+span.tickonlyfalse { margin: -1px; border: 1px solid #f20913; background: #f20913 }
+span.tickonlytrue  { margin: -1px; border: 1px solid #60de51; background: #60de51 }
+span.funcount { font-size: small; color: orange; z-index: 2; position: absolute; right: 20 }
+span.decl { font-weight: bold }
+span.spaces    { background: white }
+</style>
+</head>
+<body><pre>
+<span class="decl"><span class="nottickedoff">never executed</span> <span class="tickonlytrue">always true</span> <span class="tickonlyfalse">always false</span></span>
+</pre>
+<pre>
+<span class="decl"><span class="nottickedoff">never executed</span> <span class="tickonlytrue">always true</span> <span class="tickonlyfalse">always false</span></span>
+</pre>
+<pre>
+<span class="lineno">    1 </span>module MicromachinesTestes where
+<span class="lineno">    2 </span>
+<span class="lineno">    3 </span>import LI11718
+<span class="lineno">    4 </span>
+<span class="lineno">    5 </span>--------------
+<span class="lineno">    6 </span>-- == T1: Testes
+<span class="lineno">    7 </span>--------------
+<span class="lineno">    8 </span>
+<span class="lineno">    9 </span>-- | Listas de caminhos válidos e inválidos usadas nos testes
+<span class="lineno">   10 </span>-- | Pedido aos alunos
+<span class="lineno">   11 </span>caminhos_validos, caminhos_invalidos :: [Caminho]
+<span class="lineno">   12 </span><span class="decl"><span class="nottickedoff">caminhos_validos   = [c_ex1,c_ex1',c_ex2,c_ex3,c_ex4,c_ex5,c_ex6,c_ex7,c_ex8,c_ex9,c_ok1,c_ok2,c_ok3,c_ok4,c_ok5]</span></span>
+<span class="lineno">   13 </span><span class="decl"><span class="nottickedoff">caminhos_invalidos = [c_exOL,c_exOP,c_exDM,c_exHM,c_exR,c_exE,c_nok1,c_nok2,c_nok3,c_nok4,c_nok5]</span></span>
+<span class="lineno">   14 </span>
+<span class="lineno">   15 </span>--------------
+<span class="lineno">   16 </span>-- == T2: Testes
+<span class="lineno">   17 </span>--------------
+<span class="lineno">   18 </span>
+<span class="lineno">   19 </span>-- | Listas de mapas válidos e inválidos usadas nos testes
+<span class="lineno">   20 </span>-- | Pedido aos alunos
+<span class="lineno">   21 </span>mapas_validos, mapas_invalidos :: [Mapa]
+<span class="lineno">   22 </span><span class="decl"><span class="nottickedoff">mapas_validos   = [m_ex1,m_ex2,m_ex3,m_ok1,m_ok2,m_ok3]</span></span>
+<span class="lineno">   23 </span><span class="decl"><span class="nottickedoff">mapas_invalidos = [m_exPI,m_exLV,m_exEX,m_exLH,m_why,m_nok1,m_nok2,m_nok3,m_nok4]</span></span>
+<span class="lineno">   24 </span>
+<span class="lineno">   25 </span>--------------
+<span class="lineno">   26 </span>-- == Testes
+<span class="lineno">   27 </span>--------------
+<span class="lineno">   28 </span>
+<span class="lineno">   29 </span>c_ex1 :: Caminho
+<span class="lineno">   30 </span><span class="decl"><span class="nottickedoff">c_ex1 = [Avanca,CurvaEsq,Avanca,CurvaDir,Avanca,CurvaDir,Desce,Avanca,CurvaEsq,CurvaDir</span>
+<span class="lineno">   31 </span><span class="spaces">      </span><span class="nottickedoff">,CurvaEsq,CurvaDir,CurvaDir,CurvaEsq,CurvaDir,CurvaEsq,CurvaEsq,Avanca,Avanca</span>
+<span class="lineno">   32 </span><span class="spaces">      </span><span class="nottickedoff">,Desce,CurvaDir,CurvaDir,Avanca,Avanca,Desce,CurvaEsq,CurvaDir,Sobe,CurvaDir</span>
+<span class="lineno">   33 </span><span class="spaces">      </span><span class="nottickedoff">,CurvaEsq,CurvaDir,CurvaEsq,Avanca,CurvaDir,Sobe,Sobe,Avanca,Avanca,CurvaDir,Avanca]</span></span>
+<span class="lineno">   34 </span>
+<span class="lineno">   35 </span>c_ex1' :: Caminho
+<span class="lineno">   36 </span><span class="decl"><span class="nottickedoff">c_ex1' = [Avanca,CurvaEsq,Avanca,CurvaDir,Avanca,CurvaDir,Sobe,Avanca,CurvaEsq,CurvaDir</span>
+<span class="lineno">   37 </span><span class="spaces">      </span><span class="nottickedoff">,CurvaEsq,CurvaDir,CurvaDir,CurvaEsq,CurvaDir,CurvaEsq,CurvaEsq,Avanca,Avanca</span>
+<span class="lineno">   38 </span><span class="spaces">      </span><span class="nottickedoff">,Sobe,CurvaDir,CurvaDir,Avanca,Avanca,Sobe,CurvaEsq,CurvaDir,Desce,CurvaDir</span>
+<span class="lineno">   39 </span><span class="spaces">      </span><span class="nottickedoff">,CurvaEsq,CurvaDir,CurvaEsq,Avanca,CurvaDir,Desce,Desce,Avanca,Avanca,CurvaDir,Avanca]</span></span>
+<span class="lineno">   40 </span>
+<span class="lineno">   41 </span>c_ex2 :: Caminho
+<span class="lineno">   42 </span><span class="decl"><span class="nottickedoff">c_ex2 = [Avanca,CurvaEsq,CurvaEsq,Avanca,CurvaEsq,CurvaEsq]</span></span>
+<span class="lineno">   43 </span>
+<span class="lineno">   44 </span>-- mapa sobreposto, altura /= da inicial
+<span class="lineno">   45 </span>c_ex3 :: Caminho
+<span class="lineno">   46 </span><span class="decl"><span class="nottickedoff">c_ex3 = [Desce,CurvaEsq,CurvaEsq,Desce,CurvaEsq,CurvaEsq</span>
+<span class="lineno">   47 </span><span class="spaces">        </span><span class="nottickedoff">,Avanca,CurvaEsq,CurvaEsq,Avanca,CurvaEsq,CurvaEsq]</span></span>
+<span class="lineno">   48 </span>
+<span class="lineno">   49 </span>-- caminho em 8, cruza
+<span class="lineno">   50 </span>c_ex4 :: Caminho
+<span class="lineno">   51 </span><span class="decl"><span class="nottickedoff">c_ex4 = [Avanca,CurvaDir,Avanca,Avanca,Avanca,CurvaEsq,Avanca,CurvaEsq,Avanca</span>
+<span class="lineno">   52 </span><span class="spaces">        </span><span class="nottickedoff">,CurvaEsq,Avanca,Avanca,Avanca,CurvaDir,Avanca,CurvaDir]</span></span>
+<span class="lineno">   53 </span>
+<span class="lineno">   54 </span>-- caminho minimo válido
+<span class="lineno">   55 </span>c_ex5 :: Caminho
+<span class="lineno">   56 </span><span class="decl"><span class="nottickedoff">c_ex5 = [CurvaDir,CurvaDir,CurvaDir,CurvaDir]</span></span>
+<span class="lineno">   57 </span>      
+<span class="lineno">   58 </span>-- caminho minimo sem vizinhos
+<span class="lineno">   59 </span>c_ex6 :: Caminho
+<span class="lineno">   60 </span><span class="decl"><span class="nottickedoff">c_ex6 = [Avanca,CurvaDir,Avanca,CurvaDir,Avanca,CurvaDir,Avanca,CurvaDir]</span></span>
+<span class="lineno">   61 </span>
+<span class="lineno">   62 </span>-- caminho com sobreposicoes manhosas
+<span class="lineno">   63 </span>c_ex7 :: Caminho
+<span class="lineno">   64 </span><span class="decl"><span class="nottickedoff">c_ex7 = [Avanca,CurvaDir,CurvaDir,CurvaDir,Avanca,CurvaDir,Avanca,CurvaDir</span>
+<span class="lineno">   65 </span><span class="spaces">        </span><span class="nottickedoff">,Avanca,Avanca,CurvaDir,Avanca,Avanca,CurvaDir,Avanca,CurvaDir]</span></span>
+<span class="lineno">   66 </span>
+<span class="lineno">   67 </span>-- caminho para testar rampas
+<span class="lineno">   68 </span>c_ex8 :: Caminho
+<span class="lineno">   69 </span><span class="decl"><span class="nottickedoff">c_ex8 = [Desce,Sobe,Sobe,Sobe,Sobe,Avanca,Avanca,Avanca,Avanca,CurvaDir,CurvaDir</span>
+<span class="lineno">   70 </span><span class="spaces">        </span><span class="nottickedoff">,Sobe,Sobe,Desce,Sobe,Desce,Desce,Desce,Desce,Desce,Avanca,CurvaDir,CurvaDir,Avanca]</span></span>
+<span class="lineno">   71 </span>
+<span class="lineno">   72 </span>-- caminho espiral
+<span class="lineno">   73 </span>c_ex9 :: Caminho
+<span class="lineno">   74 </span><span class="decl"><span class="nottickedoff">c_ex9 = [Avanca,CurvaDir,CurvaDir,CurvaDir,Avanca,CurvaDir,Avanca,CurvaDir</span>
+<span class="lineno">   75 </span><span class="spaces">        </span><span class="nottickedoff">,Avanca,Avanca,CurvaDir,Avanca,Avanca,CurvaDir,Avanca,Avanca,Avanca,CurvaDir</span>
+<span class="lineno">   76 </span><span class="spaces">        </span><span class="nottickedoff">,Avanca,Avanca,Avanca,CurvaDir,Sobe,Avanca,Sobe,Avanca,CurvaDir,Avanca,Desce,Avanca,Desce</span>
+<span class="lineno">   77 </span><span class="spaces">        </span><span class="nottickedoff">,CurvaDir,Desce,Sobe,CurvaDir]</span></span>
+<span class="lineno">   78 </span>
+<span class="lineno">   79 </span>c_ok1 :: Caminho
+<span class="lineno">   80 </span><span class="decl"><span class="nottickedoff">c_ok1 = [CurvaEsq,CurvaDir,CurvaEsq,Avanca,CurvaDir,Avanca, Avanca,CurvaDir,CurvaDir,Avanca</span>
+<span class="lineno">   81 </span><span class="spaces">        </span><span class="nottickedoff">,CurvaEsq,Avanca,CurvaDir,CurvaEsq,CurvaDir,Avanca,CurvaDir,CurvaDir]</span></span>
+<span class="lineno">   82 </span>
+<span class="lineno">   83 </span>c_ok2 :: Caminho
+<span class="lineno">   84 </span><span class="decl"><span class="nottickedoff">c_ok2 = [Avanca,CurvaEsq,Avanca,CurvaDir,Avanca,CurvaDir,Avanca,Avanca,CurvaDir,CurvaEsq,CurvaDir</span>
+<span class="lineno">   85 </span><span class="spaces">        </span><span class="nottickedoff">,Avanca,CurvaDir,CurvaEsq,CurvaDir,CurvaDir]</span></span>
+<span class="lineno">   86 </span>
+<span class="lineno">   87 </span>c_ok3 :: Caminho
+<span class="lineno">   88 </span><span class="decl"><span class="nottickedoff">c_ok3 = [Avanca,Avanca,CurvaDir,CurvaDir,Avanca,CurvaDir,Avanca,Avanca,CurvaDir,CurvaDir,Avanca</span>
+<span class="lineno">   89 </span><span class="spaces">        </span><span class="nottickedoff">,Avanca,Avanca,CurvaDir,Avanca,CurvaDir,Avanca,Avanca,Avanca,CurvaEsq,CurvaEsq,Avanca,CurvaEsq,Avanca,Avanca]</span></span>
+<span class="lineno">   90 </span>
+<span class="lineno">   91 </span>c_ok4 :: Caminho
+<span class="lineno">   92 </span><span class="decl"><span class="nottickedoff">c_ok4 = [Sobe,Sobe,Sobe,Sobe,CurvaDir,CurvaDir,Desce,Desce,Desce,Desce,CurvaDir,CurvaDir]</span></span>
+<span class="lineno">   93 </span>
+<span class="lineno">   94 </span>c_ok5 :: Caminho
+<span class="lineno">   95 </span><span class="decl"><span class="nottickedoff">c_ok5 = [Sobe,Desce,Sobe,Desce,Sobe,Desce,Sobe,Desce,CurvaDir,CurvaDir</span>
+<span class="lineno">   96 </span><span class="spaces">        </span><span class="nottickedoff">,Desce,Sobe,Desce,Sobe,Desce,Sobe,Desce,Sobe,CurvaDir,CurvaDir]</span></span>
+<span class="lineno">   97 </span>
+<span class="lineno">   98 </span>c_nok1 :: Caminho
+<span class="lineno">   99 </span><span class="decl"><span class="nottickedoff">c_nok1 = [CurvaEsq,CurvaDir,CurvaEsq,Avanca,CurvaDir,Avanca, Avanca,CurvaDir,CurvaDir,Avanca,Avanca]</span></span>
+<span class="lineno">  100 </span>
+<span class="lineno">  101 </span>c_nok2 :: Caminho
+<span class="lineno">  102 </span><span class="decl"><span class="nottickedoff">c_nok2 = [CurvaEsq,CurvaDir,CurvaEsq,Avanca,CurvaDir,Avanca, Avanca,CurvaDir,CurvaDir,Avanca,Avanca,Avanca,Avanca,Avanca,Avanca]</span></span>
+<span class="lineno">  103 </span>
+<span class="lineno">  104 </span>c_nok3 :: Caminho
+<span class="lineno">  105 </span><span class="decl"><span class="nottickedoff">c_nok3 = [CurvaEsq,CurvaDir,CurvaEsq,Avanca,CurvaDir,Avanca, Avanca,CurvaDir,CurvaDir,Avanca,CurvaEsq,Avanca,CurvaDir,CurvaEsq,CurvaDir,Avanca,CurvaDir]</span></span>
+<span class="lineno">  106 </span>
+<span class="lineno">  107 </span>c_nok4 :: Caminho
+<span class="lineno">  108 </span><span class="decl"><span class="nottickedoff">c_nok4 = [Sobe,Desce,Sobe,Desce,Sobe,Desce,Sobe,Desce,CurvaDir,CurvaDir</span>
+<span class="lineno">  109 </span><span class="spaces">        </span><span class="nottickedoff">,Desce,Sobe,Desce,Sobe,Desce,Sobe,Desce,Avanca,CurvaDir,CurvaDir]</span></span>
+<span class="lineno">  110 </span>
+<span class="lineno">  111 </span>c_nok5 :: Caminho
+<span class="lineno">  112 </span><span class="decl"><span class="nottickedoff">c_nok5 = [Sobe,Desce,Sobe,Desce,Sobe,Desce,Sobe,Desce,CurvaDir,CurvaEsq</span>
+<span class="lineno">  113 </span><span class="spaces">        </span><span class="nottickedoff">,Desce,Sobe,Desce,Sobe,Desce,Sobe,Desce,Avanca,CurvaDir,CurvaDir]</span></span>
+<span class="lineno">  114 </span>
+<span class="lineno">  115 </span>-- mapa nao geravel por caminhos, lava extra a volta
+<span class="lineno">  116 </span><span class="decl"><span class="nottickedoff">m_ex1 = Mapa ((2,2),Este) t_1</span></span>
+<span class="lineno">  117 </span>
+<span class="lineno">  118 </span><span class="decl"><span class="nottickedoff">t_1 = [[Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava]</span>
+<span class="lineno">  119 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava]</span>
+<span class="lineno">  120 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca (Curva Norte) 2,Peca (Curva Este) 2, Peca Lava altLava]</span>
+<span class="lineno">  121 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca (Curva Oeste) 2,Peca (Curva Sul) 2, Peca Lava altLava]</span>
+<span class="lineno">  122 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava]</span>
+<span class="lineno">  123 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava]</span>
+<span class="lineno">  124 </span><span class="spaces">      </span><span class="nottickedoff">]</span></span>
+<span class="lineno">  125 </span>
+<span class="lineno">  126 </span>-- mapa nao geravel por caminhos, altura /= inicial sem possibilidade de rampas
+<span class="lineno">  127 </span><span class="decl"><span class="nottickedoff">m_ex2 = Mapa ((2,1),Este) t_2</span></span>
+<span class="lineno">  128 </span>
+<span class="lineno">  129 </span><span class="decl"><span class="nottickedoff">t_2 = [[Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava]</span>
+<span class="lineno">  130 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca (Curva Norte) 5,Peca (Curva Este) 5, Peca Lava altLava]</span>
+<span class="lineno">  131 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca (Curva Oeste) 5,Peca (Curva Sul) 5, Peca Lava altLava]</span>
+<span class="lineno">  132 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava]</span>
+<span class="lineno">  133 </span><span class="spaces">      </span><span class="nottickedoff">]</span></span>
+<span class="lineno">  134 </span>
+<span class="lineno">  135 </span>-- mapa minimo sem vizinhos
+<span class="lineno">  136 </span><span class="decl"><span class="nottickedoff">m_ex3 = Mapa ((2,1),Este) t_3</span></span>
+<span class="lineno">  137 </span>
+<span class="lineno">  138 </span><span class="decl"><span class="nottickedoff">t_3 = [[Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava]</span>
+<span class="lineno">  139 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca (Curva Norte) 2,Peca Recta 2,Peca (Curva Este) 2, Peca Lava altLava]</span>
+<span class="lineno">  140 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca Recta 2,Peca Lava altLava,Peca Recta 2, Peca Lava altLava]</span>
+<span class="lineno">  141 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca (Curva Oeste) 2,Peca Recta 2,Peca (Curva Sul) 2, Peca Lava altLava]</span>
+<span class="lineno">  142 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava]</span>
+<span class="lineno">  143 </span><span class="spaces">      </span><span class="nottickedoff">]</span></span>
+<span class="lineno">  144 </span>
+<span class="lineno">  145 </span>-- testes invalidos
+<span class="lineno">  146 </span>-- aberto
+<span class="lineno">  147 </span>c_exOP :: Caminho
+<span class="lineno">  148 </span><span class="decl"><span class="nottickedoff">c_exOP = [Avanca,Avanca,CurvaDir,Avanca,Avanca,CurvaEsq,Avanca,CurvaDir,CurvaDir</span>
+<span class="lineno">  149 </span><span class="spaces">         </span><span class="nottickedoff">,Avanca,Avanca,Avanca,CurvaDir,CurvaEsq,Avanca,Avanca,CurvaDir,Avanca,Avanca,CurvaDir,Avanca]</span></span>      
+<span class="lineno">  150 </span>
+<span class="lineno">  151 </span>-- fecha mas direcao errada
+<span class="lineno">  152 </span>c_exDM :: Caminho
+<span class="lineno">  153 </span><span class="decl"><span class="nottickedoff">c_exDM = [Sobe,CurvaEsq,CurvaEsq,Sobe,CurvaEsq,CurvaEsq</span>
+<span class="lineno">  154 </span><span class="spaces">         </span><span class="nottickedoff">,Avanca,CurvaEsq,CurvaEsq,Avanca,CurvaEsq,Avanca]</span></span>
+<span class="lineno">  155 </span>
+<span class="lineno">  156 </span>-- overlaps, aberto
+<span class="lineno">  157 </span>c_exOL :: Caminho
+<span class="lineno">  158 </span><span class="decl"><span class="nottickedoff">c_exOL = [Avanca,Avanca,CurvaDir,Avanca,Avanca,CurvaEsq,Avanca,CurvaDir,CurvaDir</span>
+<span class="lineno">  159 </span><span class="spaces">         </span><span class="nottickedoff">,Avanca,CurvaDir,Avanca,CurvaDir,CurvaEsq,Avanca,CurvaDir,Avanca,Avanca,CurvaDir,Avanca]</span></span>              
+<span class="lineno">  160 </span>
+<span class="lineno">  161 </span>-- height mismatch
+<span class="lineno">  162 </span>c_exHM :: Caminho
+<span class="lineno">  163 </span><span class="decl"><span class="nottickedoff">c_exHM = [Avanca,Avanca,CurvaDir,Avanca,Avanca,CurvaEsq,Avanca,CurvaDir,CurvaDir</span>
+<span class="lineno">  164 </span><span class="spaces">         </span><span class="nottickedoff">,Avanca,Sobe,Avanca,CurvaDir,CurvaEsq,Avanca,CurvaDir,Avanca,Avanca,CurvaDir,Avanca]</span></span>
+<span class="lineno">  165 </span>
+<span class="lineno">  166 </span>-- cruza com alturas invalidas
+<span class="lineno">  167 </span>c_exR :: Caminho
+<span class="lineno">  168 </span><span class="decl"><span class="nottickedoff">c_exR = [Avanca,CurvaDir,Avanca,Avanca,Avanca,CurvaEsq,Sobe,CurvaEsq,Avanca</span>
+<span class="lineno">  169 </span><span class="spaces">        </span><span class="nottickedoff">,CurvaEsq,Avanca,Avanca,Avanca,CurvaDir,Desce,CurvaDir]</span></span>
+<span class="lineno">  170 </span>
+<span class="lineno">  171 </span>-- caminho vazio
+<span class="lineno">  172 </span>c_exE :: Caminho
+<span class="lineno">  173 </span><span class="decl"><span class="nottickedoff">c_exE = []</span></span>
+<span class="lineno">  174 </span>
+<span class="lineno">  175 </span>-- posicao inicial invalida
+<span class="lineno">  176 </span><span class="decl"><span class="nottickedoff">m_exPI = Mapa ((0,0),Este) t_4</span></span>
+<span class="lineno">  177 </span>
+<span class="lineno">  178 </span><span class="decl"><span class="nottickedoff">t_4 = [[Peca (Curva Norte) 2,Peca (Curva Este) 2],[Peca (Curva Oeste) 2,Peca (Curva Sul) 2]]</span></span>
+<span class="lineno">  179 </span>
+<span class="lineno">  180 </span>-- mapa so lava
+<span class="lineno">  181 </span><span class="decl"><span class="nottickedoff">m_exLV = Mapa ((0,0),Este) t_5</span></span>
+<span class="lineno">  182 </span>
+<span class="lineno">  183 </span><span class="decl"><span class="nottickedoff">t_5 = theFloorIsLava (5,10)</span>
+<span class="lineno">  184 </span><span class="spaces">  </span><span class="nottickedoff">where</span>
+<span class="lineno">  185 </span><span class="spaces">    </span><span class="nottickedoff">theFloorIsLava (n,m) = replicate m (replicate n (Peca Lava altLava))</span></span> 
+<span class="lineno">  186 </span>
+<span class="lineno">  187 </span>-- mapa com caminho extra
+<span class="lineno">  188 </span><span class="decl"><span class="nottickedoff">m_exEX = Mapa ((1,0),Este) t_6</span></span>
+<span class="lineno">  189 </span>
+<span class="lineno">  190 </span><span class="decl"><span class="nottickedoff">t_6 = [[Peca (Curva Norte) 2,Peca Recta 2,Peca (Curva Este) 2],[Peca Recta 2,Peca Recta 2,Peca Recta 2],[Peca (Curva Oeste) 2,Peca Recta 2,Peca (Curva Sul) 2]]</span></span>
+<span class="lineno">  191 </span>
+<span class="lineno">  192 </span>-- altura da lava invalida
+<span class="lineno">  193 </span><span class="decl"><span class="nottickedoff">m_exLH = Mapa ((1,0),Este) t_7</span></span>
+<span class="lineno">  194 </span>
+<span class="lineno">  195 </span><span class="decl"><span class="nottickedoff">t_7 = [[Peca (Curva Norte) 2,Peca Recta 2,Peca (Curva Este) 2],[Peca Recta 2,Peca Lava 2,Peca Recta 2],[Peca (Curva Oeste) 2,Peca Recta 2,Peca (Curva Sul) 2]]</span></span>
+<span class="lineno">  196 </span>
+<span class="lineno">  197 </span>
+<span class="lineno">  198 </span><span class="decl"><span class="nottickedoff">m_why = Mapa ((1,1),Este) t_8</span></span>
+<span class="lineno">  199 </span>
+<span class="lineno">  200 </span><span class="decl"><span class="nottickedoff">t_8 = [[Peca (Curva Norte) 2,Peca Recta 2,Peca (Curva Este) 2],[Peca Recta 2,Peca Recta 2,Peca Recta 2],[Peca (Curva Oeste) 2,Peca Recta 2,Peca (Curva Sul) 2]]</span></span>
+<span class="lineno">  201 </span>
+<span class="lineno">  202 </span><span class="decl"><span class="nottickedoff">m_exCL = Mapa ((1,1),Este) t_9</span></span>
+<span class="lineno">  203 </span>
+<span class="lineno">  204 </span><span class="decl"><span class="nottickedoff">t_9 = [[Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava]</span>
+<span class="lineno">  205 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca Recta 0,      Peca Recta 0]</span>
+<span class="lineno">  206 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava]</span>
+<span class="lineno">  207 </span><span class="spaces">      </span><span class="nottickedoff">,[Peca Lava altLava, Peca Lava altLava, Peca Lava altLava, Peca Lava altLava]</span>
+<span class="lineno">  208 </span><span class="spaces">      </span><span class="nottickedoff">]</span></span>
+<span class="lineno">  209 </span>
+<span class="lineno">  210 </span>m_ok1 :: Mapa
+<span class="lineno">  211 </span><span class="decl"><span class="nottickedoff">m_ok1 = Mapa ((3,3),Este) t_ok1</span></span>
+<span class="lineno">  212 </span>
+<span class="lineno">  213 </span><span class="decl"><span class="nottickedoff">t_ok1 = [[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],[Peca Lava 0,Peca (Curva Norte) 0,Peca (Curva Este) 0,Peca (Curva Norte) 0,Peca (Curva Este) 0,Peca Lava 0,Peca Lava 0],[Peca Lava 0,Peca Recta 0,Peca Recta 0,Peca Recta 0,Peca Recta 0,Peca Lava 0,Peca Lava 0],[Peca Lava 0,Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,Peca Recta 0,Peca (Curva Este) 0,Peca Lava 0],[Peca Lava 0,Peca Lava 0,Peca Recta 0,Peca (Curva Oeste) 0,Peca Recta 0,Peca (Curva Sul) 0,Peca Lava 0],[Peca Lava 0,Peca Lava 0,Peca (Curva Oeste) 0,Peca Recta 0,Peca (Curva Sul) 0,Peca Lava 0,Peca Lava 0],[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</span></span>
+<span class="lineno">  214 </span>
+<span class="lineno">  215 </span>m_ok2 :: Mapa
+<span class="lineno">  216 </span><span class="decl"><span class="nottickedoff">m_ok2 = Mapa ((2,1),Este) t_ok2</span></span>
+<span class="lineno">  217 </span>
+<span class="lineno">  218 </span><span class="decl"><span class="nottickedoff">t_ok2 = [[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],[Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,Peca (Curva Este) 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],[Peca Lava 0,Peca Recta 0,Peca Lava 0,Peca Recta 0,Peca Lava 0,Peca Lava 0,Peca Lava 0],[Peca Lava 0,Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,Peca Recta 0,Peca (Curva Este) 0,Peca Lava 0],[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Recta 0,Peca Lava 0,Peca Recta 0,Peca Lava 0],[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca (Curva Oeste) 0,Peca Recta 0,Peca (Curva Sul) 0,Peca Lava 0],[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</span></span>
+<span class="lineno">  219 </span>
+<span class="lineno">  220 </span>m_ok3 :: Mapa
+<span class="lineno">  221 </span><span class="decl"><span class="nottickedoff">m_ok3 = Mapa ((2,1),Este) t_ok3</span></span>
+<span class="lineno">  222 </span>
+<span class="lineno">  223 </span><span class="decl"><span class="nottickedoff">t_ok3 = [[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]</span>
+<span class="lineno">  224 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca (Curva Norte) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Curva Este) 0,Peca Lava 0]</span>
+<span class="lineno">  225 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca (Curva Oeste) 0,Peca (Rampa Oeste) (-1),Peca (Rampa Este) (-1),Peca (Rampa Oeste) (-1),Peca (Rampa Este) (-1),Peca (Rampa Oeste) (-1),Peca (Rampa Este) (-1),Peca (Rampa Oeste) (-1),Peca (Rampa Este) (-1),Peca (Curva Sul) 0,Peca Lava 0]</span>
+<span class="lineno">  226 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</span></span>
+<span class="lineno">  227 </span>
+<span class="lineno">  228 </span>m_nok1 :: Mapa
+<span class="lineno">  229 </span><span class="decl"><span class="nottickedoff">m_nok1 = Mapa ((3,3),Este) t_nok1</span></span>
+<span class="lineno">  230 </span>
+<span class="lineno">  231 </span><span class="decl"><span class="nottickedoff">t_nok1 = [[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]</span>
+<span class="lineno">  232 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca (Curva Sul) 0,Peca (Curva Este) 0,Peca (Curva Norte) 0,Peca (Curva Este) 0,Peca Lava 0,Peca Lava 0]</span>
+<span class="lineno">  233 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca Recta 0,Peca Recta 0,Peca (Curva Este) 0,Peca Recta 0,Peca Lava 0,Peca Lava 0]</span>
+<span class="lineno">  234 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca (Curva Oeste) 0,Peca Recta 0,Peca Recta 0,Peca Recta 0,Peca (Curva Este) 0,Peca Lava 0]</span>
+<span class="lineno">  235 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca Lava 0,Peca Recta 0,Peca (Curva Oeste) 0,Peca Recta 0,Peca (Curva Sul) 0,Peca Lava 0]</span>
+<span class="lineno">  236 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca Lava 0,Peca (Curva Oeste) 0,Peca Recta 0,Peca (Curva Sul) 0,Peca Lava 0,Peca Lava 0]</span>
+<span class="lineno">  237 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</span></span>
+<span class="lineno">  238 </span>
+<span class="lineno">  239 </span>m_nok2 :: Mapa
+<span class="lineno">  240 </span><span class="decl"><span class="nottickedoff">m_nok2 = Mapa ((2,1),Este) t_nok2</span></span>
+<span class="lineno">  241 </span>
+<span class="lineno">  242 </span><span class="decl"><span class="nottickedoff">t_nok2 = [[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]</span>
+<span class="lineno">  243 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca (Curva Norte) 0,Peca Recta 0,Peca (Curva Este) 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]</span>
+<span class="lineno">  244 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca Recta 0,Peca Lava 0,Peca Recta 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]</span>
+<span class="lineno">  245 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca (Curva Oeste) 0,Peca Recta 0,Peca (Rampa Este) 0,Peca Recta 0,Peca (Curva Este) 0,Peca Lava 0]</span>
+<span class="lineno">  246 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Recta 0,Peca Lava 0,Peca Recta 0,Peca Lava 0]</span>
+<span class="lineno">  247 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca (Curva Oeste) 0,Peca Recta 0,Peca (Curva Sul) 0,Peca Lava 0]</span>
+<span class="lineno">  248 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</span></span>
+<span class="lineno">  249 </span>
+<span class="lineno">  250 </span>m_nok3 :: Mapa
+<span class="lineno">  251 </span><span class="decl"><span class="nottickedoff">m_nok3 = Mapa ((2,1),Este) t_nok3</span></span>
+<span class="lineno">  252 </span>
+<span class="lineno">  253 </span><span class="decl"><span class="nottickedoff">t_nok3 = [[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]</span>
+<span class="lineno">  254 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca (Curva Norte) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Curva Este) 0,Peca Lava 0]</span>
+<span class="lineno">  255 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca (Curva Este) 0,Peca (Rampa Oeste) (-1),Peca (Rampa Este) (-1),Peca (Rampa Oeste) (-1),Peca (Rampa Este) (-1),Peca (Rampa Oeste) (-1),Peca (Rampa Este) (-1),Peca (Curva Norte) (-1),Peca (Rampa Este) (-1),Peca (Curva Sul) 0,Peca Lava 0]</span>
+<span class="lineno">  256 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Recta 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</span></span>
+<span class="lineno">  257 </span>
+<span class="lineno">  258 </span>m_nok4 :: Mapa
+<span class="lineno">  259 </span><span class="decl"><span class="nottickedoff">m_nok4 = Mapa ((2,1),Este) t_nok4</span></span>
+<span class="lineno">  260 </span>
+<span class="lineno">  261 </span><span class="decl"><span class="nottickedoff">t_nok4 = [[Peca (Curva Norte) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Rampa Este) 0,Peca (Rampa Oeste) 0,Peca (Curva Este) 0]</span>
+<span class="lineno">  262 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca (Curva Oeste) 0,Peca (Rampa Oeste) (-1),Peca (Rampa Este) (-1),Peca (Rampa Oeste) (-1),Peca (Rampa Este) (-1),Peca (Rampa Oeste) (-1),Peca (Rampa Este) (-1),Peca (Curva Norte) (-1),Peca (Rampa Este) (-1),Peca (Curva Sul) 0,Peca Lava 0]</span>
+<span class="lineno">  263 </span><span class="spaces">        </span><span class="nottickedoff">,[Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Lava 0,Peca Recta 0,Peca Lava 0,Peca Lava 0,Peca Lava 0]]</span></span>
+
+</pre>
+</body>
+</html>

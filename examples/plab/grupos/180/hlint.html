@@ -1,0 +1,948 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108230466-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-108230466-1');
+</script>
+
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"></meta>
+<title>HLint Report</title>
+<script type="text/javascript">
+
+/* == Algorithm for show/unshow ==
+   Each hint/file is given a number, hint# or file#
+   When we say showOnly with a class name we add the rules to
+   the css #content div {display:none}, #content div.className {display:block}
+   When going back to showAll we remove these results
+*/
+
+// CSS MANIPULATION //
+
+function deleteRules(n)
+{
+	var css = document.styleSheets[0];
+	for (var i = 0; i < n; i++)
+		css.deleteRule(css.cssRules.length-1);
+}
+
+function insertRule(s)
+{
+	var css = document.styleSheets[0];
+	css.insertRule(s, css.cssRules.length);
+}
+
+// SHOW/HIDE LOGIC //
+
+var last = "";
+
+function show(id)
+{
+	if (id == last) return;
+	if (id == "")
+	{
+		deleteRules(3);
+		insertRule(".all {font-weight: bold;}");
+	}
+	else
+	{
+		if (last == "")
+		{
+			deleteRules(1);
+			insertRule("#content div {display:none;}");
+		}
+		else
+		{
+			deleteRules(2);
+		}
+		insertRule("#content div." + id + " {display:block;}");
+		insertRule("#" + id + "{font-weight:bold;}");
+	}
+
+	last = id;
+}
+
+</script>
+<style type="text/css">
+/* These rules are manipulated by the script.
+   The commented form is how it looks with an id selected */
+
+.all {font-weight: bold;}      /* #content div {display:none;} */
+                               /* #content div.id {display:block;} */
+                               /* #id {font-weight: bold;} */
+
+</style>
+<style type="text/css">
+/* See http://www.webreference.com/programming/css_frames/ */
+body {
+	margin:0;
+	border:0;
+	padding:0;
+	height:100%;
+	max-height:100%;
+	font-family: sans-serif;
+	font-size:76%;
+	overflow: hidden;
+}
+
+#leftbar {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width: 215px;
+	bottom: 0px;
+	overflow:auto;
+	background:rgb(202,223,255);
+	margin: 10px;
+	padding-top: 0;
+	padding-left: 7px;
+	padding-right: 7px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+
+	display:none; /* Override if script present */
+}
+
+#content {
+	position:absolute;
+	top:0;
+	bottom:0;
+	right:0;
+	overflow:auto;
+	padding-bottom: 15px;
+	padding-right: 7px;
+
+	left:10px; /* Override if script present */
+}
+
+#leftbar ul {margin-top: 0px; padding-left: 15px;}
+#leftbar p {margin-bottom: 0px;}
+.note {color: gray; font-size: smaller;}
+
+pre {
+	font-family: &quot;lucida console&quot;, monospace;
+	padding-left: 15px;
+	margin: 2px;
+}
+
+#content div {
+	margin-bottom: 10px;
+	margin-right: 10px;
+	padding-top: 4px;
+	border-top: 1px solid #ccc;
+}
+
+.script #content {left:250px;}
+.script #leftbar {display: block;}
+
+/* From HsColour */
+.hs-keyglyph, .hs-layout {color: red;}
+.hs-keyword {color: blue;}
+.hs-comment, .hs-comment a {color: green;}
+.hs-str, .hs-chr {color: teal;}
+</style>
+</head>
+<body>
+
+<script type="text/javascript">
+document.body.className = "script";
+</script>
+
+<div id="leftbar" valign="top" style="min-width:200px">
+
+<p><a class="all" href="javascript:show('')">All hints</a></p>
+<ul>
+<li><a id="hint0" href="javascript:show('hint0')">Warning: Eta reduce (1)</a></li>
+<li><a id="hint1" href="javascript:show('hint1')">Warning: Redundant bracket (4)</a></li>
+<li><a id="hint2" href="javascript:show('hint2')">Warning: Redundant do (1)</a></li>
+<li><a id="hint3" href="javascript:show('hint3')">Warning: Unused LANGUAGE pragma (2)</a></li>
+<li><a id="hint4" href="javascript:show('hint4')">Warning: Use isNothing (2)</a></li>
+<li><a id="hint5" href="javascript:show('hint5')">Warning: Use mapMaybe (1)</a></li>
+<li><a id="hint6" href="javascript:show('hint6')">Warning: Used otherwise as a pattern (1)</a></li>
+<li><a id="hint7" href="javascript:show('hint7')">Suggestion: Move brackets to avoid $ (2)</a></li>
+<li><a id="hint8" href="javascript:show('hint8')">Suggestion: Redundant bracket (52)</a></li>
+<li><a id="hint9" href="javascript:show('hint9')">Suggestion: Use camelCase (14)</a></li>
+<li><a id="hint10" href="javascript:show('hint10')">Suggestion: Use null (2)</a></li>
+</ul>
+
+<p><a class="all" href="javascript:show('')">All files</a></p>
+<ul>
+<li><a id="file0" href="javascript:show('file0')">Tarefa1_2017li1g180.hs (12)</a></li>
+<li><a id="file1" href="javascript:show('file1')">Tarefa2_2017li1g180.hs (17)</a></li>
+<li><a id="file2" href="javascript:show('file2')">Tarefa3_2017li1g180.hs (22)</a></li>
+<li><a id="file3" href="javascript:show('file3')">Tarefa4_2017li1g180.hs (23)</a></li>
+<li><a id="file4" href="javascript:show('file4')">Tarefa6_2017li1g180.hs (8)</a></li>
+</ul>
+
+</div>
+<div id="content" valign="top" width="100%">
+<p>
+	Report generated by <a href="http://community.haskell.org/~ndm/hlint/">HLint</a>
+v2.0.12
+	- a tool to suggest improvements to your Haskell code.
+</p>
+
+<div class="hint8 file0">
+Tarefa1_2017li1g180.hs:51:16: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">blocoRampa</span> <span class="hs-varid">s</span> <span class="hs-varid">d</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">min</span> <span class="hs-varid">a</span> <span class="hs-varid">a'</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">blocoRampa</span> <span class="hs-varid">s</span> <span class="hs-varid">d</span> <span class="hs-layout">(</span><span class="hs-varid">min</span> <span class="hs-varid">a</span> <span class="hs-varid">a'</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file0">
+Tarefa1_2017li1g180.hs:54:21: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">take</span> <span class="hs-varid">y</span> <span class="hs-varid">m</span><span class="hs-layout">)</span> <span class="hs-varop">++</span> <span class="hs-keyglyph">[</span><span class="hs-varid">l</span><span class="hs-keyglyph">]</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">y</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-varid">m</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">take</span> <span class="hs-varid">y</span> <span class="hs-varid">m</span> <span class="hs-varop">++</span> <span class="hs-keyglyph">[</span><span class="hs-varid">l</span><span class="hs-keyglyph">]</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">y</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-varid">m</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file0">
+Tarefa1_2017li1g180.hs:54:35: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-keyglyph">[</span><span class="hs-varid">l</span><span class="hs-keyglyph">]</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">y</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-varid">m</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-keyglyph">[</span><span class="hs-varid">l</span><span class="hs-keyglyph">]</span> <span class="hs-varop">++</span> <span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">y</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-varid">m</span></pre>
+
+</div>
+
+<div class="hint8 file0">
+Tarefa1_2017li1g180.hs:55:15: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">take</span> <span class="hs-varid">x</span> <span class="hs-layout">(</span><span class="hs-varid">atNote</span> <span class="hs-str">&quot;replace1&quot;</span> <span class="hs-varid">m</span> <span class="hs-varid">y</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">++</span>
+  <span class="hs-keyglyph">[</span><span class="hs-varid">e</span><span class="hs-keyglyph">]</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">atNote</span> <span class="hs-str">&quot;replace2&quot;</span> <span class="hs-varid">m</span> <span class="hs-varid">y</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">take</span> <span class="hs-varid">x</span> <span class="hs-layout">(</span><span class="hs-varid">atNote</span> <span class="hs-str">&quot;replace1&quot;</span> <span class="hs-varid">m</span> <span class="hs-varid">y</span><span class="hs-layout">)</span> <span class="hs-varop">++</span>
+  <span class="hs-keyglyph">[</span><span class="hs-varid">e</span><span class="hs-keyglyph">]</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">atNote</span> <span class="hs-str">&quot;replace2&quot;</span> <span class="hs-varid">m</span> <span class="hs-varid">y</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file0">
+Tarefa1_2017li1g180.hs:55:51: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-keyglyph">[</span><span class="hs-varid">e</span><span class="hs-keyglyph">]</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">atNote</span> <span class="hs-str">&quot;replace2&quot;</span> <span class="hs-varid">m</span> <span class="hs-varid">y</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-keyglyph">[</span><span class="hs-varid">e</span><span class="hs-keyglyph">]</span> <span class="hs-varop">++</span> <span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">atNote</span> <span class="hs-str">&quot;replace2&quot;</span> <span class="hs-varid">m</span> <span class="hs-varid">y</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint0 file0">
+Tarefa1_2017li1g180.hs:93:1: Warning: Eta reduce<br />
+Found<br />
+<pre><span class="hs-definition">atNote2</span> <span class="hs-varid">str</span> <span class="hs-varid">xys</span> <span class="hs-varid">x</span> <span class="hs-varid">y</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">atNote</span> <span class="hs-varid">str</span> <span class="hs-layout">(</span><span class="hs-varid">atNote</span> <span class="hs-varid">str</span> <span class="hs-varid">xys</span> <span class="hs-varid">x</span><span class="hs-layout">)</span> <span class="hs-varid">y</span></pre>
+Why not<br />
+<pre><span class="hs-definition">atNote2</span> <span class="hs-varid">str</span> <span class="hs-varid">xys</span> <span class="hs-varid">x</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">atNote</span> <span class="hs-varid">str</span> <span class="hs-layout">(</span><span class="hs-varid">atNote</span> <span class="hs-varid">str</span> <span class="hs-varid">xys</span> <span class="hs-varid">x</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint9 file0">
+Tarefa1_2017li1g180.hs:153:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">c_exOP</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">cExOP</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file0">
+Tarefa1_2017li1g180.hs:158:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">c_exDM</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">cExDM</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file0">
+Tarefa1_2017li1g180.hs:163:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">c_exOL</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">cExOL</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file0">
+Tarefa1_2017li1g180.hs:168:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">c_exHM</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">cExHM</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file0">
+Tarefa1_2017li1g180.hs:173:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">c_exR</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">cExR</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file0">
+Tarefa1_2017li1g180.hs:183:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">c_exE</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">cExE</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint10 file1">
+Tarefa2_2017li1g180.hs:32:25: Suggestion: Use null<br />
+Found<br />
+<pre><span class="hs-definition">c</span> <span class="hs-varop">==</span> <span class="hs-conid">[]</span></pre>
+Why not<br />
+<pre><span class="hs-definition">null</span> <span class="hs-varid">c</span></pre>
+
+</div>
+
+<div class="hint8 file1">
+Tarefa2_2017li1g180.hs:33:54: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">daVolta</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">&amp;&amp;</span> <span class="hs-layout">(</span><span class="hs-varid">naoDesperdica</span> <span class="hs-varid">c</span> <span class="hs-varid">t</span><span class="hs-layout">)</span> <span class="hs-varop">&amp;&amp;</span> <span class="hs-layout">(</span><span class="hs-varid">sequencial</span> <span class="hs-varid">c</span> <span class="hs-varid">a</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">daVolta</span> <span class="hs-varid">c</span> <span class="hs-varop">&amp;&amp;</span> <span class="hs-layout">(</span><span class="hs-varid">naoDesperdica</span> <span class="hs-varid">c</span> <span class="hs-varid">t</span><span class="hs-layout">)</span> <span class="hs-varop">&amp;&amp;</span> <span class="hs-layout">(</span><span class="hs-varid">sequencial</span> <span class="hs-varid">c</span> <span class="hs-varid">a</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file1">
+Tarefa2_2017li1g180.hs:33:69: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">naoDesperdica</span> <span class="hs-varid">c</span> <span class="hs-varid">t</span><span class="hs-layout">)</span> <span class="hs-varop">&amp;&amp;</span> <span class="hs-layout">(</span><span class="hs-varid">sequencial</span> <span class="hs-varid">c</span> <span class="hs-varid">a</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">naoDesperdica</span> <span class="hs-varid">c</span> <span class="hs-varid">t</span> <span class="hs-varop">&amp;&amp;</span> <span class="hs-layout">(</span><span class="hs-varid">sequencial</span> <span class="hs-varid">c</span> <span class="hs-varid">a</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file1">
+Tarefa2_2017li1g180.hs:33:69: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">naoDesperdica</span> <span class="hs-varid">c</span> <span class="hs-varid">t</span><span class="hs-layout">)</span> <span class="hs-varop">&amp;&amp;</span> <span class="hs-layout">(</span><span class="hs-varid">sequencial</span> <span class="hs-varid">c</span> <span class="hs-varid">a</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">naoDesperdica</span> <span class="hs-varid">c</span> <span class="hs-varid">t</span><span class="hs-layout">)</span> <span class="hs-varop">&amp;&amp;</span> <span class="hs-varid">sequencial</span> <span class="hs-varid">c</span> <span class="hs-varid">a</span></pre>
+
+</div>
+
+<div class="hint8 file1">
+Tarefa2_2017li1g180.hs:36:13: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-keyword">if</span> <span class="hs-varid">t0</span> <span class="hs-varop">==</span> <span class="hs-conid">Rampa</span> <span class="hs-layout">(</span><span class="hs-varid">roda</span> <span class="hs-layout">(</span><span class="hs-varid">roda</span> <span class="hs-varid">d</span> <span class="hs-conid">True</span><span class="hs-layout">)</span> <span class="hs-conid">True</span><span class="hs-layout">)</span> <span class="hs-keyword">then</span> <span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-keyword">else</span> <span class="hs-varid">x</span></pre>
+Why not<br />
+<pre><span class="hs-keyword">if</span> <span class="hs-varid">t0</span> <span class="hs-varop">==</span> <span class="hs-conid">Rampa</span> <span class="hs-layout">(</span><span class="hs-varid">roda</span> <span class="hs-layout">(</span><span class="hs-varid">roda</span> <span class="hs-varid">d</span> <span class="hs-conid">True</span><span class="hs-layout">)</span> <span class="hs-conid">True</span><span class="hs-layout">)</span> <span class="hs-keyword">then</span> <span class="hs-varid">x</span> <span class="hs-varop">+</span> <span class="hs-num">1</span> <span class="hs-keyword">else</span> <span class="hs-varid">x</span></pre>
+
+</div>
+
+<div class="hint4 file1">
+Tarefa2_2017li1g180.hs:51:25: Warning: Use isNothing<br />
+Found<br />
+<pre><span class="hs-definition">d'</span> <span class="hs-varop">==</span> <span class="hs-conid">Nothing</span></pre>
+Why not<br />
+<pre><span class="hs-definition">isNothing</span> <span class="hs-varid">d'</span></pre>
+
+</div>
+
+<div class="hint8 file1">
+Tarefa2_2017li1g180.hs:71:13: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">head</span> <span class="hs-varid">p</span><span class="hs-layout">)</span> <span class="hs-varop">==</span> <span class="hs-layout">(</span><span class="hs-varid">last</span> <span class="hs-varid">p</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">head</span> <span class="hs-varid">p</span> <span class="hs-varop">==</span> <span class="hs-layout">(</span><span class="hs-varid">last</span> <span class="hs-varid">p</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file1">
+Tarefa2_2017li1g180.hs:71:13: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">head</span> <span class="hs-varid">p</span><span class="hs-layout">)</span> <span class="hs-varop">==</span> <span class="hs-layout">(</span><span class="hs-varid">last</span> <span class="hs-varid">p</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">head</span> <span class="hs-varid">p</span><span class="hs-layout">)</span> <span class="hs-varop">==</span> <span class="hs-varid">last</span> <span class="hs-varid">p</span></pre>
+
+</div>
+
+<div class="hint8 file1">
+Tarefa2_2017li1g180.hs:90:30: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-definition">o</span> <span class="hs-varop">==</span> <span class="hs-layout">(</span><span class="hs-varid">roda</span> <span class="hs-varid">c</span> <span class="hs-conid">False</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">o</span> <span class="hs-varop">==</span> <span class="hs-varid">roda</span> <span class="hs-varid">c</span> <span class="hs-conid">False</span></pre>
+
+</div>
+
+<div class="hint9 file1">
+Tarefa2_2017li1g180.hs:112:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">mm_exPI</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">mmExPI</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file1">
+Tarefa2_2017li1g180.hs:115:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">mm_exLV</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">mmExLV</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file1">
+Tarefa2_2017li1g180.hs:118:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">mm_exEX</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">mmExEX</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file1">
+Tarefa2_2017li1g180.hs:121:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">mm_exLH</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">mmExLH</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file1">
+Tarefa2_2017li1g180.hs:123:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">mm_why</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">mmWhy</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file1">
+Tarefa2_2017li1g180.hs:125:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">mm_NSq</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">mmNSq</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file1">
+Tarefa2_2017li1g180.hs:131:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">mm_Rec</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">mmRec</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint9 file1">
+Tarefa2_2017li1g180.hs:136:1: Suggestion: Use camelCase<br />
+Found<br />
+<pre><span class="hs-definition">mm_Rec'</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+Why not<br />
+<pre><span class="hs-definition">mmRec'</span> <span class="hs-keyglyph">=</span> <span class="hs-varop">...</span></pre>
+
+</div>
+
+<div class="hint2 file2">
+Tarefa3_2017li1g180.hs:16:30: Warning: Redundant do<br />
+Found<br />
+<pre><span class="hs-keyword">do</span> <span class="hs-varid">suchThat</span> <span class="hs-varid">genC</span> <span class="hs-layout">(</span><span class="hs-varid">validaCarro</span> <span class="hs-varid">tab</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">suchThat</span> <span class="hs-varid">genC</span> <span class="hs-layout">(</span><span class="hs-varid">validaCarro</span> <span class="hs-varid">tab</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:54:16: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">normAngulo</span> <span class="hs-layout">(</span><span class="hs-varid">abs</span> <span class="hs-layout">(</span><span class="hs-varid">direcao</span> <span class="hs-varid">x</span> <span class="hs-comment">-</span> <span class="hs-varid">direcao</span> <span class="hs-varid">y</span><span class="hs-layout">)</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">/</span> <span class="hs-num">360</span></pre>
+Why not<br />
+<pre><span class="hs-definition">normAngulo</span> <span class="hs-layout">(</span><span class="hs-varid">abs</span> <span class="hs-layout">(</span><span class="hs-varid">direcao</span> <span class="hs-varid">x</span> <span class="hs-comment">-</span> <span class="hs-varid">direcao</span> <span class="hs-varid">y</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">/</span> <span class="hs-num">360</span></pre>
+
+</div>
+
+<div class="hint7 file2">
+Tarefa3_2017li1g180.hs:63:25: Suggestion: Move brackets to avoid $<br />
+Found<br />
+<pre><span class="hs-definition">validaPonto</span> <span class="hs-layout">(</span><span class="hs-varid">posicao</span> <span class="hs-varid">carro</span><span class="hs-layout">)</span> <span class="hs-varid">tab</span> <span class="hs-varop">&amp;&amp;</span>
+  <span class="hs-layout">(</span><span class="hs-varid">not</span> <span class="hs-varop">$</span> <span class="hs-varid">derrete</span> <span class="hs-varid">tab</span> <span class="hs-layout">(</span><span class="hs-varid">posicao</span> <span class="hs-varid">carro</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">validaPonto</span> <span class="hs-layout">(</span><span class="hs-varid">posicao</span> <span class="hs-varid">carro</span><span class="hs-layout">)</span> <span class="hs-varid">tab</span> <span class="hs-varop">&amp;&amp;</span>
+  <span class="hs-varid">not</span> <span class="hs-layout">(</span><span class="hs-varid">derrete</span> <span class="hs-varid">tab</span> <span class="hs-layout">(</span><span class="hs-varid">posicao</span> <span class="hs-varid">carro</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:70:15: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">atNote</span> <span class="hs-str">&quot;derrete&quot;</span> <span class="hs-layout">(</span><span class="hs-varid">atNote</span> <span class="hs-str">&quot;derrete&quot;</span> <span class="hs-varid">t</span> <span class="hs-varid">j</span><span class="hs-layout">)</span> <span class="hs-varid">i</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">atNote</span> <span class="hs-str">&quot;derrete&quot;</span> <span class="hs-layout">(</span><span class="hs-varid">atNote</span> <span class="hs-str">&quot;derrete&quot;</span> <span class="hs-varid">t</span> <span class="hs-varid">j</span><span class="hs-layout">)</span> <span class="hs-varid">i</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:81:19: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-keyword">case</span> <span class="hs-layout">(</span><span class="hs-varid">colideLocal</span> <span class="hs-varid">m</span> <span class="hs-varid">v</span> <span class="hs-layout">(</span><span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-varid">b</span><span class="hs-layout">)</span> <span class="hs-varid">i</span><span class="hs-layout">)</span> <span class="hs-keyword">of</span>
+    <span class="hs-conid">Nothing</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">Nothing</span>
+    <span class="hs-conid">Just</span> <span class="hs-layout">(</span><span class="hs-varid">p'</span><span class="hs-layout">,</span> <span class="hs-varid">v'</span><span class="hs-layout">)</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">Just</span> <span class="hs-varop">$</span> <span class="hs-varid">c</span><span class="hs-layout">{</span><span class="hs-varid">posicao</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">p'</span><span class="hs-layout">,</span> <span class="hs-varid">velocidade</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">v'</span><span class="hs-layout">}</span></pre>
+Why not<br />
+<pre><span class="hs-keyword">case</span> <span class="hs-varid">colideLocal</span> <span class="hs-varid">m</span> <span class="hs-varid">v</span> <span class="hs-layout">(</span><span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-varid">b</span><span class="hs-layout">)</span> <span class="hs-varid">i</span> <span class="hs-keyword">of</span>
+    <span class="hs-conid">Nothing</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">Nothing</span>
+    <span class="hs-conid">Just</span> <span class="hs-layout">(</span><span class="hs-varid">p'</span><span class="hs-layout">,</span> <span class="hs-varid">v'</span><span class="hs-layout">)</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-conid">Just</span> <span class="hs-varop">$</span> <span class="hs-varid">c</span><span class="hs-layout">{</span><span class="hs-varid">posicao</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">p'</span><span class="hs-layout">,</span> <span class="hs-varid">velocidade</span> <span class="hs-keyglyph">=</span> <span class="hs-varid">v'</span><span class="hs-layout">}</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:90:44: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">arrowToComponents</span> <span class="hs-layout">(</span><span class="hs-varid">d</span><span class="hs-layout">,</span> <span class="hs-varid">a1</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-comment">-</span><span class="hs-varid">x</span><span class="hs-layout">,</span> <span class="hs-comment">-</span><span class="hs-varid">y</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">arrowToComponents</span> <span class="hs-layout">(</span><span class="hs-varid">d</span><span class="hs-layout">,</span> <span class="hs-varid">a1</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-comment">-</span><span class="hs-varid">x</span><span class="hs-layout">,</span> <span class="hs-comment">-</span><span class="hs-varid">y</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:92:19: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-definition">dp</span> <span class="hs-varop">.*.</span> <span class="hs-layout">(</span><span class="hs-varid">arrowToComponents</span> <span class="hs-layout">(</span><span class="hs-num">1</span><span class="hs-layout">,</span> <span class="hs-varid">a2</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">dp</span> <span class="hs-varop">.*.</span> <span class="hs-varid">arrowToComponents</span> <span class="hs-layout">(</span><span class="hs-num">1</span><span class="hs-layout">,</span> <span class="hs-varid">a2</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint5 file2">
+Tarefa3_2017li1g180.hs:162:21: Warning: Use mapMaybe<br />
+Found<br />
+<pre><span class="hs-definition">catMaybes</span> <span class="hs-varop">.</span>
+  <span class="hs-varid">map</span>
+    <span class="hs-layout">(</span><span class="hs-keyglyph">\</span> <span class="hs-layout">(</span><span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-varid">b</span><span class="hs-layout">)</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-keyword">if</span> <span class="hs-layout">(</span><span class="hs-varid">isJust</span> <span class="hs-varid">a</span><span class="hs-layout">)</span> <span class="hs-keyword">then</span> <span class="hs-conid">Just</span> <span class="hs-layout">(</span><span class="hs-varid">fromJust</span> <span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-varid">b</span><span class="hs-layout">)</span> <span class="hs-keyword">else</span> <span class="hs-conid">Nothing</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">mapMaybe</span>
+  <span class="hs-layout">(</span><span class="hs-keyglyph">\</span> <span class="hs-layout">(</span><span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-varid">b</span><span class="hs-layout">)</span> <span class="hs-keyglyph">-&gt;</span> <span class="hs-keyword">if</span> <span class="hs-layout">(</span><span class="hs-varid">isJust</span> <span class="hs-varid">a</span><span class="hs-layout">)</span> <span class="hs-keyword">then</span> <span class="hs-conid">Just</span> <span class="hs-layout">(</span><span class="hs-varid">fromJust</span> <span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-varid">b</span><span class="hs-layout">)</span> <span class="hs-keyword">else</span> <span class="hs-conid">Nothing</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:162:48: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-keyword">if</span> <span class="hs-layout">(</span><span class="hs-varid">isJust</span> <span class="hs-varid">a</span><span class="hs-layout">)</span> <span class="hs-keyword">then</span> <span class="hs-conid">Just</span> <span class="hs-layout">(</span><span class="hs-varid">fromJust</span> <span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-varid">b</span><span class="hs-layout">)</span> <span class="hs-keyword">else</span> <span class="hs-conid">Nothing</span></pre>
+Why not<br />
+<pre><span class="hs-keyword">if</span> <span class="hs-varid">isJust</span> <span class="hs-varid">a</span> <span class="hs-keyword">then</span> <span class="hs-conid">Just</span> <span class="hs-layout">(</span><span class="hs-varid">fromJust</span> <span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-varid">b</span><span class="hs-layout">)</span> <span class="hs-keyword">else</span> <span class="hs-conid">Nothing</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:183:41: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-definition">t0</span> <span class="hs-varop">==</span> <span class="hs-layout">(</span><span class="hs-conid">Rampa</span> <span class="hs-layout">(</span><span class="hs-varid">toEnum</span> <span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">fromEnum</span> <span class="hs-varid">x</span><span class="hs-layout">)</span> <span class="hs-varop">+</span> <span class="hs-num">2</span><span class="hs-layout">)</span> <span class="hs-varop">`mod`</span> <span class="hs-num">4</span><span class="hs-layout">)</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">t0</span> <span class="hs-varop">==</span> <span class="hs-conid">Rampa</span> <span class="hs-layout">(</span><span class="hs-varid">toEnum</span> <span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">fromEnum</span> <span class="hs-varid">x</span><span class="hs-layout">)</span> <span class="hs-varop">+</span> <span class="hs-num">2</span><span class="hs-layout">)</span> <span class="hs-varop">`mod`</span> <span class="hs-num">4</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:183:64: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">fromEnum</span> <span class="hs-varid">x</span><span class="hs-layout">)</span> <span class="hs-varop">+</span> <span class="hs-num">2</span></pre>
+Why not<br />
+<pre><span class="hs-definition">fromEnum</span> <span class="hs-varid">x</span> <span class="hs-varop">+</span> <span class="hs-num">2</span></pre>
+
+</div>
+
+<div class="hint7 file2">
+Tarefa3_2017li1g180.hs:183:96: Suggestion: Move brackets to avoid $<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">abs</span> <span class="hs-varop">$</span> <span class="hs-varid">aa</span> <span class="hs-comment">-</span> <span class="hs-varid">aa'</span><span class="hs-layout">)</span> <span class="hs-varop">==</span> <span class="hs-num">1</span></pre>
+Why not<br />
+<pre><span class="hs-definition">abs</span> <span class="hs-layout">(</span><span class="hs-varid">aa</span> <span class="hs-comment">-</span> <span class="hs-varid">aa'</span><span class="hs-layout">)</span> <span class="hs-varop">==</span> <span class="hs-num">1</span></pre>
+
+</div>
+
+<div class="hint6 file2">
+Tarefa3_2017li1g180.hs:184:28: Warning: Used otherwise as a pattern<br />
+Found<br />
+<pre><span class="hs-definition">otherwise</span></pre>
+Why not<br />
+<pre><span class="hs-keyword">_</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:252:17: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">*</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">,</span> <span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">*</span> <span class="hs-varid">b</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">*</span> <span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">*</span> <span class="hs-varid">b</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:252:17: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">*</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">,</span> <span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">*</span> <span class="hs-varid">b</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">*</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">,</span> <span class="hs-varid">x</span> <span class="hs-varop">*</span> <span class="hs-varid">b</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:255:21: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">+</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">,</span> <span class="hs-layout">(</span><span class="hs-varid">y</span> <span class="hs-varop">+</span> <span class="hs-varid">b</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">+</span> <span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-layout">(</span><span class="hs-varid">y</span> <span class="hs-varop">+</span> <span class="hs-varid">b</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:255:21: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">+</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">,</span> <span class="hs-layout">(</span><span class="hs-varid">y</span> <span class="hs-varop">+</span> <span class="hs-varid">b</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-varop">+</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">,</span> <span class="hs-varid">y</span> <span class="hs-varop">+</span> <span class="hs-varid">b</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:258:21: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-comment">-</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">,</span> <span class="hs-layout">(</span><span class="hs-varid">y</span> <span class="hs-comment">-</span> <span class="hs-varid">b</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-comment">-</span> <span class="hs-varid">a</span><span class="hs-layout">,</span> <span class="hs-layout">(</span><span class="hs-varid">y</span> <span class="hs-comment">-</span> <span class="hs-varid">b</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:258:21: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-comment">-</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">,</span> <span class="hs-layout">(</span><span class="hs-varid">y</span> <span class="hs-comment">-</span> <span class="hs-varid">b</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">x</span> <span class="hs-comment">-</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">,</span> <span class="hs-varid">y</span> <span class="hs-comment">-</span> <span class="hs-varid">b</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint1 file2">
+Tarefa3_2017li1g180.hs:271:40: Warning: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">th</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">th</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:286:17: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">abs</span> <span class="hs-varid">x</span><span class="hs-layout">)</span> <span class="hs-varop">^</span> <span class="hs-num">2</span></pre>
+Why not<br />
+<pre><span class="hs-definition">abs</span> <span class="hs-varid">x</span> <span class="hs-varop">^</span> <span class="hs-num">2</span></pre>
+
+</div>
+
+<div class="hint8 file2">
+Tarefa3_2017li1g180.hs:286:29: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">abs</span> <span class="hs-varid">y</span><span class="hs-layout">)</span> <span class="hs-varop">^</span> <span class="hs-num">2</span></pre>
+Why not<br />
+<pre><span class="hs-definition">abs</span> <span class="hs-varid">y</span> <span class="hs-varop">^</span> <span class="hs-num">2</span></pre>
+
+</div>
+
+<div class="hint3 file3">
+Tarefa4_2017li1g180.hs:1:1: Warning: Unused LANGUAGE pragma<br />
+Found<br />
+<pre><span class="hs-comment">{-# LANGUAGE PatternGuards #-}</span></pre>
+Why not remove it.<br />
+<pre></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:31:68: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-keyglyph">[</span><span class="hs-layout">(</span><span class="hs-varid">fst</span> <span class="hs-varid">p</span><span class="hs-layout">)</span><span class="hs-keyglyph">]</span></pre>
+Why not<br />
+<pre><span class="hs-keyglyph">[</span><span class="hs-varid">fst</span> <span class="hs-varid">p</span><span class="hs-keyglyph">]</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:39:26: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">t</span> <span class="hs-varop">!!</span> <span class="hs-varid">b</span> <span class="hs-varop">!!</span> <span class="hs-varid">a</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">t</span> <span class="hs-varop">!!</span> <span class="hs-varid">b</span> <span class="hs-varop">!!</span> <span class="hs-varid">a</span></pre>
+
+</div>
+
+<div class="hint1 file3">
+Tarefa4_2017li1g180.hs:49:25: Warning: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-num">1.5</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-num">1.5</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:55:20: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">mapa</span> <span class="hs-varid">e</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">mapa</span> <span class="hs-varid">e</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:58:15: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">take</span> <span class="hs-varid">j</span> <span class="hs-layout">(</span><span class="hs-varid">carros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">c'</span> <span class="hs-conop">:</span> <span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">j</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">carros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">take</span> <span class="hs-varid">j</span> <span class="hs-layout">(</span><span class="hs-varid">carros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">c'</span> <span class="hs-conop">:</span> <span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">j</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">carros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:59:15: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">take</span> <span class="hs-varid">j</span> <span class="hs-layout">(</span><span class="hs-varid">historico</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">h'</span> <span class="hs-conop">:</span> <span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">j</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">historico</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">take</span> <span class="hs-varid">j</span> <span class="hs-layout">(</span><span class="hs-varid">historico</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">h'</span> <span class="hs-conop">:</span> <span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">j</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">historico</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:73:28: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">h</span> <span class="hs-conop">:</span> <span class="hs-varid">hs</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">h</span> <span class="hs-conop">:</span> <span class="hs-varid">hs</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:78:48: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">nitros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varop">!!</span> <span class="hs-varid">i</span></pre>
+Why not<br />
+<pre><span class="hs-definition">nitros</span> <span class="hs-varid">e</span> <span class="hs-varop">!!</span> <span class="hs-varid">i</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:80:32: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">nitros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varop">!!</span> <span class="hs-varid">i</span></pre>
+Why not<br />
+<pre><span class="hs-definition">nitros</span> <span class="hs-varid">e</span> <span class="hs-varop">!!</span> <span class="hs-varid">i</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:81:15: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">take</span> <span class="hs-varid">i</span> <span class="hs-layout">(</span><span class="hs-varid">nitros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">n'</span> <span class="hs-conop">:</span> <span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">i</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">nitros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">take</span> <span class="hs-varid">i</span> <span class="hs-layout">(</span><span class="hs-varid">nitros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">n'</span> <span class="hs-conop">:</span> <span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">i</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">nitros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:82:15: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">take</span> <span class="hs-varid">j</span> <span class="hs-layout">(</span><span class="hs-varid">carros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">c'</span> <span class="hs-conop">:</span> <span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">j</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">carros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">take</span> <span class="hs-varid">j</span> <span class="hs-layout">(</span><span class="hs-varid">carros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varop">++</span> <span class="hs-layout">(</span><span class="hs-varid">c'</span> <span class="hs-conop">:</span> <span class="hs-varid">drop</span> <span class="hs-layout">(</span><span class="hs-varid">j</span> <span class="hs-varop">+</span> <span class="hs-num">1</span><span class="hs-layout">)</span> <span class="hs-layout">(</span><span class="hs-varid">carros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:83:22: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">nitros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varop">!!</span> <span class="hs-varid">i</span></pre>
+Why not<br />
+<pre><span class="hs-definition">nitros</span> <span class="hs-varid">e</span> <span class="hs-varop">!!</span> <span class="hs-varid">i</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:84:13: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">carros</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varop">!!</span> <span class="hs-varid">j</span></pre>
+Why not<br />
+<pre><span class="hs-definition">carros</span> <span class="hs-varid">e</span> <span class="hs-varop">!!</span> <span class="hs-varid">j</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:85:14: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">carros</span> <span class="hs-varid">e0</span><span class="hs-layout">)</span> <span class="hs-varop">!!</span> <span class="hs-varid">j</span></pre>
+Why not<br />
+<pre><span class="hs-definition">carros</span> <span class="hs-varid">e0</span> <span class="hs-varop">!!</span> <span class="hs-varid">j</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:86:31: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">velocidade</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">tNitro</span> <span class="hs-varop">.*.</span> <span class="hs-layout">(</span><span class="hs-varid">nitroVec</span> <span class="hs-layout">(</span><span class="hs-varid">pista</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varid">c0</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">velocidade</span> <span class="hs-varid">c</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">tNitro</span> <span class="hs-varop">.*.</span> <span class="hs-layout">(</span><span class="hs-varid">nitroVec</span> <span class="hs-layout">(</span><span class="hs-varid">pista</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varid">c0</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:86:51: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-definition">tNitro</span> <span class="hs-varop">.*.</span> <span class="hs-layout">(</span><span class="hs-varid">nitroVec</span> <span class="hs-layout">(</span><span class="hs-varid">pista</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varid">c0</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">tNitro</span> <span class="hs-varop">.*.</span> <span class="hs-varid">nitroVec</span> <span class="hs-layout">(</span><span class="hs-varid">pista</span> <span class="hs-varid">e</span><span class="hs-layout">)</span> <span class="hs-varid">c0</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:90:14: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">velocidade</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span>
+  <span class="hs-layout">(</span><span class="hs-varid">t</span> <span class="hs-varop">.*.</span>
+     <span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">accelVec</span> <span class="hs-varid">ps</span> <span class="hs-layout">(</span><span class="hs-varid">c</span><span class="hs-layout">,</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">dragVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">driftVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span>
+        <span class="hs-layout">(</span><span class="hs-varid">gravityVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">p</span> <span class="hs-varid">c</span><span class="hs-layout">)</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">velocidade</span> <span class="hs-varid">c</span> <span class="hs-varop">.+.</span>
+  <span class="hs-layout">(</span><span class="hs-varid">t</span> <span class="hs-varop">.*.</span>
+     <span class="hs-layout">(</span><span class="hs-layout">(</span><span class="hs-varid">accelVec</span> <span class="hs-varid">ps</span> <span class="hs-layout">(</span><span class="hs-varid">c</span><span class="hs-layout">,</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">dragVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">driftVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span>
+        <span class="hs-layout">(</span><span class="hs-varid">gravityVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">p</span> <span class="hs-varid">c</span><span class="hs-layout">)</span><span class="hs-layout">)</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:90:41: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">accelVec</span> <span class="hs-varid">ps</span> <span class="hs-layout">(</span><span class="hs-varid">c</span><span class="hs-layout">,</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">dragVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">accelVec</span> <span class="hs-varid">ps</span> <span class="hs-layout">(</span><span class="hs-varid">c</span><span class="hs-layout">,</span> <span class="hs-varid">a</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">dragVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:90:41: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">accelVec</span> <span class="hs-varid">ps</span> <span class="hs-layout">(</span><span class="hs-varid">c</span><span class="hs-layout">,</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">dragVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">accelVec</span> <span class="hs-varid">ps</span> <span class="hs-layout">(</span><span class="hs-varid">c</span><span class="hs-layout">,</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-varid">dragVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:90:41: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">accelVec</span> <span class="hs-varid">ps</span> <span class="hs-layout">(</span><span class="hs-varid">c</span><span class="hs-layout">,</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">dragVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">driftVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">accelVec</span> <span class="hs-varid">ps</span> <span class="hs-layout">(</span><span class="hs-varid">c</span><span class="hs-layout">,</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">dragVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-varid">driftVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:90:41: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">accelVec</span> <span class="hs-varid">ps</span> <span class="hs-layout">(</span><span class="hs-varid">c</span><span class="hs-layout">,</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">dragVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">driftVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span>
+  <span class="hs-layout">(</span><span class="hs-varid">gravityVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">p</span> <span class="hs-varid">c</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">accelVec</span> <span class="hs-varid">ps</span> <span class="hs-layout">(</span><span class="hs-varid">c</span><span class="hs-layout">,</span> <span class="hs-varid">a</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">dragVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span> <span class="hs-layout">(</span><span class="hs-varid">driftVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">c</span><span class="hs-layout">)</span> <span class="hs-varop">.+.</span>
+  <span class="hs-varid">gravityVec</span> <span class="hs-varid">ps</span> <span class="hs-varid">p</span> <span class="hs-varid">c</span></pre>
+
+</div>
+
+<div class="hint8 file3">
+Tarefa4_2017li1g180.hs:109:25: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">sin</span> <span class="hs-layout">(</span><span class="hs-varid">radians</span> <span class="hs-layout">(</span><span class="hs-varid">a</span> <span class="hs-comment">-</span> <span class="hs-varid">d</span><span class="hs-layout">)</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">&gt;</span> <span class="hs-num">0</span></pre>
+Why not<br />
+<pre><span class="hs-definition">sin</span> <span class="hs-layout">(</span><span class="hs-varid">radians</span> <span class="hs-layout">(</span><span class="hs-varid">a</span> <span class="hs-comment">-</span> <span class="hs-varid">d</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">&gt;</span> <span class="hs-num">0</span></pre>
+
+</div>
+
+<div class="hint3 file4">
+Tarefa6_2017li1g180.hs:1:1: Warning: Unused LANGUAGE pragma<br />
+Found<br />
+<pre><span class="hs-comment">{-# LANGUAGE PatternGuards #-}</span></pre>
+Why not remove it.<br />
+<pre></pre>
+
+</div>
+
+<div class="hint4 file4">
+Tarefa6_2017li1g180.hs:17:13: Warning: Use isNothing<br />
+Found<br />
+<pre><span class="hs-definition">p'</span> <span class="hs-varop">==</span> <span class="hs-conid">Nothing</span></pre>
+Why not<br />
+<pre><span class="hs-definition">isNothing</span> <span class="hs-varid">p'</span></pre>
+
+</div>
+
+<div class="hint8 file4">
+Tarefa6_2017li1g180.hs:19:15: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">carros</span> <span class="hs-varid">e</span> <span class="hs-varop">!!</span> <span class="hs-varid">i</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">carros</span> <span class="hs-varid">e</span> <span class="hs-varop">!!</span> <span class="hs-varid">i</span></pre>
+
+</div>
+
+<div class="hint1 file4">
+Tarefa6_2017li1g180.hs:22:50: Warning: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">e</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">e</span></pre>
+
+</div>
+
+<div class="hint1 file4">
+Tarefa6_2017li1g180.hs:23:38: Warning: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">e</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">e</span></pre>
+
+</div>
+
+<div class="hint8 file4">
+Tarefa6_2017li1g180.hs:24:23: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">m</span> <span class="hs-varop">!!</span> <span class="hs-varid">pj</span> <span class="hs-varop">!!</span> <span class="hs-varid">pi</span><span class="hs-layout">)</span></pre>
+Why not<br />
+<pre><span class="hs-definition">m</span> <span class="hs-varop">!!</span> <span class="hs-varid">pj</span> <span class="hs-varop">!!</span> <span class="hs-varid">pi</span></pre>
+
+</div>
+
+<div class="hint10 file4">
+Tarefa6_2017li1g180.hs:29:20: Suggestion: Use null<br />
+Found<br />
+<pre><span class="hs-definition">length</span> <span class="hs-varid">whereAmI'</span> <span class="hs-varop">&gt;</span> <span class="hs-num">0</span></pre>
+Why not<br />
+<pre><span class="hs-definition">not</span> <span class="hs-layout">(</span><span class="hs-varid">null</span> <span class="hs-varid">whereAmI'</span><span class="hs-layout">)</span></pre>
+<span class="note">Note: increases laziness</span>
+</div>
+
+<div class="hint8 file4">
+Tarefa6_2017li1g180.hs:34:17: Suggestion: Redundant bracket<br />
+Found<br />
+<pre><span class="hs-layout">(</span><span class="hs-varid">round</span> <span class="hs-layout">(</span><span class="hs-varid">direcao</span> <span class="hs-varid">p</span><span class="hs-layout">)</span><span class="hs-layout">)</span> <span class="hs-varop">`mod`</span> <span class="hs-num">4</span></pre>
+Why not<br />
+<pre><span class="hs-definition">round</span> <span class="hs-layout">(</span><span class="hs-varid">direcao</span> <span class="hs-varid">p</span><span class="hs-layout">)</span> <span class="hs-varop">`mod`</span> <span class="hs-num">4</span></pre>
+
+</div>
+
+</div>
+</body>
+</html>
