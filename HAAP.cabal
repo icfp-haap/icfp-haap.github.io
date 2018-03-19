@@ -1,0 +1,69 @@
+Name:               HAAP
+Version:            0.0.1
+Description:        Haskell Automatic Assessment Platform
+License:            GPL
+Author:             Anonymous
+Maintainer:         Anonymous <anonymous@a.com>
+Bug-reports:        mailto:anonymous@a.com
+Stability:          experimental
+Homepage:           
+Category:           Education
+Build-Type:         Simple
+Cabal-Version:      >=1.6
+Tested-with:        GHC==8.0.1
+Synopsis:           Haskell Automatic Assessment Platform
+
+Extra-Source-Files: README.txt
+Data-Files: templates/*.html, templates/*.php, css/*.css, js/*.js
+  
+Library
+  exposed-modules:
+    HAAP
+    HAAP.Core
+    HAAP.DB
+    HAAP.DB.State
+    HAAP.DB.Acid
+    HAAP.DB.Binary
+    HAAP.IO
+    HAAP.Lens
+    HAAP.Log
+    HAAP.Sources
+    HAAP.Sources.SVN
+    HAAP.Utils
+    HAAP.Test.Spec
+    HAAP.Test.Rank
+    HAAP.Test.Tourney
+    HAAP.Pretty
+    HAAP.Shelly
+    HAAP.Plugin
+    HAAP.Web.Hakyll
+    HAAP.Web.Blaze
+    HAAP.Web.Test.Spec
+    HAAP.Web.Test.Rank
+    HAAP.Web.Test.Tourney
+    HAAP.Doc.Haddock
+    HAAP.CmdArgs
+    HAAP.Code.HLint
+    HAAP.Code.Homplexity
+    HAAP.Code.HPC
+    HAAP.Web.Graphics.CodeWorld
+    HAAP.Compiler.GHC
+    HAAP.Compiler.GHCJS
+    HAAP.Web.HTML.Table
+    HAAP.Template
+    HAAP.Web.PHP.Login
+    HAAP.Web.HTML.Pandoc
+    HAAP.Web.HTML.TagSoup
+    HAAP.Code.Haskell
+    HAAP.Code.Analysis.Haddock
+    HAAP.Code.Analysis.SourceGraph
+    HAAP.Code.Analysis.Usage
+    HAAP.Code.Git
+    HAAP.Code.Analysis.Modularity
+    HAAP.Graphics.Gloss.Capture
+        
+  Hs-source-dirs:   src
+  Other-Modules:
+    Paths_HAAP
+  Build-Depends:    call-stack, cassava, bifunctors, dlist, containers, unordered-containers, vector, transformers, base, mtl, data-default, lens, deepseq, filepath, bytestring, knob, HUnit, hspec, hspec-contrib, hspec-core, QuickCheck, exceptions, safecopy, acid-state, pretty, GenericPretty, hakyll == 4.9.8.0, contravariant, shelly, text, directory, random-shuffle, blaze-html, time, binary, split, safe, template, filemanip, process, pandoc, syb, tagsoup, haskell-src-exts, parsec, haddock-library, system-locale, SourceGraph==0.7.0.8, fgl, Graphalyze >= 0.15.0.0, monad-control, mmorph, StateVar, gloss, GLFW, OpenGL, OpenGLRaw, JuicyPixels, gloss-rendering, cmdargs, async
+
