@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=default,Array.prototype.find,Number.isFinite,Number.isInteger,console,console.log,document.head,performance.now"></script>
+      <title>CodeWorld - 2016li1g156</title>
+      <link rel="stylesheet" href="../css/codeworld.css">
+    
+    <script language="javascript" src="rts.js"></script>
+    <script language="javascript" src="lib.js"></script>
+    <script language="javascript" src="out.js"></script>
+  </head>
+  <body style="text-align: center">
+      
+    <canvas id="screen" class="widescreen"></canvas>
+    <pre id="message" class="dropbox game">=== Compiling ===
+Output:
+Linking ./tmp/G_2016li1g156.jsexe (Main,Tarefa1,Tarefa2,Tarefa6_li1g156,TarefaSqrt16)
+
+Errors:
+
+Exit Code: 0
+=== Running ===</pre>
+    
+    
+    <img style="visibility: hidden;" id="mario_img/bomb1.bmp" src="../mario_img/bomb1.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/brick.bmp" src="../mario_img/brick.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/powerup_bombs.bmp" src="../mario_img/powerup_bombs.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/powerup_flames.bmp" src="../mario_img/powerup_flames.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/rocks.bmp" src="../mario_img/rocks.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/explosion/center1.bmp" src="../mario_img/explosion/center1.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/explosion/center2.bmp" src="../mario_img/explosion/center2.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/explosion/center3.bmp" src="../mario_img/explosion/center3.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/explosion/mid1.bmp" src="../mario_img/explosion/mid1.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/explosion/mid2.bmp" src="../mario_img/explosion/mid2.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/explosion/mid3.bmp" src="../mario_img/explosion/mid3.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/explosion/tip1.bmp" src="../mario_img/explosion/tip1.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/explosion/tip2.bmp" src="../mario_img/explosion/tip2.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/explosion/tip3.bmp" src="../mario_img/explosion/tip3.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/menu/dim.bmp" src="../mario_img/menu/dim.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/menu/gameover.bmp" src="../mario_img/menu/gameover.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/menu/players.bmp" src="../mario_img/menu/players.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/pl/0.bmp" src="../mario_img/pl/0.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/pl/1.bmp" src="../mario_img/pl/1.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/pl/2.bmp" src="../mario_img/pl/2.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/pl/3.bmp" src="../mario_img/pl/3.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/sb/0_sb.bmp" src="../mario_img/sb/0_sb.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/sb/1_sb.bmp" src="../mario_img/sb/1_sb.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/sb/2_sb.bmp" src="../mario_img/sb/2_sb.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/sb/3_sb.bmp" src="../mario_img/sb/3_sb.bmp">
+    
+    <img style="visibility: hidden;" id="mario_img/sb/sb.bmp" src="../mario_img/sb/sb.bmp">
+    
+  </body>
+  
+  <script type="text/javascript">
+    function reportRuntimeError(err, str) {
+      if (window.parent.addToMessage) {
+        var message = window.parent.addToMessage('\n' + str);
+
+        if (err) {
+          var message = window.parent.document.getElementById('message');
+          message.classList.add('error');
+        }
+      } else {
+        console.log(str);
+      }
+    }
+  </script>
+  
+  <script language="javascript" src="runmain.js" defer></script>
+  <script type="text/javascript" src="../js/ghcjs-debugmode.js"></script>
+  <script type="text/javascript" src="../js/cw-demo.js"></script>
+</html>

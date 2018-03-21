@@ -1,0 +1,10 @@
+INSTRUCTIONS
+
+Use the arrows or "wasd" keys to move around the player.
+
+To change your them or current level just go to “content/settings.txt”
+
+Special keys:
+u - undo move
+r - restart game
+n - next level

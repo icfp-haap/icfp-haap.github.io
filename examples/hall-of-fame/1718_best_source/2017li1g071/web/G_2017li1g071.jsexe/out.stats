@@ -1,0 +1,162 @@
+code size summary per package:
+
+base:                    792332
+codeworld-haap-api-0.2.2.0-3z2lHVCHmBg3y63EAsKKV2:513895
+deepseq-1.4.2.0-47yvsc92PQF1rYmebWoAXZ:884
+ghc-prim:                34399
+ghcjs-base-0.2.0.0-GiGsdYOoO5CISyJ2m7ax9F:9517
+ghcjs-dom-jsffi-0.9.2.0-3TYxh8ZLmiQ561qJCRIiZo:45163
+ghcjs-prim-0.1.0.0-IFhsWclGfLr1HfhUvIVylA:10772
+integer-gmp:             84647
+main:                    948103
+random-1.1-4yODkowlqmVH67qh6sFaKw:24686
+text-1.2.2.1-K5kKypz1wJJhsTy1Ol15P:31771
+time-1.6.0.1-Lja9T8bqIudL0xdsRMOCyg:5904
+
+
+code size per module:
+
+base
+    Control.Exception.Base:             6421
+    Control.Monad.IO.Class:             432
+    Data.Char:                          1564
+    Data.Fixed:                         1939
+    Data.Foldable:                      4465
+    Data.Maybe:                         195
+    Data.OldList:                       5558
+    Data.Traversable:                   1651
+    Data.Tuple:                         338
+    Data.Typeable:                      882
+    Data.Typeable.Internal:             2348
+    Foreign.C.Error:                    9583
+    Foreign.C.String:                   1545
+    Foreign.Marshal.Alloc:              301
+    Foreign.Marshal.Array:              2001
+    Foreign.Storable:                   9454
+    GHC.Arr:                            3700
+    GHC.Base:                           10197
+    GHC.Char:                           1058
+    GHC.Conc.Sync:                      4477
+    GHC.Enum:                           27623
+    GHC.Err:                            548
+    GHC.Exception:                      19878
+    GHC.Fingerprint:                    1469
+    GHC.Fingerprint.Type:               728
+    GHC.Float:                          172314
+    GHC.Float.ConversionUtils:          5030
+    GHC.Float.RealFracMethods:          583
+    GHC.Foreign:                        12172
+    GHC.ForeignPtr:                     1237
+    GHC.IO:                             3504
+    GHC.IO.Buffer:                      1241
+    GHC.IO.BufferedIO:                  850
+    GHC.IO.Device:                      1248
+    GHC.IO.Encoding:                    958
+    GHC.IO.Encoding.Failure:            617
+    GHC.IO.Encoding.Types:              983
+    GHC.IO.Encoding.UTF8:               60752
+    GHC.IO.Exception:                   22664
+    GHC.IO.FD:                          34543
+    GHC.IO.Handle:                      296
+    GHC.IO.Handle.FD:                   7437
+    GHC.IO.Handle.Internals:            27261
+    GHC.IO.Handle.Types:                3466
+    GHC.Int:                            2747
+    GHC.List:                           27787
+    GHC.MVar:                           174
+    GHC.Num:                            3430
+    GHC.Ptr:                            610
+    GHC.Read:                           39571
+    GHC.Real:                           44722
+    GHC.STRef:                          180
+    GHC.Show:                           38008
+    GHC.Stack.CCS:                      3971
+    GHC.Stack.Types:                    1992
+    GHC.Storable:                       1070
+    GHC.TopHandler:                     12934
+    GHC.Unicode:                        2109
+    GHC.Word:                           923
+    System.CPUTime:                     1
+    System.Posix.Internals:             15344
+    Text.ParserCombinators.ReadP:       23521
+    Text.ParserCombinators.ReadPrec:    6447
+    Text.Read.Lex:                      91280
+
+codeworld-haap-api-0.2.2.0-3z2lHVCHmBg3y63EAsKKV2
+    CodeWorld.Color:                    1175
+    CodeWorld.Driver:                   398748
+    CodeWorld.Event:                    4245
+    CodeWorld.Picture:                  12080
+    Graphics.Gloss.Data.Color:          1959
+    Graphics.Gloss.Data.Display:        5282
+    Graphics.Gloss.Data.Event:          60579
+    Graphics.Gloss.Data.Picture:        26617
+    Graphics.Gloss.Data.Point:          576
+    Graphics.Gloss.Interface.Pure.Game: 2634
+
+deepseq-1.4.2.0-47yvsc92PQF1rYmebWoAXZ
+    Control.DeepSeq:                    884
+
+ghc-prim
+    GHC.CString:                        4516
+    GHC.Classes:                        24523
+    GHC.IntWord64:                      298
+    GHC.Tuple:                          3071
+    GHC.Types:                          1991
+
+ghcjs-base-0.2.0.0-GiGsdYOoO5CISyJ2m7ax9F
+    Data.JSString:                      4285
+    Data.JSString.Internal.Fusion.Common:1492
+    Data.JSString.Internal.Type:        422
+    GHCJS.Marshal:                      989
+    GHCJS.Marshal.Internal:             1359
+    JavaScript.Web.AnimationFrame:      970
+
+ghcjs-dom-jsffi-0.9.2.0-3TYxh8ZLmiQ561qJCRIiZo
+    GHCJS.DOM:                          882
+    GHCJS.DOM.EventM:                   4386
+    GHCJS.DOM.EventTargetClosures:      923
+    GHCJS.DOM.JSFFI.Generated.GlobalEventHandlers:4381
+    GHCJS.DOM.JSFFI.Generated.MouseEvent:2066
+    GHCJS.DOM.JSFFI.Generated.NonElementParentNode:1406
+    GHCJS.DOM.Types:                    31119
+
+ghcjs-prim-0.1.0.0-IFhsWclGfLr1HfhUvIVylA
+    GHCJS.Prim:                         6415
+    GHCJS.Prim.Internal:                4357
+
+integer-gmp
+    GHC.Integer.Type:                   84647
+
+main
+    Bots:                               26056
+    Imagens:                            169018
+    LI11718:                            125449
+    Main:                               184975
+    Mapas:                              38076
+    MapasCampanha:                      9316
+    StateOperator:                      64307
+    Tarefa1_2017li1g71:                 24795
+    Tarefa2_2017li1g71:                 31301
+    Tarefa3_2017li1g71:                 101168
+    Tarefa4_2017li1g71:                 58475
+    Tarefa6_2017li1g71:                 115167
+
+random-1.1-4yODkowlqmVH67qh6sFaKw
+    System.Random:                      24686
+
+text-1.2.2.1-K5kKypz1wJJhsTy1Ol15P
+    Data.Text:                          10823
+    Data.Text.Array:                    1566
+    Data.Text.Internal:                 1591
+    Data.Text.Internal.Fusion.Common:   1382
+    Data.Text.Show:                     16409
+
+time-1.6.0.1-Lja9T8bqIudL0xdsRMOCyg
+    Data.Time.Clock.CTimespec:          1554
+    Data.Time.Clock.POSIX:              4350
+
+
+
+packed metadata: 826826
+

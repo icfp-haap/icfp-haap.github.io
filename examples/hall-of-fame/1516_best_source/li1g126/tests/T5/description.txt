@@ -1,0 +1,11 @@
+
+Método de Testes - TAREFA 5
+
+O método de testes da tarefa 5 consistiu na 
+utilização do módulo "HUnit", estes testes estão 
+no fim do código, e ordenados por ordem crescente 
+de complexidade.
+
+ λ > runTestTT tarefa5test
+Cases: 34  Tried: 34  Errors: 0  Failures: 0
+Counts {cases = 34, tried = 34, errors = 0, failures = 0}

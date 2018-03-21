@@ -1,0 +1,10 @@
+
+Método de Testes - TAREFA 4
+
+O método de testes da tarefa 4 consistiu em jogar recorrendo
+ao programa "tarefa4_1" que permite ao utilizador, usando as
+teclas "WASD" movimentar o boneco, por consequente foi-nos 
+possível testar os comandos de forma visual e em tempo-real.
+
+Este método de testes permitiu uma abordagem mais interativa,
+que depois foi indispensável na tarefa 6.

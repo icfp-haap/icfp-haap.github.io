@@ -1,0 +1,29 @@
+===========================================================================================
+||  TABULEIRO   ||  DESCRIÇÃO													||	ERRO ||
+===========================================================================================
+||  tab1.in     || correto														||	OK   ||	  
+||  tab2.in     || caracter diferente do esperado no tabuleiro 					||	3	 ||	  	
+||  tab3.in     || espaço na linha superior										||	1	 ||		
+||  tab4.in     || espaço na linha inferior										||  11	 ||
+||  tab5.in     || linha com tamanho diferente									||	5	 ||	
+||  tab6.in     || tabuleiro inexistente										||	1	 ||
+||  tab7.in     || linhas vazias no fim											||	OK	 ||		
+||  tab8.in     || coordenadas negativas                       					||	15	 ||	
+||  tab9.in     || não números nas coordenadas       							||	14 	 ||
+||  tab10.in    || coordenadas com três números              					||	13 	 ||	
+||  tab11.in    || número de pontos (+1) superior ao número de coordenadas  	||	19	 ||
+||  tab12.in    || número de pontos (+1) inferior ao número de coordenadas  	||	18	 ||
+||  tab13.in    || coordenadas repetidas  										||	18	 ||
+||  tab14.in    || coordenadas fora do tabuleiro  								||	17	 ||
+||  tab15.in    || coordenada em cima de uma parede (#)                         ||  12   ||
+||  tab16.in    || início da linha diferente do #    							||	3    ||
+||  tab17.in    || linha com tamanho diferente e coordenada com três números    ||  4    ||
+||  tab18.in    || imput sem coordenadas                                        ||  7    ||
+||  tab19.in    || tabuleiro sem "base"                                         ||  11   ||
+||  tab20.in    || tabuleiro não apresenta quaiquer zonas de arrumação (".")    ||  7    ||
+||  tab21.in    || tabuleiro com uma linha vazia                                ||  6    ||
+||  tab22.in    || imput sem a posição do player                                ||  12   ||
+||  tab23.in    || erro na linha 9 e na linha 13                                ||  9    ||
+||  tab24.in    || posição do boneco em cima de um local de arrumação           ||  OK   ||
+===========================================================================================	
+

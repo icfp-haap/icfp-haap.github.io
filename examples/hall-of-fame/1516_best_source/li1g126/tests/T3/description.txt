@@ -1,0 +1,40 @@
+====================================================================================
+||  TABULEIRO ||  DESCRIÇÃO   (movimentação do boneco)              || COORDENADA ||
+====================================================================================
+||  tab1.in   || cima                                               ||   (8,2)    ||
+||  tab2.in   || baixo                                              ||   (4,1)    ||
+||  tab3.in   || esquerda                                           ||   (4,1)    ||
+||  tab4.in   || direita                                            ||   (11,1)   ||
+||  tab5.in   || cima com muro                                      ||   (9,2)    ||
+||  tab6.in   || baixo com muro                                     ||   (8,2)    ||
+||  tab7.in   || esquerda com muro                                  ||   (4,2)    ||
+||  tab8.in   || direita com muro                                   ||   (18,4)   ||
+||  tab9.in   || cima com uma caixa                                 ||   (8,2)    ||
+||  tab10.in  || baixo com uma caixa                                ||   (7,2)    ||
+||  tab11.in  || esquerda com uma caixa                             ||   (4,2)    ||
+||  tab12.in  || direita com uma caixa                              ||   (6,2)    ||
+||  tab13.in  || cima com uma caixa e depois um muro                ||   (18,3)   ||
+||  tab14.in  || baixo com uma caixa e depois um muro               ||   (14,5)   ||
+||  tab15.in  || esquerda com uma caixa e depois um muro            ||   (13,4)   ||
+||  tab16.in  || direita com uma caixa e depois um muro             ||   (2,1)    ||
+||  tab17.in  || cima com uma caixa e depois outra caixa            ||   (2,1)    ||
+||  tab18.in  || baixo com uma caixa e depois outra caixa           ||   (18,3)   ||
+||  tab19.in  || esquerda com uma caixa e depois outra caixa        ||   (7,3)    ||
+||  tab20.in  || direita com uma caixa e depois outra caixa         ||   (7,1)    ||
+||  tab21.in  || cima com uma caixa e depois local de arrumação     ||   (2,3)    ||
+||  tab22.in  || baixo com uma caixa e depois local de arrumação    ||   (9,2)    ||
+||  tab23.in  || esquerda com uma caixa e depois local de arrumação ||   (4,1)    ||
+||  tab24.in  || direita com uma caixa e depois local de arrumação  ||   (4,5)    ||
+||  tab25.in  || direita com uma caixa arrumada e depois uma parede ||   (3,2)    ||
+||  tab26.in  || cima com uma caixa arrumada seguida de outra caixa ||   (3,2)    ||
+||  tab27.in  || baixo com uma caixa arrumada seguida de espaço     ||   (5,2)    ||
+||  tab28.in  || esquerda com uma caixa arrumada e depois uma parede||   (6,3)    ||
+||  tab29.in  || baixo com uma caixa arrumada seguida de outra caixa||   (6,3)    ||
+||  tab30.in  || direita com uma caixa arrumada seguida de espaço   ||   (7,3)    ||
+||  tab31.in  || baixo com uma caixa arrumada e depois uma parede   ||   (6,3)    ||
+||  tab32.in  || esquerda com uma caixa arrumada e outra caixa      ||   (8,2)    ||
+||  tab33.in  || cima com uma caixa arrumada seguida de espaço      ||   (8,3)    ||
+====================================================================================
+
+Nota: Todos os tabuleiros de teste usados nesta tarefa foram testados pela 
+      tarefa 1 e todos eles obedecem às regras do jogo.

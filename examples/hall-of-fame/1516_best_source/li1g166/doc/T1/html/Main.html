@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Main</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_Main.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption empty">&nbsp;</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Copyright</th><td>Mariana Miranda &lt;a77782@alunos.uminho.pt&gt;;
+           Helena Poleri &lt;a78633@alunos.uminho.pt&gt;</td></tr><tr><th>Safe Haskell</th><td>Safe</td></tr></table><p class="caption">Main</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">Fun&#231;&#245;es de teste</a></li><li><a href="#g:2">Fun&#231;&#245;es da Tarefa 1</a></li></ul></div><div id="description"><p class="caption">Description</p><div class="doc"><p>Tarefa 1 da 1&#170; Fase do projeto de LI1.</p></div></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:correTestes">correTestes</a> :: IO ()</li><li class="src short"><a href="#v:correTeste">correTeste</a> :: ([String] -&gt; [String]) -&gt; String -&gt; IO ()</li><li class="src short"><a href="#v:inStr">inStr</a> :: String -&gt; [String]</li><li class="src short"><a href="#v:outStr">outStr</a> :: [String] -&gt; String</li><li class="src short"><a href="#v:main">main</a> :: IO ()</li><li class="src short"><a href="#v:tarefa1">tarefa1</a> :: [String] -&gt; [String]</li><li class="src short"><a href="#v:tarefa1Erro">tarefa1Erro</a> :: [String] -&gt; Int</li><li class="src short"><a href="#v:juntaErros">juntaErros</a> :: Int -&gt; Int -&gt; Int</li><li class="src short"><a href="#v:processaCoordenadas">processaCoordenadas</a> :: Int -&gt; [String] -&gt; Int</li><li class="src short"><a href="#v:processa">processa</a> :: [String] -&gt; [String]</li><li class="src short"><a href="#v:parteMapa">parteMapa</a> :: [String] -&gt; ([String], [String])</li><li class="src short"><a href="#v:lerCoordenadas">lerCoordenadas</a> :: [String] -&gt; [(Int, Int)]</li><li class="src short"><a href="#v:validaTab">validaTab</a> :: [String] -&gt; Int</li><li class="src short"><a href="#v:validaTab1">validaTab1</a> :: Int -&gt; [String] -&gt; Int</li><li class="src short"><a href="#v:validaTab2">validaTab2</a> :: [String] -&gt; Int</li><li class="src short"><a href="#v:validaTab3">validaTab3</a> :: Int -&gt; [String] -&gt; Int</li><li class="src short"><a href="#v:validaCoords">validaCoords</a> :: [(Int, Int)] -&gt; [String] -&gt; Int</li><li class="src short"><a href="#v:validaCoords1">validaCoords1</a> :: Int -&gt; [(Int, Int)] -&gt; [String] -&gt; Int</li><li class="src short"><a href="#v:validaCoords2">validaCoords2</a> :: Int -&gt; [(Int, Int)] -&gt; [String] -&gt; Int</li><li class="src short"><a href="#v:validaCoords3">validaCoords3</a> :: [(Int, Int)] -&gt; [String] -&gt; Int</li><li class="src short"><a href="#v:validaCoords4">validaCoords4</a> :: Int -&gt; [(Int, Int)] -&gt; Int</li></ul></div><div id="interface"><h1 id="g:1">Fun&#231;&#245;es de teste</h1><div class="top"><p class="src"><a name="v:correTestes" class="def">correTestes</a> :: IO ()</p><div class="doc"><p>Corre m&#250;ltiplos testes para a tarefa 1.</p></div></div><div class="top"><p class="src"><a name="v:correTeste" class="def">correTeste</a> :: ([String] -&gt; [String]) -&gt; String -&gt; IO ()</p><div class="doc"><p>Corre um teste para uma tarefa.</p></div></div><h1 id="g:2">Fun&#231;&#245;es da Tarefa 1</h1><div class="top"><p class="src"><a name="v:inStr" class="def">inStr</a> :: String -&gt; [String]</p><div class="doc"><p>Esta fun&#231;&#227;o recebe uma string e transforma-a numa lista de strings, dividindo-a quando encontrar um <strong><code>'\n'</code></strong>.</p></div></div><div class="top"><p class="src"><a name="v:outStr" class="def">outStr</a> :: [String] -&gt; String</p><div class="doc"><p>Esta fun&#231;&#227;o recebe uma lista de strings e transforma-a numa &#250;nica string, adicionando <strong><code>'\n'</code></strong> entre as strings originais.</p></div></div><div class="top"><p class="src"><a name="v:main" class="def">main</a> :: IO ()</p><div class="doc"><p>Fun&#231;&#227;o geral da tarefa 1.</p></div></div><div class="top"><p class="src"><a name="v:tarefa1" class="def">tarefa1</a> :: [String] -&gt; [String]</p><div class="doc"><p>Esta fun&#231;&#227;o recebe um tabuleiro e verifica se este est&#225; no formato correto, devolvendo <strong><code>[&quot;OK&quot;]</code></strong>, em caso afirmativo, ou a linha onde est&#225; o primeiro erro, em caso contr&#225;rio. Seguem-se dois exemplos:</p><pre> &gt;&gt;&gt; tarefa1 [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;,&quot;1 1&quot;]
+ [&quot;OK&quot;]
+</pre><pre> &gt;&gt;&gt; tarefa1 [&quot;#####&quot;,&quot;# ..#&quot;,&quot;#   #&quot;,&quot;#####&quot;,&quot;0 0&quot;,&quot;2 2&quot;]
+ [&quot;5&quot;]
+</pre></div></div><div class="top"><p class="src"><a name="v:tarefa1Erro" class="def">tarefa1Erro</a> :: [String] -&gt; Int</p><div class="doc"><p>Esta fun&#231;&#227;o recebe um tabuleiro e devolve a linha com erro, se houver e caso contr&#225;rio, devolve <strong><code>-1</code></strong>.</p><pre> &gt;&gt;&gt; tarefa1Erro [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;,&quot;1 1&quot;]
+ -1
+</pre><pre> &gt;&gt;&gt; tarefa1Erro [&quot;#####&quot;,&quot;# ..#&quot;,&quot;#   #&quot;,&quot;#####&quot;,&quot;0 0&quot;,&quot;2 2&quot;]
+ 5
+</pre><h1>Fun&#231;&#245;es auxiliares</h1></div></div><div class="top"><p class="src"><a name="v:juntaErros" class="def">juntaErros</a> :: Int -&gt; Int -&gt; Int</p><div class="doc"><p>Fun&#231;&#227;o que devolve a linha menor dos erros encontrados. Se n&#227;o foram encontrados erros devolve -1.</p><pre> &gt;&gt;&gt; juntaErros (-1) 3
+ 3
+</pre><pre> &gt;&gt;&gt; juntaErros (-1) (-1)
+ -1
+</pre><pre> &gt;&gt;&gt; juntaErros 1 4
+ 1  
+</pre></div></div><div class="top"><p class="src"><a name="v:processaCoordenadas" class="def">processaCoordenadas</a> :: Int -&gt; [String] -&gt; Int</p><div class="doc"><p>Verifica que se as coordenadas est&#227;o no formato pedido.</p><pre> &gt;&gt;&gt; processaCoordenadas 7 [&quot;1 1&quot;,&quot;3 4&quot;]
+-1
+</pre><pre> &gt;&gt;&gt; processaCoordenadas 7 [&quot;1 a&quot;]
+7
+</pre><pre> &gt;&gt;&gt; processaCoordenadas 7 [&quot;1 1&quot;,&quot;3  &quot;]
+8
+</pre></div></div><div class="top"><p class="src"><a name="v:processa" class="def">processa</a> :: [String] -&gt; [String]</p><div class="doc"><p>Fun&#231;&#227;o que apaga eventuais listas vazias no final do tabuleiro.</p><pre>&gt;&gt;&gt; processa [&quot;#####&quot;,&quot;#   #&quot;,&quot;##. #&quot;,&quot;#####&quot;,&quot;     &quot;]
+[&quot;#####&quot;,&quot;#   #&quot;,&quot;##. #&quot;,&quot;#####&quot;]
+</pre></div></div><div class="top"><p class="src"><a name="v:parteMapa" class="def">parteMapa</a> :: [String] -&gt; ([String], [String])</p><div class="doc"><p>Fun&#231;&#227;o que divide a parte das coordenadas da parte do tabuleiro.</p><pre> &gt;&gt;&gt; parteMapa [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;,&quot;1 1&quot;]
+ ([&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;],[&quot;1 1&quot;])
+</pre></div></div><div class="top"><p class="src"><a name="v:lerCoordenadas" class="def">lerCoordenadas</a> :: [String] -&gt; [(Int, Int)]</p><div class="doc"><p>Caso o <code><a href="Main.html#v:processaCoordenadas">processaCoordenadas</a></code> verifique que as coordenadas est&#227;o formato pedido, esta fun&#231;&#227;o transforma as coordenadas no formato (x,y).</p><pre> &gt;&gt;&gt; lerCoordenadas [&quot;1 1&quot;,&quot;3 4&quot;]
+[(1,1),(3,4)]
+</pre><h1>Fun&#231;&#245;es que verificam o tabuleiro</h1></div></div><div class="top"><p class="src"><a name="v:validaTab" class="def">validaTab</a> :: [String] -&gt; Int</p><div class="doc"><p>Verifica se o tabuleiro est&#225; bem constru&#237;do.</p><pre> &gt;&gt;&gt; validaTab [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;]
+ -1
+</pre><pre> &gt;&gt;&gt; validaTab [&quot;# ###&quot;,&quot;# ###&quot;,&quot;#####&quot;]
+ 1
+</pre></div></div><div class="top"><p class="src"><a name="v:validaTab1" class="def">validaTab1</a> :: Int -&gt; [String] -&gt; Int</p><div class="doc"><p>Verifica se o ficheiro &#233; apenas composto pelos caracteres <code><strong>'#'</strong></code>, <code><strong>' '</strong></code> ou <code><strong>'.'</strong></code> e se cada linha acaba e come&#231;a em <code><strong>'#'</strong></code>.</p><pre> &gt;&gt;&gt; validaTab1 1 [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;]
+ -1
+</pre><pre> &gt;&gt;&gt; validaTab1 1 [&quot;#####&quot;,&quot;# ###&quot;,&quot;##2##&quot;]
+ 3
+</pre><pre> &gt;&gt;&gt; validaTab1 1 [&quot;#####&quot;,&quot;  ###&quot;,&quot;#####&quot;]
+ 2
+</pre></div></div><div class="top"><p class="src"><a name="v:validaTab2" class="def">validaTab2</a> :: [String] -&gt; Int</p><div class="doc"><p>Verifica se a primeira e a &#250;ltima linha s&#227;o constitu&#237;das apenas por <code><strong>'#'</strong></code>.</p><pre> &gt;&gt;&gt; validaTab2 [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;]
+ -1
+</pre><pre> &gt;&gt;&gt; validaTab2 [&quot;#####&quot;,&quot;# ###&quot;,&quot;## ##&quot;]
+ 3
+</pre></div></div><div class="top"><p class="src"><a name="v:validaTab3" class="def">validaTab3</a> :: Int -&gt; [String] -&gt; Int</p><div class="doc"><p>Verifica se as linhas t&#234;m todas o mesmo comprimento.</p><pre> &gt;&gt;&gt; validaTab3 2 [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;]
+ -1
+</pre><pre> &gt;&gt;&gt; validaTab3 2 [&quot;#####&quot;,&quot;# ##&quot;,&quot;## ##&quot;]
+ 2
+</pre><h1>Fun&#231;&#245;es que verificam as coordenadas</h1></div></div><div class="top"><p class="src"><a name="v:validaCoords" class="def">validaCoords</a> :: [(Int, Int)] -&gt; [String] -&gt; Int</p><div class="doc"><p>Verifica se as coordenadas est&#227;o em locais poss&#237;veis do tabuleiro:</p><ul><li>n&#227;o est&#227;o fora do tabuleiro;</li><li>n&#227;o est&#227;o em cima de paredes, etc...</li></ul><pre> &gt;&gt;&gt; validaCoords  [(1,1)] [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;]
+ -1
+</pre><pre> &gt;&gt;&gt; validaCoords [(3,4)] [&quot;# ###&quot;,&quot;# ###&quot;,&quot;#####&quot;] 
+ 4
+</pre></div></div><div class="top"><p class="src"><a name="v:validaCoords1" class="def">validaCoords1</a> :: Int -&gt; [(Int, Int)] -&gt; [String] -&gt; Int</p><div class="doc"><p>Verifica se todos os pares de coordenadas se encontram dentro do tabuleiro.</p><pre> &gt;&gt;&gt; validaCoords1 7 [(1,1)] [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;]
+ -1
+</pre><pre> &gt;&gt;&gt; validaCoords1 7 [(3,4)] [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;]
+ 7
+</pre></div></div><div class="top"><p class="src"><a name="v:validaCoords2" class="def">validaCoords2</a> :: Int -&gt; [(Int, Int)] -&gt; [String] -&gt; Int</p><div class="doc"><p>Verifica se todas as coordenadas est&#227;o num <code><strong>'.'</strong></code> ou num <code><strong>' '</strong></code>.</p><pre> &gt;&gt;&gt; validaCoords2 7 [(1,1)] [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;]
+ -1
+</pre><pre> &gt;&gt;&gt; validaCoords2 7 [(2,2)] [&quot;#####&quot;,&quot;# ###&quot;,&quot;#####&quot;]
+ 7
+</pre></div></div><div class="top"><p class="src"><a name="v:validaCoords3" class="def">validaCoords3</a> :: [(Int, Int)] -&gt; [String] -&gt; Int</p><div class="doc"><p>Verifica se o tabuleiro tem tantos locais de arruma&#231;&#245;es (<strong><code>'.'</code></strong>) quanto o n&#250;mero de caixas.</p><pre> &gt;&gt;&gt; validaCoords3 [(1,1),(1,2)] [&quot;#####&quot;,&quot;# ###&quot;,&quot;#.###&quot;,&quot;#####&quot;]
+ -1
+</pre><pre> &gt;&gt;&gt; validaCoords3 [(1,1)] [&quot;#####&quot;,&quot;# ###&quot;,&quot;#.###&quot;,&quot;#####&quot;]
+ 6
+</pre></div></div><div class="top"><p class="src"><a name="v:validaCoords4" class="def">validaCoords4</a> :: Int -&gt; [(Int, Int)] -&gt; Int</p><div class="doc"><p>Verifica se a parte das coordenadas n&#227;o tem coordenadas repetidas.</p><pre> &gt;&gt;&gt; validaCoords4 7 [(2,3),(3,7),(4,5)]
+ -1
+</pre><pre> &gt;&gt;&gt; validaCoords4 7 [(2,3),(3,7),(2,3)]
+ 9
+</pre></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.16.1</p></div></body></html>

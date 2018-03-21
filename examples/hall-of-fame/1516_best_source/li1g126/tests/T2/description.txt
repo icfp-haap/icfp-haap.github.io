@@ -1,0 +1,35 @@
+==============================================================================
+||  Tabuleiro   ||  Descrição                                               ||
+==============================================================================
+||  tab1.in     || tabuleiro base                                           ||
+||  tab2.in     || cardinais redundantes no centro do mapa                  ||
+||  tab3.in     || caixa colocada em cima de um ponto de arrumação          ||
+||  tab4.in     || colocação apenas do boneco                               ||
+||  tab5.in     || caixa colocada fora de local de arrumação                ||
+||  tab6.in     || cardinais redundantes lado esquerdo                      ||
+||  tab7.in     || cardinais redundantes lado direito                       ||
+||  tab8.in     || cardinais redundantes no topo                            ||
+||  tab9.in     || cardinais redundantes em baixo                           ||
+||  tab10.in    || cardinais redundantes lado esquerdo (2 colunas)          ||
+||  tab11.in    || cardinais redundantes lado direito (2 colunas)           ||
+||  tab12.in    || cardinais redundantes no topo (2 linhas)                 ||
+||  tab13.in    || cardinais redundantes em baixo (2 linhas)                ||
+||  tab14.in    || caixa colocada fora e outra dentro de local de arrumação ||
+||  tab15.in    || boneco colocado em local de arrumação                    ||
+||  tab16.in    || cardinais redundantes a toda a volta                     ||
+||  tab17.in    || mapa teste com testes combinados (1)                     ||
+||  tab18.in    || mapa teste com testes combinados (2)                     ||
+||  tab19.in    || mapa teste com testes combinados (3)                     ||
+||  tab20.in    || mapa teste com testes combinados (4)                     ||
+||  tab21.in    || mapa teste com testes combinados (5)                     ||
+||  tab22.in    || mapa teste com testes combinados (6)                     ||
+||  tab23.in    || mapa teste com testes combinados (7)                     ||
+||  tab24.in    || mapa teste com testes combinados (8)                     ||
+||  tab25.in    || mapa teste com testes combinados (9)                     ||
+==============================================================================
+
+Nota:  Devido ao pequeno número de testes a pontos específicos que é possível
+      fazer nesta tarefa, colocamos também alguns tabuleiros combinando estes 
+      testes para obter uma diversidade de testes maiores (tab17-tab25). 
+      Todos os tabuleiros de teste usados nesta tarefa foram testados pela 
+      tarefa 1 e todos eles obedecem às regras do jogo.

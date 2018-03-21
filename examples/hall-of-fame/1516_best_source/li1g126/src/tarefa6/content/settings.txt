@@ -1,0 +1,6 @@
+SETTINGS SELECTOR
+LEVEL: 4
+THEME: lego
+
+Levels_available: [1..4]
+Themes_available: ["lager","sokoban.info","toto","lego","lunarskin","pidgeon"]
